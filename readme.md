@@ -88,7 +88,7 @@ These are suggested VS Code plugins that best fit this automation project:
 # Modules
 1. xx resource to running tests.
 2. sapgui.resource - SAP Gui Resource resource to Global Resources.
-3. xx Demonstration Test Case resource to open/execute actions SOVOSO MX Monitor.
+3. xx Demonstration Test Case resource to open/execute actions.
 3. xx resource to open/execute actions.
 
 # Legends
