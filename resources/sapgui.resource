@@ -16,11 +16,6 @@ Library         Collections
 Variables       ./robot-variables/robot-variables-transactions.yaml
 Variables       ./ui-elements/sd-elements.yaml
 Variables       ./input-data/input-data-cocd.yaml
-Variables       ./input-data/input-data-canc-mx.yaml
-Variables       ./input-data/input-data-sovosomx.yaml
-Variables       ./input-data/input-data-sovosoqaautoreadsci.yaml
-Variables       ./input-dictionary/input-dict-sci.yaml
-Variables       ./input-dictionary/intput-dict-scenario.yaml
 Variables       ./environments.yaml
 
 *** Variables ***

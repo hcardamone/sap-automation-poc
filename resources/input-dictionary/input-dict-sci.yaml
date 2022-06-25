@@ -1,6 +1,0 @@
-invoiceline: 
-    { tgitem: ITEM_IL, 
-      fldname: , 
-      flddesc: DESCRIPTION_IL
-    }
-    
