@@ -1,0 +1,20 @@
+
+#Sovos Transactions
+sovosomx:
+  monitorsd:                 /n/SOVOSOMX/SD_INV
+
+sovosz:
+  exescenarios:              /nZSOVOS_QA_AUTO
+  qaautoreadsci:             /nZSOVOS_QA_READ_SCI
+
+
+#Sovos Tables
+sovosmx:
+  tbmidoc:                   /SOVOSOMX/M_IDOC
+
+#Standard SAP Transactions
+standard:
+  generaltable:              /nSE16N
+  abapeditor:                /nSE38
+  standard.generaltable:     /nSE16N
+  exittrans:                /NEX

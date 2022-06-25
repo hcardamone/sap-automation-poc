@@ -1,0 +1,92 @@
+# Structure: screen > element.
+# Naming convetion: [ElementName_Type].
+# Type can be one of these below, more can be added as needed:
+
+# Types of Web Elements:
+# mn        - Menu item / option.
+# smn       - Submenu item / option.
+# btn       - Button.
+# input     - Generic input field.
+# nmb       - Any number.
+# txt       - Free text field.
+# date      - Date in the format as set in the OS and browser.
+# email     - Email address field.
+# chk       - Checkbox.
+# lnk       - Link text.
+# icn       - Icon link.
+# cur       - Currency.
+# msel      - Selection list where all the options are listed with a scrollbar. Multiple items can be selected by keeping CRTL or SHIFT pressed.
+# rstxt     - Resizable text area.
+# scrn      - screenshoot name.
+# sel       - Selection list where all the options are listed with a scrollbar. Only one item can be selected.
+# opt       - Each option within a dropdown or list selection fields.
+# rdi       - Radio option.
+# tab       - Tab item to switch pages.
+# lkp       - Lookup text field, with a magnifying glass button to search for an item on a popup window.
+# lbl       - UI label without user interaction, but useful for validations.
+# obj       - Generic UI object or container.
+# col       - Column reference within a grid object.
+# grid      - Grid or table object.
+# cell      - Locator to a single cell within a table object. Add Row# and / or Col# to better identify where the cell is located in the table.
+# dlg       - Popup window to present some message to the user
+
+saplogon:
+  mdt:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-MANDT
+  usr:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-BNAME
+  pwd:                        /app/con[0]/ses[0]/wnd[0]/usr/pwdRSYST-BCODE
+  lng:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-LANGU
+  windowtitle:                "SAP Logon "
+  multipleLogonWarning_dlg:   /app/con[0]/ses[0]/wnd[1]
+  multipleLogonTitle_dlg:     License Information for Multiple Logon
+  endOthersOption_rdi:        /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT1
+  continueOption_rdi:         /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT2
+  terminateOption_rdi:        /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT3
+  messtxt:                    Information
+
+sovosomxid:
+  cocd:                       /app/con[0]/ses[0]/wnd[1]/usr/ctxtP_IBUKRS
+  dtlw:                       /app/con[0]/ses[0]/wnd[1]/usr/ctxtS_FKDAT-LOW
+  dtht:                       /app/con[0]/ses[0]/wnd[1]/usr/ctxtS_FKDAT-HIGH
+  srow:                       /app/con[0]/ses[0]/wnd[0]/usr/cntlALV/shellcont/shellcont/shell/shellcont[0]/shell
+  actn:                       /app/con[0]/ses[0]/wnd[0]/usr/cntlALV/shellcont/shellcont/shell/shellcont[0]/shell                
+  statusbar:                  /app/con[0]/ses[0]/wnd[0]/usr/cntlALV/shellcont/shellcont/shell/shellcont[1]/shell
+  getreturn:                  /app/con[0]/ses[0]/wnd[0]/tbar[1]/btn[9]
+  contgret:                   /app/con[0]/ses[0]/wnd[1]/tbar[0]/btn[0]
+  rsoncode:                   /app/con[0]/ses[0]/wnd[1]/usr/cmbGV_REASON_TEXT
+  fliosubs:                   /app/con[0]/ses[0]/wnd[1]/usr/txtGV_FOLIO
+  downloadsci:                /app/con[0]/ses[0]/wnd[1]/tbar[0]/btn[13]
+  downloadpath:               /app/con[0]/ses[0]/wnd[2]/usr/ctxtDY_PATH
+
+
+sapmain:
+  opencommands_btn:           /app/con[0]/ses[0]/wnd[0]/tbar[0]/btn[423]
+  executetransaction_input:   /app/con[0]/ses[0]/wnd[0]/tbar[0]/okcd
+  confirmLogoffDialog:        Efetuar logoff
+  save_btn:                   /app/con[0]/ses[0]/wnd[0]/tbar[0]/btn[11]
+  back_btn:                   /app/con[0]/ses[0]/wnd[0]/tbar[0]/btn[3]
+  statusbar:                  /app/con[0]/ses[0]/wnd[0]/sbar/pane[0]
+  copyrightPopup:             /app/con[0]/ses[0]/wnd[1]
+  confirmPopup_btn:           /app/con[0]/ses[0]/wnd[1]/tbar[0]/btn[0]
+  popupadvdisplayed:          /app/con[0]/ses[0]/wnd[1]
+  forcesendbutton:            /app/con[0]/ses[0]/wnd[1]/usr/btnBUTTON_1
+  connectionoffline_TXT:      /app/con[0]/ses[0]/wnd[1]/usr/txtMESSTXT1
+  cntgencyoffline_TXT:        /app/con[0]/ses[0]/wnd[1]/usr/txtMESSTXT1
+
+sapprogram:
+  seachprogram:               /app/con[0]/ses[0]/wnd[0]/usr/ctxtRS38M-PROGRAMM
+
+sovosqascn:
+  execode:                    /app/con[0]/ses[0]/wnd[0]/usr/ctxtP_1SCEN
+  slctrb:                     /app/con[0]/ses[0]/wnd[0]/usr/radP_EXEC
+  logtable:                   /app/con[0]/ses[0]/wnd[0]/usr/cntlALV_DOC/shellcont/shell
+  guistbar:                   /app/con[0]/ses[0]/wnd[0]/sbar
+  guistbar_failure:           /app/con[0]/ses[0]/wnd[0]/sbar111       #Para teste de falha
+  extvalue_1:                 /app/con[0]/ses[0]/wnd[0]/usr/txtP_EXT1
+
+sovosqardsci:                 
+  trnscode:                   /app/con[0]/ses[0]/wnd[0]/usr/txtP_TCODE
+  svdocnum:                   /app/con[0]/ses[0]/wnd[0]/usr/txtP_DOCNUM
+  tbnameft:                   /app/con[0]/ses[0]/wnd[0]/usr/txtP_TABLE
+  fdnameft:                   /app/con[0]/ses[0]/wnd[0]/usr/txtP_FIELD
+  scitagvalue:                /app/con[0]/ses[0]/wnd[0]/usr/cntlGRID1/shellcont/shell
+
