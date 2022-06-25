@@ -1,9 +1,9 @@
 # Welcome to eInvoice SAP Test Automation Framework
 
-eInvoice SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for SOVOS SAP application monitors.
+eInvoice SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
 
 # About
-This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SOVOS applications.  
+This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.  
 For further information, there are some helpful links at the end of this readme.
 
 # Requirements and tools
@@ -25,7 +25,7 @@ For further information, there are some helpful links at the end of this readme.
 > **Hint**: On Git Bash you can find where Python is located run `which python` or `which python3`. Then you can set your path accordingly the correct Python version.    
 1. After cloning the project repository, then create the Python Virtual Environment `env` (can be the name you want)
     ```
-    $ cd einvoice-sap-automation-poc
+    $ cd sap-automation-poc
     $ python -m venv env
     ```
 1. Add path setting to activate script
@@ -35,7 +35,7 @@ For further information, there are some helpful links at the end of this readme.
 1. Activate the Virtual Environment, then you should see the **(env)** prefix in your bash prompt.
     ```
     $ source ./env/Scripts/activate
-    (env) user@host:einvoice-sap-automation-poc $
+    (env) user@host:sap-automation-poc $
     ```
 > **Hint**: To exit `virtualenv` just type `deactivate`. To close Git Bash window type `exit`.
 
@@ -77,8 +77,6 @@ These are suggested VS Code plugins that best fit this automation project:
     * `MULTIPLE_LOGON_ACTION ="option"`     
         To set the behavior when there is another logged session with the same user. Options: `endOthersOption_rdi`: Continue with this logon and end any other logons in system. When ending any existing logons to system, unsaved data is lost. `continueOption_rdi`: Continue with this logon, without ending any other logons in system `terminateOption_rdi`: Terminate this logon. This will cause the test run to fail.
 3. running like this robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot.
-   *  running like this to individualy tests, e.g.:  
-      robot -d ..\..\..\results -t "Sovos Execution QA Automation Scenarios - standard" --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot.
 # Useful Links
 - [Robot Framework User Guide](http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html)
 - [Built In Keywords](http://robotframework.org/robotframework/latest/libraries/BuiltIn.html)
@@ -88,17 +86,10 @@ These are suggested VS Code plugins that best fit this automation project:
 - [SAP GUI Scripting Documentation](https://help.sap.com/viewer/b47d018c3b9b45e897faf66a6c0885a8/LATEST/en-US/babdf65f4d0a4bd8b40f5ff132cb12fa.html)
 
 # Modules
-1. sapguitests.resource - SAP Gui Tests Resource resource to running tests.
+1. xx resource to running tests.
 2. sapgui.resource - SAP Gui Resource resource to Global Resources.
-3. sovosmx.resource - SOVOSO MX Outbound Monitor Demonstration Test Case resource to open/execute actions SOVOSO MX Monitor.
-3. sovosexeqaauto.resource - Sovos QA Automation Scenarios Program resource to open/execute actions.
+3. xx Demonstration Test Case resource to open/execute actions SOVOSO MX Monitor.
+3. xx resource to open/execute actions.
 
 # Legends
 - KW - Keywords.
-
-# QA Team working on this project.
-- Henrique Cardamone.
-- Daniela Silva.
-
-# Sincerely thank you for the references.
-- Allan Medeiros and your einvoice-sap-automation-poc project.# sap-automation-poc
