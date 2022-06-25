@@ -1,5 +1,6 @@
 env
 .idea
+debug.log
 .vscode
 .iml
 node_modules
