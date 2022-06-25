@@ -76,7 +76,7 @@ These are suggested VS Code plugins that best fit this automation project:
         Time in pattern m, s or ms for minutes, milisseconds or seconds, respectively to wait between execution of SAP GUI library keywords.
     * `MULTIPLE_LOGON_ACTION ="option"`     
         To set the behavior when there is another logged session with the same user. Options: `endOthersOption_rdi`: Continue with this logon and end any other logons in system. When ending any existing logons to system, unsaved data is lost. `continueOption_rdi`: Continue with this logon, without ending any other logons in system `terminateOption_rdi`: Terminate this logon. This will cause the test run to fail.
-3. running like this robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot.
+3. (vscode terminal/cm terminal) running like this robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot.
 # Useful Links
 - [Robot Framework User Guide](http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html)
 - [Built In Keywords](http://robotframework.org/robotframework/latest/libraries/BuiltIn.html)
