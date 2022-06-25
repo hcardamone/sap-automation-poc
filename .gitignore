@@ -4,6 +4,7 @@ env
 .iml
 node_modules
 logs*/
+sovos-environments.yaml
 results*/
 *.pyc
 doc
