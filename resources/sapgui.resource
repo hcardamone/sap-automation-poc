@@ -21,6 +21,7 @@ Variables       ./input-data/input-data-sovosomx.yaml
 Variables       ./input-data/input-data-sovosoqaautoreadsci.yaml
 Variables       ./input-dictionary/input-dict-sci.yaml
 Variables       ./input-dictionary/intput-dict-scenario.yaml
+Variables       ./environments.yaml
 
 *** Variables ***
 ${SAPGUIPROCESSID}

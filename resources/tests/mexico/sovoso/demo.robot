@@ -8,10 +8,10 @@ Documentation       SAP GUI Tests - this resource provides some tests, this is a
 ...                  - Download XML SCI 
 ...                  -  run this resource to test the automation. Obs: check the reame.md # Running a Test Suite session, step 3.
 
-Resource            ../../../../resources/sovosomx.resource
+# Resource            ../../../../resources/sovosomx.resource
 Resource            ../../../../resources/sovosexeqaauto.resource
 Resource            ../../../../resources/sovoscancelmx.resource
-Resource            ../../../../resources/sovosoqaautoreadsci.resource
+# Resource            ../../../../resources/sovosoqaautoreadsci.resource
 Resource            ../../../../resources/saplogon.resource
 Suite Setup         Login in SAP GUI
 Force Tags          sapguitests    outbound
