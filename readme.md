@@ -1,6 +1,6 @@
-# Welcome to eInvoice SAP Test Automation Framework
+# Welcome to SAP Test Automation Framework
 
-eInvoice SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
+SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
 
 # About
 This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.  
