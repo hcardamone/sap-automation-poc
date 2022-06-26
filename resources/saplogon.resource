@@ -15,5 +15,4 @@ Login in SAP NetWeaver
     Input Text             ${saplogon.lng}     ${LANGUAGE}  
     Send Vkey    Enter
     Dismiss Multiple Logon warning dialog if needed
-    Dismiss copyright popup
     Set Explicit Wait    ${EXPLICIT_WAIT}
