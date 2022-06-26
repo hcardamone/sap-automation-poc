@@ -3,7 +3,8 @@
 SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
 
 # About
-This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.  
+This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.
+>  This POC was running on the Minisap LICENSE NPL SAP NetWeaver 7.52 (Sybase ASE) to VM Ubuntu.
 For further information, there are some helpful links at the end of this readme.
 
 # Requirements and tools
