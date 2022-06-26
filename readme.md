@@ -21,6 +21,7 @@ For further information, there are some helpful links at the end of this readme.
 * ## API SAP GUI Scripiting (Optional)
     * Enabling SAP GUI Scripting on the server side
       Launch the saplogon.exe, login to the SAP server using your credentials. The SAP Easy Access window appears.
+    > **Hint**: Selecting this option when starting setup install to SAP products to this module working as well
     * Execute the RZ11 transaction. Specify sapgui/user_scripting parameter name and press Enter on keyboard or Display in SAP interface.
     * In the View Profile Parameter Attributes window, click the Change Value button on the toolbar and set the New value of sapgui/user_scripting to TRUE. Save Changes.
     * Sign out of the session and sign in again to see the change as it is not applied to running sessions.
