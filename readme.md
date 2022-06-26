@@ -61,7 +61,7 @@ These are suggested VS Code plugins that best fit this automation project:
 * [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Optional but great extension to give a nice touch on file icons.
 # Running a Test Suite
 1. First make a copy of file `robot_variables_template.py`to your home user folder and remove the `-template` suffix.
-2. File `robot_variables` has all initial variables to run RF and you have to change to fit your machine settings as needed, since it won't be commited anyway as each automation developer can have different settings: 
+2. File `robot_variables` has all initial variables to run RF and you have to change to fit your machine settings as needed, since it won't be commited anyway as each automation developer can have different settings:
     * `SAP_ENV = "NAME"`          
         SAP test environment to be used. Refer to sovos-environments.yaml file for available environments details.
     * `USER_NAME = "USER"`        
@@ -78,6 +78,15 @@ These are suggested VS Code plugins that best fit this automation project:
         To set the behavior when there is another logged session with the same user. Options: `endOthersOption_rdi`: Continue with this logon and end any other logons in system. When ending any existing logons to system, unsaved data is lost. `continueOption_rdi`: Continue with this logon, without ending any other logons in system `terminateOption_rdi`: Terminate this logon. This will cause the test run to fail.
 3. (vscode terminal/cm terminal) running like this robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot.
 4. (Git Bash terminal) running like this robot -d ./resources/results --variablefile ./resources/robot-variables/robot_variables.py ./resources/tests/generaltabledisplay/standard/demo.robot
+
+# Troubleshooting
+If you get errors related to AutoIT library like `class not registered` follow these steps to fix it:
+1. Unnistall robotframework-autoitlibrary by running this in Git bash:
+    ```
+    (env) $ pip uninstall robotframework-autoitlibrary
+    ```
+1. Follow the [steps](#AutoIT-Library-installation) to install autoitlibrary from the source zip again.
+1. Try to run robot again, if still doesn't work, [reinstall](#Install-Python-packages:-run-this-command-after-cloning-the-repo:) the package back using pip and try again.
 
 # Useful Links
 - [Robot Framework User Guide](http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html)
