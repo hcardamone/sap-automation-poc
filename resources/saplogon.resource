@@ -1,8 +1,6 @@
 ### SAP Logon Reosurce ###
 ## This is the Suite Setup resource, provides actions:
 #  * Open SAP GUI applicaiton
-
-
 *** Settings ***
 Resource    sapgui.resource
 
