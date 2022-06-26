@@ -12,12 +12,12 @@ shyaml
 keyboard
 pillow
 boltons
-BuiltIn
-## Keep your librari always updated - pypi.org
+# BuiltIn
+## Keep your librarie always updated - pypi.org
 # python -m pip install --upgrade pip
 # pip --version
-# pip freeze list of library python instaled
-# pip instal -U robotframework
+# pip freeze - list of library python instaled
+# pip install -U robotframework
 # pip install -r requirements.txt
 # wxPython
 # robotframework-ride

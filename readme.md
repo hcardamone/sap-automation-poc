@@ -6,11 +6,11 @@ SAP Test Automation is an automated testing framework developed using [Robot Fra
 This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.  
 For further information, there are some helpful links at the end of this readme.
 
-# Requirements and tools
+# Requirements and tools [here](https://github.com/nokia/robotframework-autoitlibrary)
 
 * ## Git SCM:
     * Windows: Get last git [here](https://git-scm.com/download/win). Git Bash is recommended to work from Windows with almost the same features as Git on Linux.
-* ## Python 3.7 or higher:
+* ## Python 3.9 or higher:
     * Windows: get last Python installer [here](https://www.python.org/downloads/)
 * ## SAP GUI Scripting Tracker:
     * This tool allows to get the UI elements IDs from SAP GUI application. Download [here](https://tracker.stschnell.de/).
@@ -45,7 +45,7 @@ For further information, there are some helpful links at the end of this readme.
     ```
     python setup.py install
     ```
-## eInvoice SAP Test Automation dependencies
+## SAP Test Automation dependencies
 * ### Install Python packages: run this command after cloning the repo:
     ```
     (env) $ pip install -r requirements.txt
@@ -87,9 +87,6 @@ These are suggested VS Code plugins that best fit this automation project:
 
 # Modules
 1. xx resource to running tests.
-2. sapgui.resource - SAP Gui Resource resource to Global Resources.
+2. sapgui.resource - SAP Gui Resource to Global Resources.
 3. xx Demonstration Test Case resource to open/execute actions.
 3. xx resource to open/execute actions.
-
-# Legends
-- KW - Keywords.
