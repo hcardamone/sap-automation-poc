@@ -40,7 +40,7 @@ For further information, there are some helpful links at the end of this readme.
 > **Hint**: To exit `virtualenv` just type `deactivate`. To close Git Bash window type `exit`.
 
 ## AutoIT Library installation
-1. Unzip the AutoTI library file you got from [Requirements and tools](#requirements-and-tools) section.
+1. [Unzip](https://github.com/nokia/robotframework-autoitlibrary.git) the AutoTI library file you got from [Requirements and tools](#requirements-and-tools) section.
 2. Open the Windows Command Prompt as administrator, navigate to that folder and run:
     ```
     python setup.py install
@@ -85,7 +85,8 @@ If you get errors related to AutoIT library like `class not registered` follow t
     ```
     (env) $ pip uninstall robotframework-autoitlibrary
     ```
-1. Follow the [steps](#AutoIT-Library-installation) to install autoitlibrary from the source zip again.
+1. Follow the [steps](#AutoIT-Library-installation) to install autoitlibrary from the source zip.
+[AutoItLibrary installs the own files](https://github.com/hcardamone/commun-imagecontents/blob/main/files.JPG)and, if not already present,[the 3rd party AutoIt](https://github.com/nokia/robotframework-autoitlibrary/tree/master/3rdPartyTools/) and PIL tools, To install, [Unzip] the autoitlibrary library, open a command window in the directory and type: python setup.py install again.
 1. Try to run robot again, if still doesn't work, [reinstall](#Install-Python-packages:-run-this-command-after-cloning-the-repo:) the package back using pip and try again.
 
 # Useful Links
