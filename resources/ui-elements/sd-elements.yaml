@@ -31,10 +31,10 @@
 # dlg       - Popup window to present some message to the user
 
 saplogon:
-  mdt:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-MANDT
-  usr:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-BNAME
-  pwd:                        /app/con[0]/ses[0]/wnd[0]/usr/pwdRSYST-BCODE
-  lng:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-LANGU
+  mdt:                        wnd[0]/usr/txtRSYST-MANDT
+  usr:                        wnd[0]/usr/txtRSYST-BNAME
+  pwd:                        wnd[0]/usr/pwdRSYST-BCODE
+  lng:                        wnd[0]/usr/txtRSYST-LANGU
   windowtitle:                "SAP Logon "
   multipleLogonWarning_dlg:   /app/con[0]/ses[0]/wnd[1]
   multipleLogonTitle_dlg:     License Information for Multiple Logon
@@ -42,4 +42,7 @@ saplogon:
   continueOption_rdi:         /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT2
   terminateOption_rdi:        /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT3
   messtxt:                    Information
+
+sapmain:
+
 

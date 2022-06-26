@@ -6,8 +6,8 @@ Resource    sapgui.resource
 
 *** Keywords ***
 
-Login in SAP GUI
-    Open SAP GUI application
+Login in SAP NetWeaver
+    Open SAP NetWeaver application
     Wait Until Keyword Succeeds    10s    2s    Connect To Session
     Open Connection        ${SAP_ENV}
     Input Text             ${saplogon.usr}     ${USER_NAME}

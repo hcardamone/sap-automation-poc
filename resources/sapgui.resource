@@ -19,16 +19,16 @@ ${SAPGUIPROCESSID}
 
 *** Keywords ***
 ####                                      ####
-####  Open SAP Gui application Resources  ####
+####  Open SAP NetWeaver AS ABAP 7.52 SP04 Resources  ####
 ####                                      ####
-# KW to Open SAP Gui application
-Open SAP GUI application
+# KW to Open SAP NetWeaver application
+Open SAP NetWeaver application
     ${SAPGUIPROCESSID}    Run   ${PATH_TO_SAPLOGON}
     Set Global Variable    ${SAPGUIPROCESSID}
     Sleep    3s    reason=Waiting the splash screen to disappear
 
 # KW to close SAP Gui application
-Close SAP GUI
+Close SAP NetWeaver
     Process Close    ${SAPGUIPROCESSID}
 
 # KW to actions about multiple logon warning
@@ -62,3 +62,6 @@ Check connection error
     ...                        Click Element    ${sapmain.confirmPopup_btn}
     ...                        ELSE     Log    Connection Successefuly   WARN
     Set Explicit Wait   3 seconds
+
+Open "Cadastro de Material" Program
+    Run Transaction     ${zsaptransactions.zcadastromat}
