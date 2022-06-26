@@ -109,6 +109,6 @@ If you get errors related to AutoIT library like `class not registered` follow t
 
 # Modules
 1. `demo.robot` to running tests.
-2. `sapgui.resource` - To the other modules/resources access the Global Resources.
+2. `sapgui.resource` to the other modules/resources access the Global Resources.
 3. `zcadastromat.resource` to register a new material.
 3. `zcategmaterial.resource` to register a new material category.
