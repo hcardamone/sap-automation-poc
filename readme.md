@@ -17,6 +17,12 @@ For further information, there are some helpful links at the end of this readme.
     * After login in SAP GUI, open the Scripting Tracker and click on Scan, then the tree panel will be filled with all objects found.
     * Expand over the object tree and right click in one element to highlight it in the SAP GUI window.
     * You can also click on Identify arrow button to track the UI element as you move the mouse over it in SAP GUI Window.
+
+* ## API SAP GUI Scripiting (Optional)
+    * Habilitando o SAP GUI Scripting no lado do servidor
+      Inicialize saplogon.exe, faça login no servidor SAP usando suas credenciais. A janela SAP Easy Access é exibida.
+      * Execute a transação RZ11. Especifique o nome do parâmetro sapgui/   user_scripting e pressione Enter no teclado ou Exibir na interface do SAP. fonte: https://docs.uipath.com/studio/lang-pt_BR/v2018.4/docs/enabling-sap-gui-scripting
+
 * ## AutoIT Library
     * Download the latest release [here](https://github.com/nokia/robotframework-autoitlibrary/releases/latest).
     * Althought the full AutoIT is not required, can be needed for debugging purposes if you get into issues with the above RF library. Download and install [here](https://www.autoitscript.com/site/autoit/downloads/).
