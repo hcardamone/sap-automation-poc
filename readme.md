@@ -6,7 +6,7 @@ SAP Test Automation is an automated testing framework developed using [Robot Fra
 This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.  
 For further information, there are some helpful links at the end of this readme.
 
-# Requirements and tools [here](https://github.com/nokia/robotframework-autoitlibrary)
+# Requirements and tools
 
 * ## Git SCM:
     * Windows: Get last git [here](https://git-scm.com/download/win). Git Bash is recommended to work from Windows with almost the same features as Git on Linux.
