@@ -108,7 +108,7 @@ If you get errors related to AutoIT library like `class not registered` follow t
 - [SAP GUI Scripting Documentation](https://help.sap.com/viewer/b47d018c3b9b45e897faf66a6c0885a8/LATEST/en-US/babdf65f4d0a4bd8b40f5ff132cb12fa.html)
 
 # Modules
-1. xx resource to running tests.
-2. sapgui.resource - SAP Gui Resource to Global Resources.
-3. xx Demonstration Test Case resource to open/execute actions.
-3. xx resource to open/execute actions.
+1. `demo.robot` to running tests.
+2. `sapgui.resource` - To the other modules/resources access the Global Resources.
+3. `zcadastromat.resource` to register a new material.
+3. `zcategmaterial.resource` to register a new material category.
