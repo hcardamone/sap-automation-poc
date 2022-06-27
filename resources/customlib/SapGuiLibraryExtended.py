@@ -140,7 +140,7 @@ class SapGuiLibraryExtended (SapGuiLibrary):
 
         try:
             logger.info("Getting ABAP icon code from tree '%s' and node '%s'" % (shell_id, key_id))
-            # iconCode = self.session.findById(shell_id).GetNodeAbapImage(key_id)            
+            # iconCode = self.session.findById(shell_id).GetNodeAbapImage(key_id)
             iconCode = self.session.findById(shell_id).GetAbapImage(key_id, item_id)
             # iconCode = self.session.findById(shell_id).GetAbapImage(key_id, '1')
             time.sleep(self.explicit_wait)
@@ -217,7 +217,7 @@ class SapGuiLibraryExtended (SapGuiLibrary):
 
     def get_filled_rows_count(self, table_id):
         """Return the number of rows with data from a GuiTableControl object.
-           It does use a non documented way to retrieve row count with data, as VisibleRowCount and RowCount 
+           It does use a non documented way to retrieve row count with data, as VisibleRowCount and RowCount
            properties include empty rows.
         """
         # Performing the correct method on an element, depending on the type of element
@@ -237,13 +237,13 @@ class SapGuiLibraryExtended (SapGuiLibrary):
         # Performing the correct method on an element, depending on the type of element
         element_type = self.get_element_type(element_id)
         if element_type == "GuiComboBox":
-          self.session.findById(element_id).key = key_id  
+          self.session.findById(element_id).key = key_id
         else:
             self.take_screenshot()
             message = "You cannot use 'Send Key Propriety' on element type '%s', maybe use 'click element' instead?" % element_type
             raise Warning(message)
         time.sleep(self.explicit_wait)
-    
+
     def run_exit_transaction(self, transaction):
         """Runs a Sap transaction. An error is given when an unknown transaction is specified.
         """
@@ -253,7 +253,10 @@ class SapGuiLibraryExtended (SapGuiLibrary):
         if transaction == '/NEX':
             exit_message = "/NEX transaction force SAP Gui to exit"
             return  exit_message
-        else:    
+        else:
             self.take_screenshot()
             message = "Unknown transaction: '%s'" % transaction
             raise ValueError(message)
+
+    def generate_number_incremental(var_num):
+        return int(var_num) + 1

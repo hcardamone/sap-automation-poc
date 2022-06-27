@@ -27,6 +27,7 @@ Open SAP NetWeaver application
     ${SAPGUIPROCESSID}    Run   ${PATH_TO_SAPLOGON}
     Set Global Variable    ${SAPGUIPROCESSID}
     Sleep    3s    reason=Waiting the splash screen to disappear
+    Wait For Active Window    ${saplogon.windowtitle}${SAPGUI_VERSION}     TimeOut=15
 
 # KW to close SAP Gui application
 Close SAP NetWeaver

@@ -18,8 +18,16 @@ Suite Teardown      Close SAP NetWeaver
 
 SAP GUI NetWeaver Automation - Create Category Material and Register Material Z Programs
     [Documentation]   Test case - Create
-    ...               open_ZXCAD03    category_mat_registration    open_ZXCAD04    material_registration    zprogram    mockdata
+    ...               create_input_data
     Open "Categoria Material" Program
     Fill fields and adding category
     Open "Cadastro de Material" Program
     Fill fields and save
+
+SAP GUI NetWeaver Automation - Create Category Material and Register Material Z Programs
+    [Documentation]   Test case - Create Random Code
+    ...               create_input_random_code
+    Open "Categoria Material" Program
+    Fill fields and adding category with random_code
+    Open "Cadastro de Material" Program
+    Fill fields and save with random_code
