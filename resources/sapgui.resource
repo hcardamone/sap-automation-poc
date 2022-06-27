@@ -26,6 +26,7 @@ Open SAP GUI application
     ${SAPGUIPROCESSID}    Run   ${PATH_TO_SAPLOGON}
     Set Global Variable    ${SAPGUIPROCESSID}
     Sleep    3s    reason=Waiting the splash screen to disappear
+    Wait For Active Window    ${saplogon.windowtitle}${SAPGUI_VERSION}     TimeOut=15
 
 # KW to close SAP Gui application
 Close SAP GUI
@@ -52,12 +53,12 @@ Dismiss copyright popup
     Run Keyword If    '${is_popupdisplayed}' == ${TRUE}   Click Element    ${sapmain.confirmPopup_btn}
 
 
-# KW to check integration connection 
+# KW to check integration connection
 Check connection error
     ${is_popupoffdisplayed}    Run Keyword And Return Status    Element Should Be Present    ${sapmain.connectionoffline_TXT}
-    ${connectionoffline_TXT}   Run Keyword If      '${is_popupoffdisplayed}' == '${TRUE}'   Run Keyword    
+    ${connectionoffline_TXT}   Run Keyword If      '${is_popupoffdisplayed}' == '${TRUE}'   Run Keyword
     ...                        Get Value     ${sapmain.connectionoffline_TXT}
-    Run Keyword If            '${connectionoffline_TXT}' !='None'    Run Keywords  
+    Run Keyword If            '${connectionoffline_TXT}' !='None'    Run Keywords
     ...                        Log    ${connectionoffline_TXT}   WARN   AND
     ...                        Click Element    ${sapmain.confirmPopup_btn}
     ...                        ELSE     Log    Connection Successefuly   WARN
