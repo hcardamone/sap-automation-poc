@@ -91,15 +91,33 @@ These are suggested VS Code plugins that best fit this automation project:
 1. File `input-data.yaml` should be edited if you need to use different input data than the default values. Each Dataset is binded to one test case using the Test Setup.
 1. To run the `demo` test tag from demo.robot suite on another Git Bash / terminal window, activate the Python Virtual Environment as stated before and use this command:
 
+    * Include params options:
     ```
-    (`vsCode` terminal /`PowerShell`/`CMD` terminal) `(env) $ robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot`.
-    ```
-    ```
-    (`Git Bash` terminal) running like this `robot -d ./resources/results --variablefile ./resources/robot-variables/robot_variables.py ./resources/tests/generaltabledisplay/standard/demo.robot`
+    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results --include create_input_data --exclude create_input_random_code demo.robot   
+
     ```
     ```
     (env) $ robot --variablefile ~/robot_variables.py --variablefile ~/input-data.yaml --loglevel TRACE --outputdir results --include demo --exclude pending ./tests/
+    
     ```
+    * Folder level:
+    ```
+    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results --include create_input_data --exclude create_input_random_code .\tests\    
+
+    ```  
+1. To run the `demo.robot` test suite on another Git Bash / terminal window, activate the Python Virtual Environment as stated before and use this command:
+    * Terminal vsCode | PowerShell  | CMD Option: 
+    ```
+    (env) $ robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot .
+    ```
+    ```
+    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results  demo.robot .
+    ```
+    * Terminal Git Bash Option: 
+    ```
+    (env) $ robot -d ./resources/results --variablefile ./resources/robot-variables/robot_variables.py ./resources/tests/generaltabledisplay/standard/demo.robot .
+    ```   
+    
     * Option `--variablefile` simply points to your local copy of `robot_variables.py`.
     * Set `--loglevel` option to `TRACE` when running locally for debugging, but in automation production running environment this should be set to `INFO` to save space.
     * `--outputdir` refers to where RF should save the report after finishing the execution. Can be `logs*` or `results*` folder names, as both are already ignored in Git.
@@ -128,3 +146,6 @@ If you get errors related to AutoIT library like `class not registered` follow t
 2. `sapgui.resource` to the other modules/resources access the Global Resources.
 3. `zcadastromat.resource` to register a new material.
 3. `zcategmaterial.resource` to register a new material category.
+
+> **Hint**: Markdown preview
+`Ctrl+Shift+V`
