@@ -6,8 +6,8 @@ Resource    sapgui.resource
 
 *** Keywords ***
 
-Login in SAP GUI
-    Open SAP GUI application
+Login in SAP NetWeaver
+    Open SAP NetWeaver application
     Wait Until Keyword Succeeds    10s    2s    Connect To Session
     Open Connection        ${SAP_ENV}
     Input Text             ${saplogon.usr}     ${USER_NAME}
@@ -15,5 +15,4 @@ Login in SAP GUI
     Input Text             ${saplogon.lng}     ${LANGUAGE}  
     Send Vkey    Enter
     Dismiss Multiple Logon warning dialog if needed
-    Dismiss copyright popup
     Set Explicit Wait    ${EXPLICIT_WAIT}

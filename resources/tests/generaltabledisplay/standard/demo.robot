@@ -7,14 +7,19 @@ Documentation       SAP GUI Tests - this resource provides some tests, this is a
 Resource            ../../../../resources/generaltabledisplay.resource
 Resource            ../../../../resources/sapgui.resource
 Resource            ../../../../resources/saplogon.resource
-Suite Setup         Login in SAP GUI
+Resource            ../../../../resources/zcategmaterial.resource    
+Resource            ../../../../resources/zcadastromat.resource
+Suite Setup         Login in SAP NetWeaver
 Force Tags          sapguitests    outbound
 Test Teardown       Run Keyword If Test Failed    Take Screenshot
-Suite Teardown      Close SAP GUI
+Suite Teardown      Close SAP NetWeaver
 
 *** Test Cases ***
 
-SAP Execution QA Automation - standard
-    [Documentation]   Test case - Create, process, send and get return invoice
-    ...               standard_doc    create_doc    send_doc    get_return    mockdata
-    Open Program
+SAP GUI NetWeaver Automation - Create Category Material and Register Material Z Programs
+    [Documentation]   Test case - Create
+    ...               open_ZXCAD03    category_mat_registration    open_ZXCAD04    material_registration    zprogram    mockdata
+    Open "Categoria Material" Program
+    Fill fields and adding category
+    Open "Cadastro de Material" Program
+    Fill fields and save

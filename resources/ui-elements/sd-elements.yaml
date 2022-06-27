@@ -31,15 +31,39 @@
 # dlg       - Popup window to present some message to the user
 
 saplogon:
-  mdt:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-MANDT
-  usr:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-BNAME
-  pwd:                        /app/con[0]/ses[0]/wnd[0]/usr/pwdRSYST-BCODE
-  lng:                        /app/con[0]/ses[0]/wnd[0]/usr/txtRSYST-LANGU
-  windowtitle:                "SAP Logon "
-  multipleLogonWarning_dlg:   /app/con[0]/ses[0]/wnd[1]
-  multipleLogonTitle_dlg:     License Information for Multiple Logon
-  endOthersOption_rdi:        /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT1
-  continueOption_rdi:         /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT2
-  terminateOption_rdi:        /app/con[0]/ses[0]/wnd[1]/usr/radMULTI_LOGON_OPT3
+  mdt:                        wnd[0]/usr/txtRSYST-MANDT
+  usr:                        wnd[0]/usr/txtRSYST-BNAME
+  pwd:                        wnd[0]/usr/pwdRSYST-BCODE
+  lng:                        wnd[0]/usr/txtRSYST-LANGU
+  windowtitle:                "SAP Logon 750"
+  multipleLogonWarning_dlg:   wnd[1]
+  multipleLogonTitle_dlg:     License Information for Multiple Logons
+  endOthersOption_rdi:        wnd[1]/usr/radMULTI_LOGON_OPT1
+  continueOption_rdi:         wnd[1]/usr/radMULTI_LOGON_OPT2
+  terminateOption_rdi:        wnd[1]/usr/radMULTI_LOGON_OPT3
   messtxt:                    Information
+
+sapmain:
+    copyrightPopup:           wnd[2]/tbar[0]/btn[0]
+    confirmPopup_btn:         wnd[1]/tbar[0]/btn[0]
+    confirmBtn:               wnd[0]/tbar[0]/btn[11]
+    edtBtn:                   wnd[0]/tbar[1]/btn[25]
+    nwentrie:                 wnd[0]/tbar[1]/btn[5]
+
+sapzcdtrmat:
+  matnr:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/ctxtZT0004-MATNR[0,0]
+  denom:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/txtZT0004-DENOM[1,0]
+  codct:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/ctxtZT0004-CODCT[2,0]
+  orige:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/cmbZT0004-ORIGE[3,0]
+  valor:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/txtZT0004-VALOR[4,0]
+  moeda:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/txtZT0004-WAERS[5,0]
+
+sapedittableview:
+  
+  tbsch:                      wnd[0]/usr/ctxtVIEWNAME
+  codct:                      wnd[0]/usr/tblSAPLZF0003TCTRL_ZT0003/txtZT0003-CODCT[0,0]
+  denom:                      wnd[0]/usr/tblSAPLZF0003TCTRL_ZT0003/txtZT0003-DENOM[1,0]
+  phbtn:                      wnd[0]/usr/btnUPDATE_PUSH
+
+
 

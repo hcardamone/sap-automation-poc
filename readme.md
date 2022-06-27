@@ -3,7 +3,8 @@
 SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
 
 # About
-This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.  
+This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.
+>  This POC was running on the Minisap LICENSE NPL SAP NetWeaver 7.52 (Sybase ASE) to VM Ubuntu.
 For further information, there are some helpful links at the end of this readme.
 
 # Requirements and tools
@@ -19,9 +20,13 @@ For further information, there are some helpful links at the end of this readme.
     * You can also click on Identify arrow button to track the UI element as you move the mouse over it in SAP GUI Window.
 
 * ## API SAP GUI Scripiting (Optional)
-    * Habilitando o SAP GUI Scripting no lado do servidor
-      Inicialize saplogon.exe, faça login no servidor SAP usando suas credenciais. A janela SAP Easy Access é exibida.
-      * Execute a transação RZ11. Especifique o nome do parâmetro sapgui/   user_scripting e pressione Enter no teclado ou Exibir na interface do SAP. fonte: https://docs.uipath.com/studio/lang-pt_BR/v2018.4/docs/enabling-sap-gui-scripting
+    * Enabling `SAP GUI Scripting` on the server side,
+      Launch the `saplogon.exe`, login to the SAP server using your credentials. The SAP Easy Access window appears.
+    > **Hint**: To enable this, selecting this option when starting setup install to SAP products to this module working as well
+    * Execute the `RZ11` transaction. Specify `sapgui/user_scripting` parameter name and press Enter on keyboard or Display in SAP interface.
+    * In the View Profile Parameter Attributes window, click the `Change Value` button on the toolbar and set the New value of sapgui/user_scripting to `TRUE`. `Save Changes`.
+    * `Sign out` of the session and `sign in again` to see the change as it is not applied to running sessions.
+    <!-- fonte: https://docs.uipath.com/studio/lang-pt_BR/v2018.4/docs/enabling-sap-gui-scripting -->
 
 * ## AutoIT Library
     * Download the latest release [here](https://github.com/nokia/robotframework-autoitlibrary/releases/latest).
@@ -82,8 +87,8 @@ These are suggested VS Code plugins that best fit this automation project:
         Time in pattern m, s or ms for minutes, milisseconds or seconds, respectively to wait between execution of SAP GUI library keywords.
     * `MULTIPLE_LOGON_ACTION ="option"`     
         To set the behavior when there is another logged session with the same user. Options: `endOthersOption_rdi`: Continue with this logon and end any other logons in system. When ending any existing logons to system, unsaved data is lost. `continueOption_rdi`: Continue with this logon, without ending any other logons in system `terminateOption_rdi`: Terminate this logon. This will cause the test run to fail.
-3. (vscode terminal/cm terminal) running like this robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot.
-4. (Git Bash terminal) running like this robot -d ./resources/results --variablefile ./resources/robot-variables/robot_variables.py ./resources/tests/generaltabledisplay/standard/demo.robot
+3. (`vsCode` terminal /`PowerShell`/`CMD` terminal) running like this `robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot`.
+4. (`Git Bash` terminal) running like this `robot -d ./resources/results --variablefile ./resources/robot-variables/robot_variables.py ./resources/tests/generaltabledisplay/standard/demo.robot`
 
 # Troubleshooting
 If you get errors related to AutoIT library like `class not registered` follow these steps to fix it:
@@ -104,7 +109,7 @@ If you get errors related to AutoIT library like `class not registered` follow t
 - [SAP GUI Scripting Documentation](https://help.sap.com/viewer/b47d018c3b9b45e897faf66a6c0885a8/LATEST/en-US/babdf65f4d0a4bd8b40f5ff132cb12fa.html)
 
 # Modules
-1. xx resource to running tests.
-2. sapgui.resource - SAP Gui Resource to Global Resources.
-3. xx Demonstration Test Case resource to open/execute actions.
-3. xx resource to open/execute actions.
+1. `demo.robot` to running tests.
+2. `sapgui.resource` to the other modules/resources access the Global Resources.
+3. `zcadastromat.resource` to register a new material.
+3. `zcategmaterial.resource` to register a new material category.
