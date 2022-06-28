@@ -93,16 +93,12 @@ These are suggested VS Code plugins that best fit this automation project:
 
     * Include params options:
     ```
-    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results --include create_input_data --exclude create_input_random_code demo.robot   
+    (env) $ robot --variablefile .\resources\robot-variables\robot_variables.py --loglevel TRACE --outputdir results --include create_input_data --exclude create_input_random_code .\resources\tests\generaltabledisplay\standard 
+    ```
 
-    ```
-    ```
-    (env) $ robot --variablefile ~/robot_variables.py --variablefile ~/input-data.yaml --loglevel TRACE --outputdir results --include demo --exclude pending ./tests/
-    
-    ```
     * Folder level:
     ```
-    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results --include create_input_data --exclude create_input_random_code .\tests\    
+    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results .\demo.robot    
 
     ```  
 1. To run the `demo.robot` test suite on another Git Bash / terminal window, activate the Python Virtual Environment as stated before and use this command:
