@@ -1,7 +1,6 @@
 
 # Standard SAP Transactions
 standard:
-  generaltable:              /nSE16N
   maintaintable:             /nSM30
   abapeditor:                /nSE38
   standard.generaltable:     /nSE16N
@@ -11,3 +10,4 @@ standard:
 zsaptransactions:
   zedicatgtmat:              /nZXCAD03
   zcadastromat:              /nZXCAD04
+  zxboxcatalog:              /nZALV_XGCTG01
