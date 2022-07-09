@@ -20,7 +20,7 @@ Open xbox page
 Search and get ${XBOX_GAME_TITLE} information
     [Arguments]         ${XBOX_GAME_TITLE}
     Page Should Contain ${XBOX_GAME_TITLE}
-    Get Value           ${XBOX_GAME_VALUE}
+    ${XBOX_GAME_VALUE}      Get Value         ${XBOX_GAME_TITLE}  
     Log                 ${XBOX_GAME_VALUE} 
 
 
