@@ -1,9 +1,0 @@
-# Get Value - Home Page Xbox Catalog var
-home.URL:                 https://www.xbox.com/en-us/games/all-games
-home.TITLE:               XBOX GAMES CATALOG
-home.FIELD_SEARCH:        name=search_query
-home.BTN_PESQUISAR:       name=submit_search
-home.TOPMENU:             xpath=//*[@id="block_top_menu"]/ul
-home.PRODUCT:             xpath=//*[@id="center_column"]//img[@alt="Faded Short Sleeve T-shirts"]
-home.BTN_ADDCART:         xpath=//*[@id="add_to_cart"]/button
-home.BTN_CHECKOUT:        xpath=//*[@id="layer_cart"]//a[@title="Proceed to checkout"]

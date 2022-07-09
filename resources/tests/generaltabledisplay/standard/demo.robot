@@ -9,18 +9,22 @@ Resource            ../../../../resources/sapgui.resource
 Resource            ../../../../resources/saplogon.resource
 Resource            ../../../../resources/zcategmaterial.resource    
 Resource            ../../../../resources/zcadastromat.resource
+Resource            ../../../../resources/get-data/getvalueBDD.resource
+Resource            ../../../../resources/get-data/getvalueResources.resource
 Suite Setup         Login in SAP NetWeaver
 Force Tags          sapguitests    outbound
 Test Teardown       Run Keyword If Test Failed    Take Screenshot
 Suite Teardown      Close SAP NetWeaver
+Suite Setup         Close My Browser
 
 *** Test Cases ***
 SAP GUI NetWeaver Automation - Get External Value
     [Documentation]  Test case - Get
     [Tags]              get_external_value
-    Given Xbox home page 
-    When found the game
-    Then get the data information
+    Given that xbox page was open
+    When search the "game" data information "xbox catalog" title displayed
+    Then save the "game" data information
+    
     
 
 SAP GUI NetWeaver Automation - Create Category Material and Register Material Z Programs
