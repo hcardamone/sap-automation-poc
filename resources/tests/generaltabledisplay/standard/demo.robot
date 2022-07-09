@@ -15,6 +15,13 @@ Test Teardown       Run Keyword If Test Failed    Take Screenshot
 Suite Teardown      Close SAP NetWeaver
 
 *** Test Cases ***
+SAP GUI NetWeaver Automation - Get External Value
+    [Documentation]  Test case - Get
+    [Tags]              get_external_value
+    Given Xbox home page 
+    When found the game
+    Then get the data information
+    
 
 SAP GUI NetWeaver Automation - Create Category Material and Register Material Z Programs
     [Documentation]   Test case - Create
