@@ -1,32 +1,30 @@
 # Behavior Driven Development (BDD) and Functional Testing
 [Documentation]     Here are the Keywords implementation resources
 
+
 *** Settings ***
 Library                 SeleniumLibrary
-Library                 OperatingSystem
-Variables               ./getvalue_variables.yaml
-
-*** Variables ***
-{FIREFOX_BROWSER}       firefox
+Variables               ./getvalue_variables.py
 
 
 *** Keywords ***
-Open xbox page
-    Go To               ${XBOX_HOME}    {FIREFOX_BROWSER}
-    Wait Until Element Is Visible    ${XBOX_TOPMENU}
-    Title Should Be     ${XBOX_GC_TITLE}
+Get the "game" data information
+    #[Arguments]     ${XBOX_GAME_TITLE}
+    
+    SeleniumLibrary.Click Element   ${XBOX_SEARCH_BAR}
+    SeleniumLibrary.Input Text      ${XBOX_SEARCH_BAR}  ${XBOX_GAME_NAME}
+    Set Focus To Element            ${XBOX_GENRE_FTR}
+    SeleniumLibrary.Click Element   ${XBOX_GENRE_FTR}
+    SeleniumLibrary.Click Element   ${XBOX_ACT_ADV}
+    Set Focus To Element            ${XBOX_SEARCH_BTN}
+    SeleniumLibrary.Click Element    ${XBOX_SEARCH_BTN}
+    # Set Focus To Element            ${XBOX_GAME_ID}
+    # Page Should Contain             ${XBOX_GAME_ID}
 
 
-Search and get ${XBOX_GAME_TITLE} information
-    [Arguments]         ${XBOX_GAME_TITLE}
-    Page Should Contain ${XBOX_GAME_TITLE}
-    ${XBOX_GAME_VALUE}      Get Value         ${XBOX_GAME_TITLE}  
-    Log                 ${XBOX_GAME_VALUE} 
-
-
-Ater get the ${XBOX_GAME_VALUE} information save on file
+After get the "game" data information save on file
     Create File         ./my_files/data_information_${XBOX_GAME_TITLE}.txt     ${XBOX_GAME_VALUE}
 
-
-Close My Browser
-    Close Browser
+# Close My Browser
+#     Close Browser
+    
