@@ -16,13 +16,14 @@ Get the "game" data information
     SeleniumLibrary.Click Element        ${XBOX_GENRE_FTR}
     SeleniumLibrary.Click Element        ${XBOX_ACT_ADV}
     Set Focus To Element                 ${XBOX_SEARCH_BAR}
-    #SeleniumLibrary.Click Element        ${XBOX_SEARCH_BAR}
-    #SeleniumLibrary.Input Text           ${XBOX_SEARCH_BAR}  ${XBOX_GAME_NAME}
+    SeleniumLibrary.Click Element        ${XBOX_SEARCH_BAR}
+    SeleniumLibrary.Input Text           ${XBOX_SEARCH_BAR}  ${XBOX_GAME_NAME}
     Set Selenium Implicit Wait            ${EXPLICIT_WAIT}
     Wait Until Page Contains              Action & adventure    15
     #SeleniumLibrary.Click Element           //*[@id="searchcontainer"]/div/div[1]/form/button
     Execute Javascript                     window.scrollTo(0,559)
     Wait Until Page Contains Element      //a[@data-bi-name='grand theft auto v: premium edition']      60
+    #Mouse Out                              //img[@alt='box shot of Grand Theft Auto V: Premium Edition']
     Capture Page Screenshot
 
 
