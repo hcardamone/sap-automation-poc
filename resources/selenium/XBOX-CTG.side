@@ -1,0 +1,183 @@
+{
+  "id": "26547d64-f750-4c95-903f-5d557efa669f",
+  "version": "2.0",
+  "name": "XBOX-CTG",
+  "url": "https://www.xbox.com/en-us/games/all-games",
+  "tests": [{
+    "id": "44505c64-e1ba-4c32-9e8f-c04eeda8cdab",
+    "name": "SEARCHGTA",
+    "commands": [{
+      "id": "3dc28f5a-8d66-445d-b2ab-632131c6f98b",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.xbox.com/en-us/games/all-games",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "476f8db3-72c4-4050-b345-c60ea6da2d6a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1295x704",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83117266-159e-4529-a085-19e2ab7b1f2f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='filter-genre']/div/button",
+      "targets": [
+        ["css=.x-hidden-focus", "css:finder"],
+        ["xpath=//div[@id='filter-genre']/div/button", "xpath:idRelative"],
+        ["xpath=//nav[2]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Genre')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a98f7208-2dd1-4d0e-a7ac-d34463f19543",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//ul[@id='genreSelect']/li/a/span",
+      "targets": [
+        ["css=.c-refine-item > .x-hidden-focus", "css:finder"],
+        ["xpath=//ul[@id='genreSelect']/li/a/span", "xpath:idRelative"],
+        ["xpath=//nav[2]/div/div/ul/li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Action & adventure')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e60cefc0-e54c-49e5-93fb-f02556176702",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "92f46d32-e850-4d22-85d2-bbaaeecdb758",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,312)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b3536b71-0f4f-469d-975d-08f38dfe370c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@name='search-field']",
+      "targets": [
+        ["name=search-field", "name"],
+        ["css=.c-search > .x-hidden-focus", "css:finder"],
+        ["xpath=//input[@name='search-field']", "xpath:attributes"],
+        ["xpath=//div[@id='searchcontainer']/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7500ad40-3774-40b6-9b7b-3e940a5d43c5",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@name='search-field']",
+      "targets": [
+        ["name=search-field", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='search-field']", "xpath:attributes"],
+        ["xpath=//div[@id='searchcontainer']/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/form/input", "xpath:position"]
+      ],
+      "value": "Grand Theft Auto V"
+    }, {
+      "id": "d1551dee-085e-4de4-9ada-b76a5a4fd472",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[@name='search-button']",
+      "targets": [
+        ["name=search-button", "name"],
+        ["css=.xghsearch > .c-glyph", "css:finder"],
+        ["xpath=//button[@name='search-button']", "xpath:attributes"],
+        ["xpath=//div[@id='searchcontainer']/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8870165-ab17-4a99-9922-37a174c7b29d",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(@href, 'https://www.xbox.com/en-us/games/store/grand-theft-auto-v/9NXMBTB02ZSF')]",
+      "targets": [
+        ["css=.x-hidden-focus:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='ContentBlockList_1']/div/div[2]/div[5]/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.xbox.com/en-us/games/store/grand-theft-auto-v/9NXMBTB02ZSF')]", "xpath:href"],
+        ["xpath=//div[5]/div[4]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win9981",
+      "windowTimeout": 2000
+    }, {
+      "id": "89a65d16-45fd-450a-927c-3959781fe764",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a6260e4d-015c-471a-b4df-f3965fdb66e4",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win9981}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5704793c-21c9-499d-aed6-5b6a14c809b8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=c-shellmenu_96",
+      "targets": [
+        ["id=c-shellmenu_96", "id"],
+        ["css=#c-shellmenu_96", "css:finder"],
+        ["xpath=//button[@id='c-shellmenu_96']", "xpath:attributes"],
+        ["xpath=//nav[@id='uhf-g-nav']/ul/li[6]/div/button", "xpath:idRelative"],
+        ["xpath=//li[6]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Community')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cc2f4cf-a7e4-4da6-a6f3-57cb2cd1adfe",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82141f40-7253-4208-bcbd-2e8c8a2c2d9b",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28d838ee-e5f8-44e6-ad14-34af3111103b",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win9981}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5ca92d5b-1b80-4a54-b3e5-73a28d270e0f",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f0270fc9-4161-4326-9335-653d3a0ce878",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["44505c64-e1ba-4c32-9e8f-c04eeda8cdab"]
+  }],
+  "urls": ["https://www.xbox.com/", "https://www.xbox.com/en-us/games/all-games", "https://www.xbox.com/en-us/games"],
+  "plugins": []
+}

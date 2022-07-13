@@ -17,7 +17,7 @@ Resource            ../../../../resources/get-data/getvalue-gamecatalog.resource
 #Force Tags          sapguitests    outbound
 Test Teardown       Run Keyword If Test Failed    Take Screenshot
 #Suite Teardown      Close SAP NetWeaver
-# Suite Teardown      Close My Browser
+#Suite Teardown      Close My Browser
 
 *** Test Cases ***
 SAP GUI NetWeaver Automation - Get External Value
