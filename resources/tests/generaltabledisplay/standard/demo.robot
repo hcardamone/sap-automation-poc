@@ -25,7 +25,7 @@ SAP GUI NetWeaver Automation - Get External Value
     [Tags]              get_external_value
     Given that local firefox brownser was open
     When search the game data information on xbox game catalog title
-    Then save the game data information
+    #Then save the game data information
     
     
 

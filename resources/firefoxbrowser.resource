@@ -14,6 +14,7 @@ ${FIREFOX_BROWSER}      firefox
 
 That local firefox brownser was open
     Open Browser       ${XBOX_HOME}   ${FIREFOX_BROWSER}
+    Maximize Browser Window
     Wait Until Element Is Visible    ${XBOX_TOPMENU}
     Title Should Be     ${XBOX_GC_TITLE}
 
