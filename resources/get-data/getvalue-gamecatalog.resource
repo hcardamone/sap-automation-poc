@@ -4,7 +4,7 @@
 
 *** Keywords ***
 Search the game data information on xbox game catalog title
-    Get the "game" data information
+    Validate the "game" data information
     
 #Save the "game" data information
     #After get the "game" data information save on file
