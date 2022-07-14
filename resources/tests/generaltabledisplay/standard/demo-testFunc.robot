@@ -7,15 +7,14 @@ Documentation       SAP GUI Tests - this resource provides some tests, this is a
 Library     OCRLibrary
 Library     SeleniumLibrary
 
-*** Variables ***
-${img_path}     ../../../../resources/results
-
 *** Test Cases ***
 KW Exemplo
     Test Get Content Image
         
 *** Keywords ***
 Test Get Content Image
-    ${img_path}     Capture Page Screenshot
-    ${processed_img}    Read Image    ${img_path}
+    ${processed_img}    Read Image    ${IMAGE_PATH}
+    #${content}   Get Image Content   ${processed_img}    --psm 12 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyz   eng
+    ${content}   Get Image Content   ${processed_img}    --psm 4 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyz   eng
+    #${content}   Get Image Content   ${processed_img}    --psm 1 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyz   eng
     #${content}   Get Image Content   ${processed_img}    --psm 6 -c tessedit_char_whitelist=0123456789   eng 
