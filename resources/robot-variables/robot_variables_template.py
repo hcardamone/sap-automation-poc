@@ -12,5 +12,4 @@ MULTIPLE_LOGON_ACTION = "endOthersOption_rdi"    # Options:
 # #                                                continueOption_rdi:  Continue with this logon, without ending any other logons in system
 # #                                                terminateOption_rdi: Terminate this logon. This will cause the test run to fail.
 EXPLICIT_WAIT = "0 seconds"
-DATE_VALUE_LOW = "XX.XX.XXXX" #DATE XX.XX.XXXX
-DATE_VALUE_HIGH = "XX.XX.XXXX"
+IMAGE_PATH  = "C:\\Users\\User\\Documents\\SAP\\sap-automation-poc\\resources\\results\\image-screenshot-1.png"
