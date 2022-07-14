@@ -12,7 +12,7 @@ shyaml
 keyboard
 pillow
 boltons
-# BuiltIn
+robotframework-ocrlibrary
 ## Keep your librarie always updated - pypi.org
 # python -m pip install --upgrade pip
 # pip --version
