@@ -13,3 +13,9 @@ MULTIPLE_LOGON_ACTION = "endOthersOption_rdi"    # Options:
 # #                                                terminateOption_rdi: Terminate this logon. This will cause the test run to fail.
 EXPLICIT_WAIT = "0 seconds"
 IMAGE_PATH  = "C:\\Users\\User\\Documents\\SAP\\sap-automation-poc\\resources\\results\\image-screenshot-1.png"
+TTESSERAT_CHAR_WHITLT = 'tessedit_char_whitelist=aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
+TESSERAT_CHAR_BLKTLT = "!@#$%^&*()\ /,.'SortFeaturedv' \
+                        'Choose a link below to refine and \
+                        filter your results''All console games''ViewingS of results' \
+                        'ActionadventureX''CLEARFILTERS''ONEWRELEASE''Filters'"
+TESSERAT_MULT_LNG    = "eng+deu+fra+ita+spa+por"

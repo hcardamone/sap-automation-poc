@@ -90,7 +90,7 @@ For further information, there are some helpful links at the end of this readme.
 Once `OCRLibrary` is installed, along with its dependencies, add Library `OCRLibrary` to your robot file to use.
 
 
-
+<!-- Pytesseract Configuration Strings https://muthu.co/all-tesseract-ocr-options/ -->
 
 
 # Setup Guide

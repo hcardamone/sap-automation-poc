@@ -13,8 +13,7 @@ KW Exemplo
         
 *** Keywords ***
 Test Get Content Image
-    ${processed_img}    Read Image    ${IMAGE_PATH}
-    #${content}   Get Image Content   ${processed_img}    --psm 12 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyz   eng
-    ${content}   Get Image Content   ${processed_img}    --psm 4 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyz   eng
-    #${content}   Get Image Content   ${processed_img}    --psm 1 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyz   eng
-    #${content}   Get Image Content   ${processed_img}    --psm 6 -c tessedit_char_whitelist=0123456789   eng 
+    ${processed_img}    Read Image    ${TESSERAT_IMAGE_PATH}
+    ${content}   Get Image Content   ${processed_img}  -l ${TESSERAT_MULT_LNG} --psm 1 -c ${TESSERAT_CHAR_WHITLT} ${TESSERAT_CHAR_BLKTLT}
+    Log To Console      ${content}
+    #${content}   Get Image Content   ${processed_img}    --psm 1 -c tessedit_char_whitelist=0123456789   eng 
