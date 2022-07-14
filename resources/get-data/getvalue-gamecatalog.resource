@@ -1,4 +1,3 @@
-# Behavior Driven Development (BDD) and Functional Testing
 [Documentation]     This resource get the getvalueResources.resource implementation
 
 
@@ -8,3 +7,6 @@ Search the game data information on xbox game catalog title
     
 #Save the "game" data information
     #After get the "game" data information save on file
+
+Close my current browser
+    Close My Browser

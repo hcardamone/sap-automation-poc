@@ -1,3 +1,8 @@
+# Behavior Driven Development (BDD) and Functional Testing
+[Documentation]  Wrinting test cases with BDD (Ghenkin Stilye)
+
+
+
 *** Keywords ***
 Given ${Keyword}
     Run Keyword     ${Keyword}
