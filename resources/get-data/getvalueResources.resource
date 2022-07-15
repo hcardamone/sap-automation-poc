@@ -5,6 +5,7 @@
 Library                 SeleniumLibrary
 Library                 OCRLibrary
 Library                 String
+Library                 ../../resources/customlib/StringExtended/StringExtended.py
 Variables               ./getvalue_variables.py
 
 *** Keywords ***
@@ -39,5 +40,23 @@ Get the game extraction file to match with the game data input
     ${is_XBOX_GAME_MATCH}   Get Regexp Matches      ${IMG_CONTENT}  ${XBOX_GAME_NAME}
     Log To Console      ${is_XBOX_GAME_MATCH}
     ${is_XBOX_GAME_NAME}    Catenate    SEPARATOR=${EMPTY}    ${is_XBOX_GAME_MATCH}
-    ${is_XBOX_GAME_SBS}     Get Substring       ${is_XBOX_GAME_NAME}    0 
-    #${is_Split_String}	        Split String    ${is_XBOX_GAME_SBS} 	,${SPACE}   2
+    ${is_STRING_SPLIT}    Split String Custom     ${is_XBOX_GAME_NAME}  2
+    Log To Console      ${is_STRING_SPLIT}
+    # ${rows}     Get Line Count   ${is_XBOX_GAME_NAME}
+    # Run Keyword If      '${rows}'== 0  Fail   No game data were found
+    # FOR     ${index}    IN RANGE    ${rows}
+    #     ${is_xbox_game_available}    Get Substring      ${is_XBOX_GAME_NAME}    ${index}
+        # Set Suite Variable    ${is_xbox_game_available}
+        # ${length_xbox_game_available}       Get Length     ${is_xbox_game_available}
+        # Run Keyword If  '${length_xbox_game_available}' != 0  Fail   No game data were found    
+        # Run Keyword If  ${is_xbox_game_available} != ${is_XBOX_GAME_NAME}      Fail   No game data mached
+        # FOR     ${index}    IN RANGE  ${is_XBOX_GAME_NAME}
+        #     Run Keyword If      '${index}'== 0  Fail   This string can't be empty
+        #     ...           Get Length     ${is_xbox_game_available}
+        #     ...           Set Suite Variable    ${is_xbox_game_available}   ${index}
+        # END
+        #FOR     ${index}  IN  ${is_XBOX_GAME_NAME}
+        #Get Substring   ${is_XBOX_GAME_NAME}    ${index}    5
+        #...     AND     Split String	${is_XBOX_GAME_NAME}	,${SPACE}
+        #END
+    # END

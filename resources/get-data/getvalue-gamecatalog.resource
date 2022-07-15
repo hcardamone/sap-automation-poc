@@ -2,8 +2,8 @@
 
 
 *** Keywords ***
-Extract the game data information on xbox game catalog title
-    Get the game data information
+# Extract the game data information on xbox game catalog title
+#     Get the game data information
     
 
 Read and extract the game data information by screenshot

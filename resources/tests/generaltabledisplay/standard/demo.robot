@@ -21,9 +21,9 @@ Test Teardown       Run Keyword If Test Failed    Take Screenshot
 SAP GUI NetWeaver Automation - Check external Value
     [Documentation]  Test case - Check
     [Tags]              validate_game_info
-    Given that local firefox brownser was open
-    When extract the game data information on xbox game catalog title
-    Then close my current browser
+    # Given that local firefox brownser was open
+    # When extract the game data information on xbox game catalog title
+    # Then close my current browser
     When read and extract the game data information by screenshot
     And transform the game data extraction to save
     #When load the game data information
