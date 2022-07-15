@@ -2,11 +2,12 @@
 
 
 *** Keywords ***
-Search the game data information on xbox game catalog title
-    Validate the "game" data information
+Extract the game data information on xbox game catalog title
+    Get the game data information
     
-#Save the "game" data information
-    #After get the "game" data information save on file
 
-Close my current browser
-    Close My Browser
+Read and extract the game data information by screenshot
+    Read and extract the game data information
+
+Transform the game data extraction to save
+    Get the game extraction file to match with the game data input

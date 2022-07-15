@@ -22,9 +22,12 @@ SAP GUI NetWeaver Automation - Check external Value
     [Documentation]  Test case - Check
     [Tags]              validate_game_info
     Given that local firefox brownser was open
-    When search the game data information on xbox game catalog title
-    #Then save the game data information
-    And close my current browser
+    When extract the game data information on xbox game catalog title
+    Then close my current browser
+    When read and extract the game data information by screenshot
+    And transform the game data extraction to save
+    #When load the game data information
+    #And check the "game" data information by screenshot
     
     
 

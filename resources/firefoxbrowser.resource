@@ -18,5 +18,5 @@ That local firefox brownser was open
     Wait Until Element Is Visible    ${XBOX_TOPMENU}
     Title Should Be     ${XBOX_GC_TITLE}
 
-#Close My Browser
-    #Process Close
+Close my current browser
+    Close All Browsers
