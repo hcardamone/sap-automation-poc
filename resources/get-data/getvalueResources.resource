@@ -40,23 +40,19 @@ Get the game extraction file to match with the game data input
     ${is_XBOX_GAME_MATCH}   Get Regexp Matches      ${IMG_CONTENT}  ${XBOX_GAME_NAME}
     Log To Console      ${is_XBOX_GAME_MATCH}
     ${is_XBOX_GAME_NAME}    Catenate    SEPARATOR=${EMPTY}    ${is_XBOX_GAME_MATCH}
-    ${is_STRING_SPLIT}    Split String Custom     ${is_XBOX_GAME_NAME}  2
-    Log To Console      ${is_STRING_SPLIT}
-    # ${rows}     Get Line Count   ${is_XBOX_GAME_NAME}
-    # Run Keyword If      '${rows}'== 0  Fail   No game data were found
-    # FOR     ${index}    IN RANGE    ${rows}
-    #     ${is_xbox_game_available}    Get Substring      ${is_XBOX_GAME_NAME}    ${index}
-        # Set Suite Variable    ${is_xbox_game_available}
-        # ${length_xbox_game_available}       Get Length     ${is_xbox_game_available}
-        # Run Keyword If  '${length_xbox_game_available}' != 0  Fail   No game data were found    
-        # Run Keyword If  ${is_xbox_game_available} != ${is_XBOX_GAME_NAME}      Fail   No game data mached
-        # FOR     ${index}    IN RANGE  ${is_XBOX_GAME_NAME}
-        #     Run Keyword If      '${index}'== 0  Fail   This string can't be empty
-        #     ...           Get Length     ${is_xbox_game_available}
-        #     ...           Set Suite Variable    ${is_xbox_game_available}   ${index}
-        # END
-        #FOR     ${index}  IN  ${is_XBOX_GAME_NAME}
-        #Get Substring   ${is_XBOX_GAME_NAME}    ${index}    5
-        #...     AND     Split String	${is_XBOX_GAME_NAME}	,${SPACE}
-        #END
-    # END
+    @{is_STRING_SPLIT}    Split List Custom     ${is_XBOX_GAME_NAME}  10
+    #Remove List Using Regexp      ${is_STRING_SPLIT}
+    Log To Console     ${is_STRING_SPLIT}
+    ${is_STRING_LIST}     Get Line Count Custom   ${is_STRING_SPLIT}
+    ${is_convert_list}    Convert To List     ${is_STRING_SPLIT}
+    FOR     ${index}    IN    ${is_convert_list}
+        ${is_LIST_INICIO}    Get Slice From List     ${is_convert_list}  2  7
+        Log To Console    ${is_LIST_INICIO}
+        ${is_LIST_MEIO}    Get Slice From List     ${is_convert_list}  7  11
+        Log To Console    ${is_LIST_MEIO}
+        ${is_LIST_FINAL}    Get Slice From List     ${is_convert_list}  -6  -2
+        Log To Console    ${is_LIST_FINAL}
+        ${is_converted_string_inc}      Convert To String       ${is_LIST_INICIO}
+        ${is_removed_s_inc}     Remove String      ${is_converted_string_inc}    \s' '  ,
+        Catenate        ${is_removed_s_inc} 
+    END
