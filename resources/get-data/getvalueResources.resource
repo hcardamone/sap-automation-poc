@@ -34,25 +34,21 @@ Read and extract the game data information
     ${IMG_PROCESSED}    Read Image    ${TESSERACT_IMAGE_PATH}
     ${IMG_CONTENT}   Get Image Content   ${IMG_PROCESSED}  -l ${TESSERACT_MULT_LNG} --psm 1 -c ${TESSERACT_CHAR_WHITLT} ${TESSERACT_CHAR_BLKTLT}
     Set Global Variable     ${IMG_CONTENT}
-    Log To Console          ${IMG_CONTENT}
 
 Get the game extraction file to match with the game data input      
     ${is_XBOX_GAME_MATCH}   Get Regexp Matches      ${IMG_CONTENT}  ${XBOX_GAME_NAME}
-    Log To Console      ${is_XBOX_GAME_MATCH}
     ${is_XBOX_GAME_NAME}    Catenate    SEPARATOR=${EMPTY}    ${is_XBOX_GAME_MATCH}
     @{is_STRING_SPLIT}    Split List Custom     ${is_XBOX_GAME_NAME}  10
-    #Remove List Using Regexp      ${is_STRING_SPLIT}
-    Log To Console     ${is_STRING_SPLIT}
     ${is_STRING_LIST}     Get Line Count Custom   ${is_STRING_SPLIT}
     ${is_convert_list}    Convert To List     ${is_STRING_SPLIT}
     FOR     ${index}    IN    ${is_convert_list}
         ${is_LIST_INICIO}    Get Slice From List     ${is_convert_list}  2  7
-        Log To Console    ${is_LIST_INICIO}
         ${is_LIST_MEIO}    Get Slice From List     ${is_convert_list}  7  11
-        Log To Console    ${is_LIST_MEIO}
         ${is_LIST_FINAL}    Get Slice From List     ${is_convert_list}  -6  -2
-        Log To Console    ${is_LIST_FINAL}
-        ${is_converted_string_inc}      Convert To String       ${is_LIST_INICIO}
-        ${is_removed_s_inc}     Remove String      ${is_converted_string_inc}    \s' '  ,
-        Catenate        ${is_removed_s_inc} 
+        ${is_JOINWORDS_INC}     Evaluate       "".join(${is_LIST_INICIO})
+        ${is_JOINWORDS_MEO}     Evaluate       "".join(${is_LIST_MEIO}) 
+        ${is_JOINWORDS_FIN}     Evaluate       "".join(${is_LIST_FINAL})
+        ${is_SPACE_BTW_JOINWRDS}       Catenate Custom    SEPARATOR=${EMPTY}   ${is_JOINWORDS_INC}   ${is_JOINWORDS_MEO}   ${is_JOINWORDS_FIN}
+        Set Global Variable     ${is_SPACE_BTW_JOINWRDS}
+        
     END

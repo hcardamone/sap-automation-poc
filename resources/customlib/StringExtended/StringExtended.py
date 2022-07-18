@@ -1,4 +1,6 @@
+from unittest import result
 from robot.libraries.String import *
+from robot.libraries.BuiltIn import *
 
 def split_list_custom(string_input, flag=0):
     chunks, chunk_size = len(string_input), len(string_input)//flag
@@ -8,6 +10,18 @@ def split_list_custom(string_input, flag=0):
         splitcustom.append(string_input[i:i + chunk_size])
     print(splitcustom[i])
     return  splitcustom
+
+def catenate_custom(self, *items):
+    #"""Self does absolutely nothing."""
+        if not items:
+            return ''
+        items = [str(item) for item in items]
+        if items[0].startswith('SEPARATOR='):
+            sep = items[0][len('SEPARATOR='):]
+            items = items[1:]
+        else:
+            sep = ' '
+        return sep.join(items)
 
 def get_line_count_custom(string):
     list = string
