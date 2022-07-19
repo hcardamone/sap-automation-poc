@@ -12,6 +12,5 @@ Extract the game data information by screenshot
 That the transform game data extraction was successfully
     Transform the game data extraction to save
 
-That the game data was matched bettwen game catalog and screenshot 
-
-#     Match the game extract data base to game extract data screenshot
+The game data was matched bettwen game catalog and screenshot 
+    Xbox game catalog and img screenshot validate

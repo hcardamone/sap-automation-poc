@@ -7,4 +7,4 @@ Library                 ../../resources/customlib/StringExtended/StringExtended.
 Variables               ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 *** Keywords ***
-Match the game extract data base to game extract data screenshot
+Xbox game catalog and img screenshot validate
