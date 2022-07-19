@@ -29,7 +29,6 @@ SAP GUI NetWeaver Automation - Check external Value
     When extract the game data information by screenshot
     And transform the game data extraction to save
     #When load the game data information
-    #And check the "game" data information by screenshot
     
     
 
