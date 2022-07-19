@@ -4,15 +4,15 @@
 #   * Open/Close SAP Gui application.
 
 *** Settings ***
-Library         ./customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py  screenshot_directory=${OUTPUTDIR}
+Library         ../../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py  screenshot_directory=${OUTPUTDIR}
 Library         AutoItLibrary
 Library         String
 Library         Process
 Library         Collections
-Variables       ./robot-variables/robot-variables-transactions.yaml
+Variables       ../../robot-variables/robot-variables-transactions.yaml
 Variables       ./ui-elements/sd-elements.yaml
-Variables       ./input-data/input-data-zcategmaterial.yaml
-Variables       ./input-data/input-data-zcadastromat.yaml
+Variables       ../../input-data/input-data-zcategmaterial.yaml
+Variables       ../../input-data/input-data-zcadastromat.yaml
 Variables       ./environments.yaml
 
 *** Variables ***

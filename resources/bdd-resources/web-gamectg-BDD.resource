@@ -11,3 +11,6 @@ Extract the game data information by screenshot
 
 Transform the game data extraction to save
     Get the game extraction file to match with the game data input
+
+# Given the game data information that was transformed
+#     Match the game extract data base to game extract data screenshot

@@ -4,15 +4,17 @@ Documentation       SAP GUI Tests - this resource provides some tests, this is a
 ...                  - run this resource to test the automation. Obs: check the reame.md # Running a Test Suite session, step 3.
 
 *** Settings ***
-Resource            ../../../../resources/generaltabledisplay.resource
-Resource            ../../../../resources/sapgui.resource
-Resource            ../../../../resources/saplogon.resource
-Resource            ../../../../resources/firefoxbrowser.resource
+Resource            ../../../../resources/common/sapgui-resources/generaltabledisplay.resource
+Resource            ../../../../resources/common/sapgui-resources/sapgui.resource
+Resource            ../../../../resources/common/sapgui-resources/saplogon.resource
+Resource            ../../../../resources/common/selenium-resources/firefoxbrowser.resource
 Resource            ../../../../resources/zcategmaterial.resource    
 Resource            ../../../../resources/zcadastromat.resource
 Resource            ../../../../resources/bdd-resources/web-gamectg-BDD.resource
 Resource            ../../../../resources/extract-data/web-gamectg-extract.resource
+Resource            ../../../../resources/extract-data/img-data-gamectg-extract.resource
 Resource            ../../../../resources/transform-data/web-gamectg-transform.resource
+Resource            ../../../../resources/transform-data/img-data-gamectg-transform.resource
 
 #Suite Setup         Login in SAP NetWeaver       
 #Force Tags          validate_game_info    add_val_sapguitests
@@ -28,7 +30,7 @@ SAP GUI NetWeaver Automation - Check external Value
     Then close my current browser
     When extract the game data information by screenshot
     And transform the game data extraction to save
-    #When load the game data information
+    # Given the game data information that was transformed
     
     
 
