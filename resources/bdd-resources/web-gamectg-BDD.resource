@@ -7,10 +7,11 @@ Extract the game data information on xbox game catalog title
     Get the game data detail information on xbox game catalog
     
 Extract the game data information by screenshot
-    Extract the game data detail information on img screenshot
+    Get the game data detail information on img screenshot
 
-Transform the game data extraction to save
-    Get the game extraction file to match with the game data input
+That the transform game data extraction was successfully
+    Transform the game data extraction to save
 
-# Given the game data information that was transformed
+That the game data was matched bettwen game catalog and screenshot 
+
 #     Match the game extract data base to game extract data screenshot

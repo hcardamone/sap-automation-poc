@@ -8,7 +8,7 @@ Library                 ../../resources/customlib/StringExtended/StringExtended.
 Variables               ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 *** Keywords ***
-Get the game extraction file to match with the game data input      
+Transform the game data extraction to save      
     ${is_XBOX_GAME_MATCH}   Get Regexp Matches      ${IMG_CONTENT}  ${xboxctnt.gamname}
     ${xboxctnt.gamname}     Catenate    SEPARATOR=${EMPTY}    ${is_XBOX_GAME_MATCH}
     @{is_STRING_SPLIT}      Split List Custom     ${xboxctnt.gamname}  10
