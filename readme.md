@@ -221,5 +221,5 @@ If you get errors related to Tesseract OCRLibrary like `TesseractNotFound Error:
 3. `zcadastromat.resource` to register a new material.
 3. `zcategmaterial.resource` to register a new material category.
 
-> **Hint**: Markdown preview
-`Ctrl+Shift+V`
+<!-- **Hint**: Markdown preview
+`Ctrl+Shift+V` >
