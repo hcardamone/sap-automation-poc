@@ -12,10 +12,7 @@ MULTIPLE_LOGON_ACTION = "endOthersOption_rdi"    # Options:
 # #                                                continueOption_rdi:  Continue with this logon, without ending any other logons in system
 # #                                                terminateOption_rdi: Terminate this logon. This will cause the test run to fail.
 EXPLICIT_WAIT = "0 seconds"
-IMAGE_PATH  = "C:\\Users\\User\\Documents\\SAP\\sap-automation-poc\\resources\\results\\image-screenshot-1.png"
-TTESSERAT_CHAR_WHITLT = 'tessedit_char_whitelist=aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
-TESSERAT_CHAR_BLKTLT = "!@#$%^&*()\ /,.'SortFeaturedv' \
-                        'Choose a link below to refine and \
-                        filter your results''All console games''ViewingS of results' \
-                        'ActionadventureX''CLEARFILTERS''ONEWRELEASE''Filters'"
-TESSERAT_MULT_LNG    = "eng+deu+fra+ita+spa+por"
+TESSERACT_IMAGE_PATH  = "C:\\Users\\henri\\Documents\\SAP\\sap-automation-poc\\resources\\extract-data\\selenium-screenshot-1.png"
+TESSERACT_CHAR_WHITLT = 'tessedit_char_whitelist=aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
+TESSERACT_CHAR_BLKTLT = '!@#$%^&*()\\n'
+TESSERACT_MULT_LNG    = 'eng+deu+fra+ita+spa+por'

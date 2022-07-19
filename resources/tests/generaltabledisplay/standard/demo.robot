@@ -10,8 +10,10 @@ Resource            ../../../../resources/saplogon.resource
 Resource            ../../../../resources/firefoxbrowser.resource
 Resource            ../../../../resources/zcategmaterial.resource    
 Resource            ../../../../resources/zcadastromat.resource
-Resource            ../../../../resources/get-data/getvalueResources.resource
-Resource            ../../../../resources/get-data/getvalue-gamecatalog.resource
+Resource            ../../../../resources/bdd-resources/web-gamectg-BDD.resource
+Resource            ../../../../resources/extract-data/web-gamectg-extract.resource
+Resource            ../../../../resources/transform-data/web-gamectg-transform.resource
+
 #Suite Setup         Login in SAP NetWeaver       
 #Force Tags          validate_game_info    add_val_sapguitests
 Test Teardown       Run Keyword If Test Failed    Take Screenshot
@@ -21,10 +23,10 @@ Test Teardown       Run Keyword If Test Failed    Take Screenshot
 SAP GUI NetWeaver Automation - Check external Value
     [Documentation]  Test case - Check
     [Tags]              validate_game_info
-    # Given that local firefox brownser was open
-    # When extract the game data information on xbox game catalog title
-    # Then close my current browser
-    When read and extract the game data information by screenshot
+    Given that local firefox brownser was open
+    When extract the game data information on xbox game catalog title
+    Then close my current browser
+    When extract the game data information by screenshot
     And transform the game data extraction to save
     #When load the game data information
     #And check the "game" data information by screenshot

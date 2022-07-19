@@ -4,7 +4,7 @@
 #   * Open/Close SAP Gui application.
 
 *** Settings ***
-Library         ./customlib/SapGuiLibraryExtended.py  screenshot_directory=${OUTPUTDIR}
+Library         ./customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py  screenshot_directory=${OUTPUTDIR}
 Library         AutoItLibrary
 Library         String
 Library         Process

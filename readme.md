@@ -3,6 +3,7 @@
 SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
 
 # About
+The purpose of this POC is applying some studies to Automation, even using Robot Framework libraries, SAP ECC or web elements.
 This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.
 >  This POC was running on the Minisap LICENSE NPL SAP NetWeaver 7.52 (Sybase ASE) to VM Ubuntu.
 For further information, there are some helpful links at the end of this readme.
@@ -160,7 +161,9 @@ These are suggested VS Code plugins that best fit this automation project:
 
     * Folder level:
     ```
-    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results .\demo.robot    
+    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results .\demo.robot
+
+    (env) $ robot --variablefile  ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results --include validate_game_info --exclude add_val_sapguitests .\demo.robot    
 
     ```  
 1. To run the `demo.robot` test suite on another Git Bash / terminal window, activate the Python Virtual Environment as stated before and use this command:

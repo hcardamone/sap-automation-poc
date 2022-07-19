@@ -1,9 +1,11 @@
 *** Settings ***
 Library         SeleniumLibrary
+Variables       ./web-elements/extract-web-elements.yaml
 
 
-*** Variable ***
+*** Variables ***
 ${FIREFOX_BROWSER}      firefox
+${firefox_headless}     headlessfirefox
 
 
 *** Keywords ***
@@ -13,10 +15,10 @@ ${FIREFOX_BROWSER}      firefox
 # KW to open local FireFox Brownser
 
 That local firefox brownser was open
-    Open Browser       ${XBOX_HOME}   ${FIREFOX_BROWSER}
+    Open browser    ${xboxpage.allgmes}   ${firefox_headless}
     Maximize Browser Window
-    Wait Until Element Is Visible    ${XBOX_TOPMENU}
-    Title Should Be     ${XBOX_GC_TITLE}
+    Wait Until Element Is Visible    ${xboxpage.ctpmenu}
+    Title Should Be     ${xboxpage.cttitle}
 
 Close my current browser
     Close All Browsers
