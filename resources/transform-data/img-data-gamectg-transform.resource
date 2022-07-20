@@ -1,25 +1,31 @@
 # Behavior Driven Development (BDD) and Functional Testing
 [Documentation]     Here are the img transform data Keywords implementation resources
 
-# *** Settings ***
-# Library                 String
-# Library                 ../../resources/customlib/StringExtended/StringExtended.py
-# Variables               ../common/selenium-resources/web-elements/extract-web-elements.yaml
-
-# *** Keywords ***
-# Xbox game catalog and img screenshot validate
-
 *** Settings ***
-Library    SeleniumLibrary
-Library    RobotEyes
+Library                 SeleniumLibrary
+Library                 RobotEyes
+Variables               ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
-*** Keywords ***    
+*** Keywords ***
 Xbox game catalog and img screenshot validate
-# Sample visual regression test case  # Name of the example test case
-    # Open Browser    https://www.xbox.com/en-us/games/all-games    firefox
-    # Maximize Browser Window
-    # Open Eyes    SeleniumLibrary  5     C:\Users\\henri\Documents\SAP\sap-automation-poc\resources\extract-data\selenium-screenshot-1.png
-    # Wait Until Element Is Visible    id=lst-ib
-    # Capture Full Screen
-    # Compare Images
-    # Close Browser
+    Open Eyes                              none 
+    Maximize Browser Window
+    Page Should Contain                     ${xboxpage.cttitle}
+    Set Focus To Element                    ${xboxpage.ftgenre}
+    SeleniumLibrary.Click Element           ${xboxpage.ftgenre}
+    SeleniumLibrary.Click Element           ${xboxpage.acadvid}
+    Page Should Contain                     ${xboxpage.acaddsp}     20
+    Execute Javascript                      window.scrollTo(0,559)
+    Set Selenium Implicit Wait              ${EXPLICIT_WAIT}
+    Set Focus To Element                    ${xboxpage.gmimgid}
+    #Capture Full Screen         tolerance=5     name=homepage
+    Capture Page Screenshot
+    Compare Images
+    #RobotEyes.Compare Two Images      selenium-screenshot-1.png   selenium-screenshot-20.png   diffimage.png  tolerance=10
+    SeleniumLibrary.Click Element           ${xboxpage.gmimgid}
+    
+    
+    
+    
+
+#    robot --variablefile  ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results --include transform_game_info --exclude add_val_sapguitests --exclude extract_game_info  -v images_dir:..\..\..\extract-data -v actual_dir:..\..\..\mock .\demo.robot

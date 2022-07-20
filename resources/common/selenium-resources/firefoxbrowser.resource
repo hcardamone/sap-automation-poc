@@ -15,7 +15,7 @@ ${firefox_headless}     headlessfirefox
 # KW to open local FireFox Brownser
 
 That local firefox brownser was open
-    Open browser    ${xboxpage.allgmes}   ${firefox_headless}
+    Open browser    ${xboxpage.allgmes}   ${FIREFOX_BROWSER}
     Maximize Browser Window
     Wait Until Element Is Visible    ${xboxpage.ctpmenu}
     Title Should Be     ${xboxpage.cttitle}

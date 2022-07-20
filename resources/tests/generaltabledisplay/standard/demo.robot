@@ -33,6 +33,7 @@ SAP GUI NetWeaver Automation - Extract data information details
 SAP GUI NetWeaver Automation - Transform data information details
     [Documentation]  Test case - Transform data information details
     [Tags]              transform_game_info
+    Given that local firefox brownser was open
     # Given that the transform game data extraction was successfully
     When the game data was matched bettwen game catalog and screenshot 
     # Then set the all of variables
