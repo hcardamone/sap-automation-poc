@@ -22,11 +22,14 @@ opencv-python
 # python -m pip install --upgrade pip setuptools wheel
 # py -m pip install --user virtualenv <https://virtualenv.pypa.io/en/16.7.9/installation.html>
 # pip list
+## XPath Information
 # Installing Python Packages With Setup.Py (https://www.activestate.com/resources/quick-reads/how-to-manually-install-python-packages/)
 # To install a package that includes a setup.py file, open a command or terminal window and:
 # cd into the root directory where setup.py is located 
 # Enter: python setup.py install 
 # python -m pip install sdist bdist_wheel
+# where does pip install packages
+# pip install robotframework-jsonlibrary
 # pip install wheel
 # pip install nes-py
 # pip install Cmake
@@ -43,3 +46,6 @@ opencv-python
 # pip install –-pre --upgrade robotframework-ride==5.0
 # Pip install –u wxPython
 # pip install robotframework-ride
+# trouble shoots
+# https://phoenixnap.com/kb/install-pip-windows
+# https://www.linuxtutorials.org/fix-warning-ignoring-invalid-distribution-site-packages/

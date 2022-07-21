@@ -12,5 +12,5 @@ Extract the game data information by screenshot
 That the transform game data extraction was successfully
     Transform the game data extraction to save
 
-The game data was matched bettwen game catalog and screenshot 
-    Xbox game catalog and img screenshot validate
+Transform the game data information
+    get the game data variable to create the json file
