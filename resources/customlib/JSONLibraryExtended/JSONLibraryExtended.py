@@ -32,3 +32,6 @@ def json_payloads_should_match(response_json, expected_json):
         raise JsonCompareError("Payloads do not match! Differences: {}".format(diff))
     else:
         return True
+
+# https://dig.codes/example/compare-two-json-responses-on-robot-framework
+# https://stackoverflow.com/questions/36916304/comparing-json-result-from-a-function-in-robot-framework

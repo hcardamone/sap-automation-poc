@@ -6,7 +6,6 @@ ${MOCKDIR}          ../../../../resources/mock/
 ${ECTDIR}           ../../../../resources/extract-data/
 ${TRFDIR}           ../../../../resources/transform-data/
 ${expected_json}    ../../../../resources/mock/data-gamectg-mock.json
-#${response_json}    ../../../../resources/extract-data/data-gamectg-extract.json
 
 
 *** Settings ***
