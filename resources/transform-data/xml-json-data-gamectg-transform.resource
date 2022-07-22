@@ -45,19 +45,13 @@ Get the game data variable to create the xml/json file
     ${req_json}    Json.Dumps    ${new_json}
     END
     [Return]    ${req_json}
-    Create File         ${MOCKDIR}data-gamectg-mock.json    ${req_json}
-    
-    # ${is_gamecreatecontent}     Create Binary File           ${TRFDIR}data-gamectg-atual.json     ${is_gamedatacontent}
-    # Move File              
-    
-    
-    
-         #${TRFDIR}data-gamectg-atual.json      ${MOCKDIR}data-gamectg-atual.json
-    # ${response_json}            Get Binary File        ${MOCKDIR}data-gamectg-atual.json
-    # ${expected_json}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
-    # &{eval_response_json}    Evaluate    json.loads('''${response_json}''')   json    
-    # &{eval_expected_json}    Evaluate    json.loads('''${expected_json}''')   json    
-    # JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
-    # ...                                                   ${eval_expected_json}
-    # Log Dictionary    ${eval_response_json}
-    # Log Dictionary    ${eval_expected_json}
+    Create File         ${TRFDIR}data-gamectg-new.json    ${req_json}
+    Move File           ${TRFDIR}data-gamectg-new.json    ${MOCKDIR}
+    ${response_json}            Get Binary File        ${MOCKDIR}data-gamectg-new.json
+    ${expected_json}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
+    &{eval_response_json}    Evaluate    json.loads('''${response_json}''')   json    
+    &{eval_expected_json}    Evaluate    json.loads('''${expected_json}''')   json    
+    JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
+    ...                                                   ${eval_expected_json}
+    Log Dictionary    ${eval_response_json}
+    Log Dictionary    ${eval_expected_json}
