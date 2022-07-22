@@ -10,6 +10,8 @@ ${expected_json}    ../../../../resources/mock/data-gamectg-mock.json
 
 *** Settings ***
 Library         OperatingSystem
+Library         Collections
+Library         json
 Library         JSONLibrary
 Library         XML
 Library         String
@@ -19,21 +21,43 @@ Variables       ../common/selenium-resources/web-elements/extract-web-elements.y
 ***Keywords***
 
 Get the game data variable to create the xml/json file
+    [Arguments]    @{args}
     ${is_getbinaryfile}         Get Binary File     ${ECTDIR}data-gamectg-extract.xml
     ${is_savebinaryfile}        Save Xml            ${is_getbinaryfile}     ${MOCKDIR}data-gamectg-mock.xml
     Elements Should Match       ${ECTDIR}data-gamectg-extract.xml           ${MOCKDIR}data-gamectg-mock.xml
     ${is_gameparsecontent}      Parse XML          ${ECTDIR}data-gamectg-extract.xml
     Save Xml                    ${is_gameparsecontent}        ${MOCKDIR}data-gamectg-atual.xml  
-    Elements Should Match      ${ECTDIR}data-gamectg-extract.xml            ${MOCKDIR}data-gamectg-old.xml
+    Elements Should Match      ${ECTDIR}data-gamectg-extract.xml            ${MOCKDIR}data-gamectg-mock.xml
+    ${is_gamenamecontent}       Get Substring               ${xboxpage.gelemnt}     19  54
+    ${is_gamejsonobj}       Get Binary File              ${ECTDIR}data-gamectg-extract.json
+    ${is_gamecreatecontent}     Create Binary File           ${TRFDIR}data-gamectg-new.json     ${is_gamejsonobj}
+    ${is_tonewcontent}         Get Binary File              ${TRFDIR}data-gamectg-new.json
+    &{evaljson}=             Load JSON From File        ${TRFDIR}data-gamectg-new.json
+    &{json}     Create Dictionary         &{evaljson}
+    ${is_gamejsonobjupd}       Update Value To Json       ${json}    $..xboxctnt.gamname     ${is_gamenamecontent} 
+    ${new_json}     Create Dictionary         &{is_gamejsonobjupd}
+    ${req_json}     Evaluate        json.dumps(&{new_json})                 json
+    ${pair}         Get Length   ${req_json}
+    Log To Console        ${req_json}
+    FOR     ${pair}    IN     ${req_json}
+    ...     ${is_gamejsonobjupd}     Split String    ${pair}    =
+    ...     Set To Dictionary    ${new_json}    ${is_gamejsonobjupd}
+    ${req_json}    Json.Dumps    ${new_json}
+    END
+    [Return]    ${req_json}
+    Create File         ${MOCKDIR}data-gamectg-mock.json    ${req_json}
     
-    ${is_gamedatacontent}       Get Binary File              ${ECTDIR}data-gamectg-extract.json
-    ${is_gamecreatecontent}     Create Binary File           ${TRFDIR}data-gamectg-atual.json     ${is_gamedatacontent}
-    Move File                   ${TRFDIR}data-gamectg-atual.json      ${MOCKDIR}data-gamectg-atual.json
-    ${response_json}            Get Binary File        ${MOCKDIR}data-gamectg-atual.json
-    ${expected_json}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
-    &{eval_response_json}    Evaluate    json.loads('''${response_json}''')    
-    &{eval_expected_json}    Evaluate    json.loads('''${expected_json}''')    
-    JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
-    ...                                                   ${eval_expected_json}
-    Log Dictionary    ${eval_response_json}
-    Log Dictionary    ${eval_expected_json}
+    # ${is_gamecreatecontent}     Create Binary File           ${TRFDIR}data-gamectg-atual.json     ${is_gamedatacontent}
+    # Move File              
+    
+    
+    
+         #${TRFDIR}data-gamectg-atual.json      ${MOCKDIR}data-gamectg-atual.json
+    # ${response_json}            Get Binary File        ${MOCKDIR}data-gamectg-atual.json
+    # ${expected_json}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
+    # &{eval_response_json}    Evaluate    json.loads('''${response_json}''')   json    
+    # &{eval_expected_json}    Evaluate    json.loads('''${expected_json}''')   json    
+    # JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
+    # ...                                                   ${eval_expected_json}
+    # Log Dictionary    ${eval_response_json}
+    # Log Dictionary    ${eval_expected_json}

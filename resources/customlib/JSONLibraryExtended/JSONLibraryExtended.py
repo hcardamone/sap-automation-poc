@@ -6,6 +6,12 @@ from pprint import pprint
 from robot.api import logger
 
 
+class JSONLibraryExtended(object):
+
+    def append_value_json_obj(self, json_obj, key, value):
+            json_obj[key]=value
+            return json_obj
+
 class JsonCompareError(Exception):
     pass
 
@@ -17,7 +23,6 @@ def dictionaries_should_be_equal(response, expectation):
         raise JsonCompareError("Diff found: {}".format(difference))
     else:
         return True
-
 
 def compare_json_payloads(response_json, expected_json):
     logger.debug("Compare JSON payloads")
