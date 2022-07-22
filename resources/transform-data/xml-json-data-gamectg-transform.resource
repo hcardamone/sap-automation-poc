@@ -28,13 +28,18 @@ Get the game data variable to create the xml/json file
     ${is_gameparsecontent}      Parse XML          ${ECTDIR}data-gamectg-extract.xml
     Save Xml                    ${is_gameparsecontent}        ${MOCKDIR}data-gamectg-atual.xml  
     Elements Should Match      ${ECTDIR}data-gamectg-extract.xml            ${MOCKDIR}data-gamectg-mock.xml
-    ${is_gamenamecontent}       Get Substring               ${xboxpage.gelemnt}     19  54
-    ${is_gamejsonobj}       Get Binary File              ${ECTDIR}data-gamectg-extract.json
+    ${is_gamenamecontent}       Get Substring               ${xboxpage.gelemnt}     -77  -42
+    ${is_gamevaluecntnt}        Get Substring               ${xboxpage.gelemnt}      92   -3
+    ${is_gamegendercntnt}       Get Substring               ${xboxpage.acadelm}      16   -3
+             
+    ${is_gamejsonobj}           Get Binary File              ${ECTDIR}data-gamectg-extract.json
     ${is_gamecreatecontent}     Create Binary File           ${TRFDIR}data-gamectg-new.json     ${is_gamejsonobj}
-    ${is_tonewcontent}         Get Binary File              ${TRFDIR}data-gamectg-new.json
-    &{evaljson}=             Load JSON From File        ${TRFDIR}data-gamectg-new.json
+    ${is_tonewcontent}          Get Binary File              ${TRFDIR}data-gamectg-new.json
+    &{evaljson}=                Load JSON From File        ${TRFDIR}data-gamectg-new.json
     &{json}     Create Dictionary         &{evaljson}
     ${is_gamejsonobjupd}       Update Value To Json       ${json}    $..xboxctnt.gamname     ${is_gamenamecontent} 
+    ${is_gamejsonobjupd}       Update Value To Json       ${json}    $..xboxctnt.gvalue      ${is_gamevaluecntnt} 
+    ${is_gamejsonobjupd}       Update Value To Json       ${json}    $..xboxctnt.ggender     ${is_gamegendercntnt} 
     ${new_json}     Create Dictionary         &{is_gamejsonobjupd}
     ${req_json}     Evaluate        json.dumps(&{new_json})                 json
     ${pair}         Get Length   ${req_json}

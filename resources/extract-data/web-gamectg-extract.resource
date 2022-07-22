@@ -16,7 +16,7 @@ Get the game data detail information on xbox game catalog
     Execute Javascript                      window.scrollTo(0,559)
     Set Selenium Implicit Wait              ${EXPLICIT_WAIT}
     Set Focus To Element                    ${xboxpage.gmimgid}
-    SeleniumLibrary.Click Element           ${xboxpage.gmimgid}
+    #SeleniumLibrary.Click Element           ${xboxpage.gmimgid}
     Element Should Be Visible               ${xboxpage.gelemnt}
     Capture Page Screenshot
     #Wait Until Element Is Visible           ${XBOX_GAME_ELEMENT}        20
