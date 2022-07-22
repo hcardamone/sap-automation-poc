@@ -14,7 +14,7 @@ Resource            ../../../../resources/bdd-resources/web-gamectg-BDD.resource
 Resource            ../../../../resources/extract-data/web-gamectg-extract.resource
 Resource            ../../../../resources/extract-data/img-data-gamectg-extract.resource
 Resource            ../../../../resources/transform-data/web-gamectg-transform.resource
-Resource            ../../../../resources/transform-data/json-data-gamectg-transform.resource
+Resource            ../../../../resources/transform-data/xml-json-data-gamectg-transform.resource
 
 #Suite Setup         Login in SAP NetWeaver       
 #Force Tags          validate_game_info    add_val_sapguitests

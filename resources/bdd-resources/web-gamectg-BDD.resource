@@ -13,4 +13,4 @@ That the transform game data extraction was successfully
     Transform the game data extraction to save
 
 Transform the game data information
-    get the game data variable to create the json file
+    get the game data variable to create the xml/json file
