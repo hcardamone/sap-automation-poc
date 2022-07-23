@@ -21,7 +21,7 @@ Variables       ../common/selenium-resources/web-elements/extract-web-elements.y
 
 ***Keywords***
 
-Get the game data variable to create the xml/json file
+Get the game data information to create the xml/json file
     [Arguments]    @{args}
     ${is_getbinaryfile}         Get Binary File     ${ECTDIR}data-gamectg-extract.xml
     ${is_savebinaryfile}        Save Xml            ${is_getbinaryfile}     ${MOCKDIR}data-gamectg-mock.xml

@@ -5,15 +5,15 @@ from deepdiff import DeepDiff, grep
 from pprint import pprint
 from robot.api import logger
 
-class JsonCompareError(Exception):
-    pass
+#class JsonCompareError(Exception):
+#    pass
 
 
 def dictionaries_should_be_equal(response, expectation):
     union = jsondiff.patch(response, expectation)
     difference = jsondiff.diff(response, union)
     if difference:
-        raise JsonCompareError("Diff found: {}".format(difference))
+        raise ValueError("Diff found: {}".format(difference))
     else:
         return True
 
@@ -27,7 +27,7 @@ def compare_json_payloads(response_json, expected_json):
 def json_payloads_should_match(response_json, expected_json):
     diff = DeepDiff(response_json, expected_json, verbose_level=2)
     if diff != {}:
-        raise JsonCompareError("Payloads do not match! Differences: {}".format(diff))
+        raise ValueError("Payloads do not match! Differences: {}".format(diff))
     else:
         return True
 

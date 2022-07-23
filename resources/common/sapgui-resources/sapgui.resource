@@ -9,11 +9,12 @@ Library         AutoItLibrary
 Library         String
 Library         Process
 Library         Collections
-Variables       ../../robot-variables/robot-variables-transactions.yaml
+Variables       ./environments.yaml
 Variables       ./ui-elements/sd-elements.yaml
+Variables       ../../input-data/input-data-transactions.yaml
 Variables       ../../input-data/input-data-zcategmaterial.yaml
 Variables       ../../input-data/input-data-zcadastromat.yaml
-Variables       ./environments.yaml
+
 
 *** Variables ***
 ${SAPGUIPROCESSID}
@@ -24,9 +25,9 @@ ${SAPGUIPROCESSID}
 ####                                      ####
 # KW to Open SAP NetWeaver application
 Open SAP NetWeaver application
-    ${SAPGUIPROCESSID}    Run   ${PATH_TO_SAPLOGON}
+    ${SAPGUIPROCESSID}    AutoItLibrary.Run   ${PATH_TO_SAPLOGON}
     Set Global Variable    ${SAPGUIPROCESSID}
-    Sleep    3s    reason=Waiting the splash screen to disappear
+    Sleep    3s    Waiting the splash screen to disappear
     Wait For Active Window    ${saplogon.windowtitle}${SAPGUI_VERSION}     TimeOut=15
 
 # KW to close SAP Gui application

@@ -5,7 +5,7 @@ debug.log
 .iml
 node_modules
 logs*/
-environments.yaml
+#environments.yaml
 results*/
 *.pyc
 doc

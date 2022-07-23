@@ -44,11 +44,10 @@ saplogon:
   messtxt:                    Information
 
 sapmain:
-    copyrightPopup:           wnd[2]/tbar[0]/btn[0]
-    confirmPopup_btn:         wnd[1]/tbar[0]/btn[0]
-    confirmBtn:               wnd[0]/tbar[0]/btn[11]
-    edtBtn:                   wnd[0]/tbar[1]/btn[25]
-    nwentrie:                 wnd[0]/tbar[1]/btn[5]
+  copyrightPopup:           wnd[2]/tbar[0]/btn[0]
+  confirmPopup_btn:         wnd[1]/tbar[0]/btn[0]
+  confirmBtn:               wnd[0]/tbar[0]/btn[11]
+  bartrans:                 wnd[0]/tbar[0]/okcd
 
 sapzcdtrmat:
   matnr:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/ctxtZT0004-MATNR[0,0]
@@ -58,12 +57,29 @@ sapzcdtrmat:
   valor:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/txtZT0004-VALOR[4,0]
   moeda:                      wnd[0]/usr/tblSAPLZF0004TCTRL_ZT0004/txtZT0004-WAERS[5,0]
 
+
+sapzxbxcgttb:                   
+  fldavble:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/chkZTXGCTG01-AVBLE[6,0]
+  fldplayn:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/cmbZTXGCTG01-PLAYN[0,0]
+  fldgenre:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/cmbZTXGCTG01-GENRE[1,0]
+  fldftres:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/cmbZTXGCTG01-FTRES[2,0]
+  fldgamer:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-GAMER[3,0]
+  fldvalue:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-VALUE[4,0]
+  fldwaers:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-WAERS[5,0]
+
+sapzxbxcgtpg:
+  exebtn:                     wnd[0]/tbar[1]/btn[8]
+  colgamer:                   wnd[0]/usr/shell
+                            
+
 sapedittableview:
-  
   tbsch:                      wnd[0]/usr/ctxtVIEWNAME
+  edtBtn:                     wnd[0]/tbar[1]/btn[25]
+  nwentrie:                   wnd[0]/tbar[1]/btn[5]
   codct:                      wnd[0]/usr/tblSAPLZF0003TCTRL_ZT0003/txtZT0003-CODCT[0,0]
   denom:                      wnd[0]/usr/tblSAPLZF0003TCTRL_ZT0003/txtZT0003-DENOM[1,0]
   phbtn:                      wnd[0]/usr/btnUPDATE_PUSH
+  shbtn:                      wnd[0]/usr/btnSHOW_PUSH
 
 
 
