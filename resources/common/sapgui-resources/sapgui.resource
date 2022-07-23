@@ -10,7 +10,7 @@ Library         String
 Library         Process
 Library         Collections
 Variables       ./environments.yaml
-Variables       ./ui-elements/sd-elements.yaml
+Variables       ./ui-elements/sap-elements.yaml
 Variables       ../../input-data/input-data-transactions.yaml
 Variables       ../../input-data/input-data-zcategmaterial.yaml
 Variables       ../../input-data/input-data-zcadastromat.yaml
@@ -41,8 +41,8 @@ Dismiss Multiple Logon warning dialog if needed
     ${dialogTitle}      Run Keyword If      '${is_popupdisplayed}' == '${TRUE}'    Run Keyword
     ...                 Get Window Title    ${saplogon.multipleLogonWarning_dlg}
     Run Keyword If    '${dialogTitle}' == '${saplogon.multipleLogonTitle_dlg}'    Run Keywords
-    ...                Select Radio Button    ${saplogon.${MULTIPLE_LOGON_ACTION}}   AND
-    ...                Click Element    ${sapmain.confirmPopup_btn}
+    ...                SapGuiLibraryExtended.Select Radio Button    ${saplogon.${MULTIPLE_LOGON_ACTION}}   AND
+    ...                SapGuiLibraryExtended.Click Element    ${sapmain.confirmPopup_btn}
     ...                ELSE    Return From Keyword
 
 

@@ -9,10 +9,7 @@ Extract the game data information on xbox game catalog title
 Transform the game data information
     Get the game data information to create the xml/json file
     
-That the game data information was extract
-    Open SAP NetWeaver application
-
-The SAP GUI was open
+That the SAP NetWeaver application was open
     Access the SM30 transaction
     Access the ZTXGCTG01 table
 

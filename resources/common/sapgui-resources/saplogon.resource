@@ -10,9 +10,9 @@ Login in SAP NetWeaver
     Open SAP NetWeaver application
     Wait Until Keyword Succeeds    10s    2s    Connect To Session
     Open Connection        ${SAP_ENV}
-    Input Text             ${saplogon.usr}     ${USER_NAME}
-    Input Password         ${saplogon.pwd}     ${PWD}
-    Input Text             ${saplogon.lng}     ${LANGUAGE}  
+    SapGuiLibraryExtended.Input Text             ${saplogon.usr}     ${USER_NAME}
+    SapGuiLibraryExtended.Input Password         ${saplogon.pwd}     ${PWD}
+    SapGuiLibraryExtended.Input Text             ${saplogon.lng}     ${LANGUAGE}  
     Send Vkey    Enter
     Dismiss Multiple Logon warning dialog if needed
     Set Explicit Wait    ${EXPLICIT_WAIT}

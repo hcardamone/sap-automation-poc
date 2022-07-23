@@ -3,12 +3,12 @@
 *** Keywords ***
 
 Access the SM30 transaction
-    SapGuiLibraryExtended.Input Text          ${sapedittableview.tbsch}       ${standard.maintaintable}
+    Run Transaction       ${standard.maintaintable}
     Send Vkey    Enter
 
 
 Access the ZTXGCTG01 table
-    SapGuiLibraryExtended.Input Text          ${sapedittableview.tbsch}       ${zsaptransactions.zxboxctgtble}
+    Input Text          ${sapedittableview.tbsch}       ${zsaptransactions.zxboxctgtble}
     Send Vkey    Enter
 
 

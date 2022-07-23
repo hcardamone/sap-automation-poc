@@ -33,8 +33,8 @@ SAP GUI NetWeaver Automation - Extract data information details
 SAP GUI NetWeaver Automation - Transform data information details
     [Documentation]  Test case - Transform data information details
     [Tags]              transform_game_info
-    Given that the game data information was extract
-    When the SAP GUI was open
+    Given that the SAP NetWeaver application was open
+    #When the SAP GUI was open
     # Then load the game data information
     # And close my conection
 
