@@ -4,7 +4,6 @@ Documentation       SAP GUI Tests - this resource provides some tests, this is a
 ...                  - run this resource to test the automation. Obs: check the reame.md # Running a Test Suite session, step 3.
 
 *** Settings ***
-Resource            ../../../../resources/common/sapgui-resources/generaltabledisplay.resource
 Resource            ../../../../resources/common/sapgui-resources/sapgui.resource
 Resource            ../../../../resources/common/sapgui-resources/saplogon.resource
 Resource            ../../../../resources/load-data/game-table-load-data.resource

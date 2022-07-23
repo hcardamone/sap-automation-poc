@@ -3,7 +3,6 @@
 
 *** Settings ***
 Library                 SeleniumLibrary
-Library                 RobotEyes
 Variables               ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 *** Keywords ***
