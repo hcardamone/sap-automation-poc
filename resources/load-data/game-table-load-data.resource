@@ -41,8 +41,8 @@ Acess the ZXGCTG01 transaction
     Send Vkey    Enter
     Send Vkey    F8
     Set Column Width    ${sapzxbxcgtpg.srow}    GAMER   29
-    ${row}      SapGuiLibraryExtended.Get Row Count      ${row}   GAMER  GAMER
-    ${is_getvaluetrue}      SapGuiLibraryExtended.Get Cell Value           ${sapzxbxcgtpg.srow}
+    ${row}      SapGuiLibraryExtended.Get Row Count      ${sapzxbxcgtpg.srow}
+    ${is_getvaluetrue}      SapGuiLibraryExtended.Get Cell Value     GAMER    ${row}       GAMER
      Run Keyword If     ${row} == 0     Fail    There are no one data register
      FOR     ${index}     IN     ${sapzxbxcgtpg.srow}    Run Keywords
      Run Keyword If     '${is_getvaluetrue}'  ==  '${xboxgamectg.gamename}'    
