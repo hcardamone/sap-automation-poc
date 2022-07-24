@@ -13,9 +13,10 @@ If IsObject(WScript) Then
    WScript.ConnectObject application, "on"
 End If
 session.findById("wnd[0]").maximize
-session.findById("wnd[0]/tbar[0]/okcd").text = "/nsm30"
+session.findById("wnd[0]/tbar[0]/okcd").text = "/nSM30"
 session.findById("wnd[0]").sendVKey 0
 session.findById("wnd[0]/usr/ctxtVIEWNAME").text = "ZTXGCTG01"
+session.findById("wnd[0]/usr/ctxtVIEWNAME").caretPosition = 9
 session.findById("wnd[0]").sendVKey 0
 session.findById("wnd[0]/usr/btnSHOW_PUSH").press
 session.findById("wnd[0]/tbar[1]/btn[25]").press
@@ -30,12 +31,9 @@ session.findById("wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-WAERS[
 session.findById("wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/chkZTXGCTG01-AVBLE[6,0]").setFocus
 session.findById("wnd[0]/tbar[0]/btn[11]").press
 session.findById("wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-VALUE[4,0]").text = "14,99"
-session.findById("wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-VALUE[4,0]").caretPosition = 3
+session.findById("wnd[0]").sendVKey 0
+session.findById("wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-GAMER[3,0]").text = "Grand Thefh Auto V: Premium Edition"
+session.findById("wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-GAMER[3,0]").setFocus
+session.findById("wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-GAMER[3,0]").caretPosition = 11
 session.findById("wnd[0]").sendVKey 0
 session.findById("wnd[0]/tbar[0]/btn[11]").press
-session.findById("wnd[0]/tbar[0]/okcd").text = "/nZXGCTG01"
-session.findById("wnd[0]").sendVKey 0
-session.findById("wnd[0]/tbar[1]/btn[8]").press
-session.findById("wnd[0]/usr/shell").setColumnWidth "GAMER",25
-session.findById("wnd[0]/usr/shell").setCurrentCell 4,"GAMER"
-session.findById("wnd[0]/usr/shell").clickCurrentCell

@@ -6,13 +6,16 @@ Documentation       SAP GUI Tests - this resource provides some tests, this is a
 *** Settings ***
 Resource            ../../../../resources/common/sapgui-resources/sapgui.resource
 Resource            ../../../../resources/common/sapgui-resources/saplogon.resource
-Resource            ../../../../resources/load-data/game-table-load-data.resource
 Resource            ../../../../resources/common/selenium-resources/firefoxbrowser.resource
-Resource            ../../../../resources/bdd-resources/web-gamectg-BDD.resource
+Resource            ../../../../resources/load-data/game-table-load-data.resource
+Resource            ../../../../resources/bdd-resources/gamectg-BDD.resource
 Resource            ../../../../resources/extract-data/web-gamectg-extract.resource
 Resource            ../../../../resources/extract-data/img-data-gamectg-extract.resource
 Resource            ../../../../resources/transform-data/web-gamectg-transform.resource
 Resource            ../../../../resources/transform-data/xml-json-data-gamectg-transform.resource
+Variables           ../../../../resources/input-data/input-data-transactions.yaml
+Variables           ../../../../resources/input-data/input-data-variables.py
+Variables           ../../../../resources/input-data/input-data-xboxctg.yaml
 
 Suite Setup         Login in SAP NetWeaver       
 #Force Tags          validate_game_info    add_val_sapguitests
@@ -33,10 +36,10 @@ SAP GUI NetWeaver Automation - Extract data information details
 SAP GUI NetWeaver Automation - Transform data information details
     [Documentation]  Test case - Transform data information details
     [Tags]              transform_game_info
-    Given that the SAP NetWeaver application was open
-    #When the SAP GUI was open
-    # Then load the game data information
-    # And close my conection
+    # Given that the SAP NetWeaver application was open
+    # When load the game data information
+    Then access the ZXGCTG01 transaction to take a screenshot
+    And close the SAP NetWeaver application
 
 SAP GUI NetWeaver Automation - Create Category Material and Register Material Z Programs
     [Documentation]   Test case - Create

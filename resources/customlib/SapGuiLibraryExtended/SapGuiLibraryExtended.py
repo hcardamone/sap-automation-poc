@@ -1,4 +1,5 @@
 from ast import keyword
+from pickle import TRUE
 from SapGuiLibrary import *
 import pythoncom
 from pythoncom import com_error
@@ -256,6 +257,15 @@ class SapGuiLibraryExtended (SapGuiLibrary):
         else:
             self.take_screenshot()
             message = "Unknown transaction: '%s'" % transaction
+            raise ValueError(message)
+
+    def set_column_width(self, element_id, table_id, width_val):
+        self.element_should_be_present(element_id)
+        try:
+            self.session.findById(element_id).setColumnWidth(table_id, width_val)
+        except com_error:
+            self.take_screenshot()
+            message = "You cannot use Set Column Width on element type '%s', maybe check other Keywords on SAPGUI Library documentation instead?" % element_id
             raise ValueError(message)
 
     def generate_number_incremental(var_num):

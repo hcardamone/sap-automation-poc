@@ -1,11 +1,6 @@
 # Behavior Driven Development (BDD) and Functional Testing
 [Documentation]     Here are the img transform data Keywords implementation resources
 
-*** Variables ***
-${MOCKDIR}          ../../../../resources/mock/
-${ECTDIR}           ../../../../resources/extract-data/
-${TRFDIR}           ../../../../resources/transform-data/
-${expected_json}    ../../../../resources/mock/data-gamectg-mock.json
 
 
 *** Settings ***
@@ -53,10 +48,11 @@ Get the game data information to create the xml/json file
     Create File         ${TRFDIR}data-gamectg-new.json    ${req_json}
     Move File           ${TRFDIR}data-gamectg-new.json    ${MOCKDIR}
     ${response_json}            Get Binary File        ${MOCKDIR}data-gamectg-new.json
-    ${expected_json}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
+    ${EXPECTED_RESPONSE}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
     &{eval_response_json}    Evaluate    json.loads('''${response_json}''')   json    
     &{eval_expected_json}    Evaluate    json.loads('''${expected_json}''')   json    
     JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
     ...                                                   ${eval_expected_json}
     Log Dictionary    ${eval_response_json}
     Log Dictionary    ${eval_expected_json}
+    Set Global Variable     ${eval_response_json}

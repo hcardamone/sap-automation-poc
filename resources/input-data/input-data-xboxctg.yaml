@@ -1,5 +1,8 @@
 xboxgamectg: 
+  playOn: "Xbox"
+  gnrgme: "Act & Adv"
+  gmfltr: "Oln multip"
+  gamename: "Grand Theft Auto V: Premium Edition"
   genregame: "Action & adventure"
-  playOn: ""
-  gamename: "GTA V"
-  gamevalue: ""
+  gamevalue: "14,99"
+  gamecurcy: "USR"

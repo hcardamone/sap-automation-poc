@@ -66,10 +66,13 @@ sapzxbxcgttb:
   fldgamer:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-GAMER[3,0]
   fldvalue:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-VALUE[4,0]
   fldwaers:                   wnd[0]/usr/tblSAPLZTXGCTG01TCTRL_ZTXGCTG01/txtZTXGCTG01-WAERS[5,0]
+  zxbxsbar:                   wnd[0]/sbar
 
 sapzxbxcgtpg:
   exebtn:                     wnd[0]/tbar[1]/btn[8]
+  srow:                       wnd[0]/usr/shell
   colgamer:                   wnd[0]/usr/shell
+  zxbxgfvw:                   wnd[0]/usr/shell
                             
 
 sapedittableview:

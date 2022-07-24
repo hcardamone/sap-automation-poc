@@ -13,14 +13,18 @@ That the SAP NetWeaver application was open
     Access the SM30 transaction
     Access the ZTXGCTG01 table
 
-Then load the game data information
+load the game data information
     Get the game data extraction
     Load the game data extraction to ZTXGCTG01 table
-    Acess the ZXGCTG01 transaction to get the screenshot evidence
+    
 
-And close my conection
+Access the ZXGCTG01 transaction to take a screenshot
+    Acess the ZXGCTG01 transaction
+    Get the screenshot evidence
+
+
+Close the SAP NetWeaver application
     Close SAP NetWeaver
-
 
 #Extract the game data information by screenshot
     #Get the game data detail information on img screenshot
