@@ -10,6 +10,7 @@ Transform the game data information
     Get the game data information to create the xml/json file
     
 That the SAP NetWeaver application was open
+    Login in SAP NetWeaver
     Access the SM30 transaction
     Access the ZTXGCTG01 table
 

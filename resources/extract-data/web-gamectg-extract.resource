@@ -26,10 +26,9 @@ Get the game data detail information on xbox game catalog
     Set Focus To Element                    ${xboxpage.gmimgid}
     #SeleniumLibrary.Click Element           ${xboxpage.gmimgid}
     Element Should Be Visible               ${xboxpage.gelemnt}
-    ScreenCapLibrary.Set Screenshot Directory                ${EXTCTDIR}
-    ${TESSERACT_IMAGE_PATH}         ScreenCapLibrary.Take Screenshot           ${screenshotname}
-    Set Global Variable         ${TESSERACT_IMAGE_PATH}        
-    ScreenCapLibrary.Set Screenshot Directory                ${EXTCTDIR}
+    #ScreenCapLibrary.Set Screenshot Directory                ${EXTCTDIR}
+    ${IMAGE_PATH}         SeleniumLibrary.Capture Page screenshot   ${screenshotname}
+    Move File           ${IMAGE_PATH}     ${EXTCTDIR}
     #Wait Until Element Is Visible           ${XBOX_GAME_ELEMENT}        20
     #${handles}  Get Window Handles          browser=ALL
     #Switch Window   ${handles}[1]

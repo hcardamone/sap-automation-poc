@@ -251,8 +251,8 @@ class SapGuiLibraryExtended (SapGuiLibrary):
         self.session.findById("wnd[0]/tbar[0]/okcd").text = transaction
         time.sleep(self.explicit_wait)
         self.send_vkey(0)
-        if transaction == '/NEX':
-            exit_message = "/NEX transaction force SAP Gui to exit"
+        if transaction == '/nEX':
+            exit_message = "/nEX transaction force SAP Gui to exit"
             return  exit_message
         else:
             self.take_screenshot()

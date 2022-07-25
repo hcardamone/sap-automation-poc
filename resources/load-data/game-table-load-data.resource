@@ -54,5 +54,5 @@ Acess the ZXGCTG01 transaction
 
 
 Get the screenshot evidence
-    ${VARTEMPDIR}      Take Screenshot     ${TEMPDIR}\game-add.jpg
+    ${VARTEMPDIR}      ScreenCapLibrary.Take Screenshot     ${TEMPDIR}\game-add.jpg
     Log To Console       Screenshot was saved: ${VARTEMPDIR}      

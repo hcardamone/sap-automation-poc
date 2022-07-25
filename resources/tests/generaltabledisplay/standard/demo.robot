@@ -30,7 +30,7 @@ SAP GUI NetWeaver Automation - Extract data information details
     When extract the game data information on xbox game catalog title
     Then close my current browser
     And transform the game data information
-    And extract the game data information by screenshot
+    #And extract the game data information by screenshot
     
     
 SAP GUI NetWeaver Automation - Transform data information details
