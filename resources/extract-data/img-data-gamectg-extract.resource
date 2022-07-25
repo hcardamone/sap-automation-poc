@@ -13,3 +13,4 @@ Get the game data detail information on img screenshot
     Set Local Variable      ${IMG_PROCESSED}
     ${IMG_CONTENT}      Get Image Content   ${IMG_PROCESSED}  -l ${TESSERACT_MULT_LNG} --psm 1 -c ${TESSERACT_CHAR_WHITLT} ${TESSERACT_CHAR_BLKTLT}
     Set Global Variable     ${IMG_CONTENT}
+    #ajustar get image content
