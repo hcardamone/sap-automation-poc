@@ -22,13 +22,12 @@ Access the ZXGCTG01 transaction to take a screenshot
     Acess the ZXGCTG01 transaction
     Get the screenshot evidence
 
-
 Close the SAP NetWeaver application
     Close SAP NetWeaver
 
-#Extract the game data information by screenshot
-    #Get the game data detail information on img screenshot
+Extract the game data information by screenshot
+    Get the game data detail information on img screenshot
 
-#That the transform game data extraction was successfully
-    #Transform the game data extraction to save
+That the transform game data extraction was successfully
+    Transform the game data extraction to save
 

@@ -1,9 +1,17 @@
 # Behavior Driven Development (BDD) and Functional Testing
 [Documentation]     Here are the web extract data Keywords implementation resources
 
+
+*** Variables ***
+${EXTCTDIR}               C:\\Users\\henri\\Documents\\SAP\\sap-automation-poc\\resources\\extract-data
+${screenshotname}                         selenium-screenshot-1.png
+
 *** Settings ***
-Library                 SeleniumLibrary
-Variables               ../common/selenium-resources/web-elements/extract-web-elements.yaml
+Library                SeleniumLibrary
+Library	               Screenshot	screenshot_directory${EXTCTDIR}
+Library                ScreenCapLibrary
+Variables              ../common/selenium-resources/web-elements/extract-web-elements.yaml
+
 
 
 *** Keywords ***
@@ -18,7 +26,10 @@ Get the game data detail information on xbox game catalog
     Set Focus To Element                    ${xboxpage.gmimgid}
     #SeleniumLibrary.Click Element           ${xboxpage.gmimgid}
     Element Should Be Visible               ${xboxpage.gelemnt}
-    Capture Page Screenshot
+    ScreenCapLibrary.Set Screenshot Directory                ${EXTCTDIR}
+    ${TESSERACT_IMAGE_PATH}         ScreenCapLibrary.Take Screenshot           ${screenshotname}
+    Set Global Variable         ${TESSERACT_IMAGE_PATH}        
+    ScreenCapLibrary.Set Screenshot Directory                ${EXTCTDIR}
     #Wait Until Element Is Visible           ${XBOX_GAME_ELEMENT}        20
     #${handles}  Get Window Handles          browser=ALL
     #Switch Window   ${handles}[1]

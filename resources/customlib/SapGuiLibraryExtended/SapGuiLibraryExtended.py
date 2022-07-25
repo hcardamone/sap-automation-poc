@@ -268,5 +268,37 @@ class SapGuiLibraryExtended (SapGuiLibrary):
             message = "You cannot use Set Column Width on element type '%s', maybe check other Keywords on SAPGUI Library documentation instead?" % element_id
             raise ValueError(message)
 
+    def select_current_column(self, element_id, column_id):
+        self.element_should_be_present(element_id)
+        try:
+            self.session.findById(element_id).currentCellColumn = column_id
+            self.session.findById(element_id).selectColumn(column_id)
+        except com_error:
+            self.take_screenshot()
+            message = "You cannot use select column on element type '%s', maybe check other Keywords on SAPGUI Library documentation instead?" % element_id
+            raise ValueError(message)
+
+    def select_row(self, element_id, row_num):
+        
+        self.element_should_be_present(element_id)
+        try:
+            self.session.findById(element_id).doubleClickCurrentCell()
+            self.session.findById(element_id).currentCellRow = row_num
+            self.session.findById(element_id).selectedRows = row_num
+        except com_error:
+            self.take_screenshot()
+            message = "You cannot use select column on element type '%s', maybe check other Keywords on SAPGUI Library documentation instead?" % element_id
+            raise ValueError(message)
+
+    def set_current_cell(self, element_id, index, column_id):
+        self.element_should_be_present(element_id)
+        try:
+            self.session.findById(element_id).setCurrentCell(index, column_id)
+        except com_error:
+            self.take_screenshot()
+            message = "You cannot use set current on element type '%s', maybe check other Keywords on SAPGUI Library documentation instead?" % element_id
+            raise ValueError(message)
+
+
     def generate_number_incremental(var_num):
         return int(var_num) + 1

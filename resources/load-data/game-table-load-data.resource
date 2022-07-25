@@ -42,15 +42,17 @@ Acess the ZXGCTG01 transaction
     Send Vkey    F8
     Set Column Width    ${sapzxbxcgtpg.srow}    GAMER   29
     ${row}      SapGuiLibraryExtended.Get Row Count      ${sapzxbxcgtpg.srow}
-    ${is_getvaluetrue}      SapGuiLibraryExtended.Get Cell Value     ${sapzxbxcgtpg.srow}    ${row}       GAMER
-     Run Keyword If     ${row} == 0     Fail    There are no one data register
-     FOR     ${index}     IN     ${sapzxbxcgtpg.srow}    Run Keywords
-     Run Keyword If     '${is_getvaluetrue}'  ==  '${xboxgamectg.gamename}'    
-     ...           Select Table Row     GAMER       ${index}
-     ...           And Log To Console       Data was loaded    
-     ...           Return Keyword
-     END
+    # ${is_currentcolmselected}    SapGuiLibraryExtended.Select Current Column      ${sapzxbxcgtpg.srow}      GAMER
+    # ${is_currentcellselected}    SapGuiLibraryExtended.Set Current Cell      ${sapzxbxcgtpg.srow}   4   GAMER
+    ${is_getvaluetrue}      SapGuiLibraryExtended.Get Cell Value     ${sapzxbxcgtpg.srow}   4    GAMER
+    Run Keyword If     ${row} == 0     Fail    There are no one data register
+    FOR     ${row}     IN     ${sapzxbxcgtpg.srow}    Run Keywords
+    Run Keyword If     '${is_getvaluetrue}' == '${xboxgamectg.gamename}'
+    ...           Select Row    ${sapzxbxcgtpg.srow}    4
+    END
+    Log To Console       Data was loaded
 
 
 Get the screenshot evidence
-    Take Screenshot     ${TEMPDIR}/game-add.jpg
+    ${VARTEMPDIR}      Take Screenshot     ${TEMPDIR}\game-add.jpg
+    Log To Console       Screenshot was saved: ${VARTEMPDIR}      

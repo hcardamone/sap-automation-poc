@@ -50,7 +50,7 @@ Get the game data information to create the xml/json file
     ${response_json}            Get Binary File        ${MOCKDIR}data-gamectg-new.json
     ${EXPECTED_RESPONSE}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
     &{eval_response_json}    Evaluate    json.loads('''${response_json}''')   json    
-    &{eval_expected_json}    Evaluate    json.loads('''${expected_json}''')   json    
+    &{eval_expected_json}    Evaluate    json.loads('''${EXPECTED_RESPONSE}''')   json    
     JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
     ...                                                   ${eval_expected_json}
     Log Dictionary    ${eval_response_json}

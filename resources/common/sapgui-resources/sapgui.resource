@@ -32,7 +32,8 @@ Open SAP NetWeaver application
 
 # KW to close SAP Gui application
 Close SAP NetWeaver
-    Process Close    ${SAPGUIPROCESSID}
+    Run Exit Transaction    ${standard.exittrans}
+    #Process Close    ${SAPGUIPROCESSID}
 
 
 # KW to actions about multiple logon warning
