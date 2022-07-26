@@ -53,6 +53,4 @@ Get the game data information to create the xml/json file
     &{eval_expected_json}    Evaluate    json.loads('''${EXPECTED_RESPONSE}''')   json    
     JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
     ...                                                   ${eval_expected_json}
-    Log Dictionary    ${eval_response_json}
-    Log Dictionary    ${eval_expected_json}
     Set Global Variable     ${eval_response_json}

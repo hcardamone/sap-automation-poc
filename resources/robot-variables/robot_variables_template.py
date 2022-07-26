@@ -12,7 +12,6 @@ MULTIPLE_LOGON_ACTION = "endOthersOption_rdi"    # Options:
 # #                                                continueOption_rdi:  Continue with this logon, without ending any other logons in system
 # #                                                terminateOption_rdi: Terminate this logon. This will cause the test run to fail.
 EXPLICIT_WAIT = "0 seconds"
-TESSERACT_IMAGE_PATH  = "C:\\Users\\henri\\Documents\\SAP\\sap-automation-poc\\resources\\extract-data\\selenium-screenshot-1.png"
 TESSERACT_CHAR_WHITLT = 'tessedit_char_whitelist=aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
 TESSERACT_CHAR_BLKTLT = '!@#$%^&*()\\n'
 TESSERACT_MULT_LNG    = 'eng+deu+fra+ita+spa+por'

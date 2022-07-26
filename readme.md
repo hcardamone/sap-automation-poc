@@ -32,67 +32,6 @@ For further information, there are some helpful links at the end of this readme.
 * ## AutoIT Library
     * Download the latest release [here](https://github.com/nokia/robotframework-autoitlibrary/releases/latest).
     * Althought the full AutoIT is not required, can be needed for debugging purposes if you get into issues with the above RF library. Download and install [here](https://www.autoitscript.com/site/autoit/downloads/).
-* ## OCR Library:
-> **Hint**: A robot framework library that is capable of processing images, validating text, and locating specified text by coordinates within images. OCRLibrary requires Google's Tesseract OCR software, that utilizes OpenCV image processing and pytesseract OCR.
-
-> **Hint**: **Keyword Documentation** you can find the keyword documentation [here](https://bendurston.github.io/OCRLibrary.html).
-
-> **Hint**: **Installation and Usage** OCRLibrary can be run on Python 3.6, 3.7, 3.8, and 3.9.
-
-> **Hint**: **Dependencies** OCRLibrary uses two dependencies downloadable through the pip package manager, ***opencv-python*** and ***pytesseract***. As well as Tesseract OCR.
-
-
-1. To install, run: 
-    ```
-    pip install robotframework-ocrlibrary
-    ```
-**Tesseract**
-
-2. Install tesseract using windows installer available at [here](https://github.com/UB-Mannheim/tesseract/wiki): 
-> **Hint**: The tesseract path from the installation. Default installation path at the time of this edit was: C:\Users\USER\AppData\Local\Tesseract-OCR. It may change so please check the installation path.
-
-
-3. After that install de tesseract on python
-    ```
-    pip install pytesseract 
-    pip install tesseract    
-    ```
-<!-- $ pip install tesseract-ocr -->
-
-4. Add Tesseract path to your System Environment. i.e. Edit system variables.
-
-5. Set the tesseract path in the script ***pytesseract.py*** which can be found at the path    `C:\Users\User\AppData\Local\Programs\Python\Python310\Lib\site-packages\pytesseract` or usually in the `C:\Users\YOUR USER\APPDATA\Python`
-    ```
-    #tesseract_cmd = 'tesseract'
-    tesseract_cmd = 'C:\Program Files\Tesseract-OCR\\tesseract.exe'
-    ```
-6. After that compile the file ***pytesseract.py***
-    ```
-    \Usr\AppData\Local\Programs\Python\Python310\Lib\site-packages> python .\pytesseract.py    
-    ```
-
-**OpenCV Python**
-> **Hint** Please see [opencv-python's installation and usage section](https://github.com/opencv/opencv-python#installation-and-usage) section for more information.
-
-7. To install opencv-python, run:
-    ```
-    pip install opencv-python
-    ```
-
-**Pytesseract**
-> **Hint**  Please see [pytesseracts installation section](https://github.com/madmaze/pytesseract#installation) for more information.
-8. To install pytesseract, run
-    ```
-    pip install pytesseract 
-   ```
-
-**Usage**
-
-Once `OCRLibrary` is installed, along with its dependencies, add Library `OCRLibrary` to your robot file to use.
-
-
-<!-- Pytesseract Configuration Strings https://muthu.co/all-tesseract-ocr-options/ -->
-
 
 # Setup Guide
 ## Python Virtual Environment
@@ -156,39 +95,14 @@ These are suggested VS Code plugins that best fit this automation project:
 
     * Include params options:
     ```
-    (env) $ robot --variablefile .\resources\robot-variables\robot_variables.py --loglevel TRACE --outputdir results --include create_input_data --exclude create_input_random_code .\resources\tests\generaltabledisplay\standard 
+    (env) .\sap-automation-poc\resources\tests\generaltabledisplay\standard> robot --variablefile  ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info .\demo.robot 
     ```
-
-    * Folder level:
-    ```
-    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir results .\demo.robot
-
-    (env) $ robot --variablefile  ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_game_info --include transform_game_info --exclude add_val_sapguitests .\demo.robot   
-
-    ```  
-1. To run the `demo.robot` test suite on another Git Bash / terminal window, activate the Python Virtual Environment as stated before and use this command:
-    * Terminal vsCode | PowerShell  | CMD Option: 
-    ```
-    (env) $ robot -d ..\..\..\results --variablefile ..\..\..\robot-variables\robot_variables.py .\demo.robot .
-    ```
-    ```
-    (env) $ robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results  demo.robot .
-    ```
-    * Terminal Git Bash Option: 
-    ```
-    (env) $ robot -d ./resources/results --variablefile ./resources/robot-variables/robot_variables.py ./resources/tests/generaltabledisplay/standard/demo.robot .
-    ```   
     
     * Option `--variablefile` simply points to your local copy of `robot_variables.py`.
     * Set `--loglevel` option to `TRACE` when running locally for debugging, but in automation production running environment this should be set to `INFO` to save space.
     * `--outputdir` refers to where RF should save the report after finishing the execution. Can be `logs*` or `results*` folder names, as both are already ignored in Git.
     * To run more tests just add another `--include` option and the test case tag to be run. You can also use logical operators (AND, OR and NOT) to select the tests, like `--include demoORmy-test-tag`, this will run any tests that have at least one of the tags. Using `--include demoNOTmy-test-tag` will run all tests with the first tag except the tests with the second tag. And with `--include demoANDmy-test-tag` will run tests that have BOTH tags. You can achieve the same result as OR operator by adding `--exclude` option and the test tag.
 
-1. There is an example of test the OCRLibrary, the content will be returned from the processed image using page segmentation mode 6 and it will ignore all numbers. `${content}= Get Image Content ${processed_image} --psm 6 -c tessedit_char_blacklist=0123456789`.
-
-    ```
-<!-- robot --variablefile ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results .\demo-testFunc.robot -->
-    
 
 # Troubleshooting
 If you get errors related to AutoIT library like `class not registered` follow these steps to fix it:
@@ -199,12 +113,6 @@ If you get errors related to AutoIT library like `class not registered` follow t
 1. Follow the [steps](#AutoIT-Library-installation) to install autoitlibrary from the source zip.
 [AutoItLibrary installs the own files](https://github.com/hcardamone/commun-imagecontents/blob/main/files.JPG) and, if not already present, the [3rd party AutoIt](https://github.com/nokia/robotframework-autoitlibrary/tree/master/3rdPartyTools/) and PIL tools, To install, [Unzip](#autoit-library-installation) the autoitlibrary library, open a command window in the directory and type: [python setup.py install](#autoit-library-installation) again.
 1. Try to run robot again, if still doesn't work, [reinstall](#install-python-packages-run-this-command-after-cloning-the-repo) the package back using pip and try again.
-
-If you get errors related to Tesseract OCRLibrary like `TesseractNotFound Error: tesseract is not installed or it's not in your path` follow these steps to fix it:
-1. Follow the [step 3](#ocr-library)
-1. Try to run robot again, if still doesn't work, [reinstall](#ocr-library) since step 1.
-    
-<!-- https://stackoverflow.com/questions/50951955/pytesseract-tesseractnotfound-error-tesseract-is-not-installed-or-its-not-i -->
 
 # Useful Links
 - [Robot Framework User Guide](http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html)
