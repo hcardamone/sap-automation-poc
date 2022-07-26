@@ -25,7 +25,7 @@ Test Teardown       Run Keyword If Test Failed    SapGuiLibraryExtended.Take Scr
 *** Test Cases ***
 SAP GUI NetWeaver Automation - Extract data information details
     [Documentation]  Test case - Extract data information details
-    [Tags]              extract_game_info
+    [Tags]              extract_transform_game_info
     Given that local firefox brownser was open
     When extract the game data information on xbox game catalog title
     Then close my current browser
@@ -35,7 +35,7 @@ SAP GUI NetWeaver Automation - Extract data information details
     
 SAP GUI NetWeaver Automation - Transform data information details
     [Documentation]  Test case - Transform data information details
-    [Tags]              transform_game_info
+    [Tags]              load_game_info
     Given that the SAP NetWeaver application was open
     When load the game data information
     Then access the ZXGCTG01 transaction to take a screenshot
@@ -49,9 +49,9 @@ SAP GUI NetWeaver Automation - Create Category Material and Register Material Z 
     Open "Cadastro de Material" Program
     Fill fields and save
 
-#robot --variablefile  ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_game_info --include transform_game_info --exclude add_val_sapguitests .\demo.robot
+#robot --variablefile  ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info --exclude add_val_sapguitests .\demo.robot
 
-# robot --variablefile  ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_game_info --exclude add_val_sapguitests --exclude transform_game_info  .\demo.robot
+# robot --variablefile  ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --exclude add_val_sapguitests --exclude transform_game_info  .\demo.robot
 
 #robot --variablefile  ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results --include transform_game_info --exclude add_val_sapguitests --exclude extract_game_info  .\demo.robot
 
