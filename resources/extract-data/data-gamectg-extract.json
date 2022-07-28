@@ -1,7 +1,8 @@
 {
-    "xboxctnt":{
-       "gamname":"gameName",
-       "ggender":"ggender",
-       "gvalue":"gvalue"
-    }
+   "xboxctnt": {
+     "gamname": "gameName",
+     "ggender": "ggender",
+     "gvalue": "gvalue"
+   }
  }
+ 

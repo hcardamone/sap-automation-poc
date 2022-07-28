@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<root xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<root
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<gamestore>
 		<gamectg gender="Action e adventure">
 			<gamename>grand theft auto v: premium edition</gamename>

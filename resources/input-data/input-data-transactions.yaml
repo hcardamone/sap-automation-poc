@@ -1,10 +1,10 @@
-
 # Standard SAP Transactions
 standard:
-  maintaintable:             /nSM30
-  exittrans:                 /nEX
+  maintaintable: /nSM30
+  exittrans: /nEX
 
 # Z SAP Transactions
 zsaptransactions:
-  zxboxalvctlg:              /nZXGCTG01
-  zxboxctgtble:              ZTXGCTG01
+  zxboxalvctlg: /nZXGCTG01
+  zxboxctgtble: ZTXGCTG01
+  

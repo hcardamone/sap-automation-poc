@@ -1,5 +1,4 @@
-[Documentation]     This resource get the web-gamectg-extract/web-gamectg-transform 
-...                 resources implementation
+[Documentation]     - This resource was implemented with BDD
 
 *** Keywords ***
 Extract the game data information on xbox game catalog title
@@ -23,4 +22,3 @@ Access the ZXGCTG01 transaction to take a screenshot
 
 Close the SAP NetWeaver application
     Close SAP NetWeaver
-

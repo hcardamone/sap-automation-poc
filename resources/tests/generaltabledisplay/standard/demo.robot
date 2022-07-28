@@ -1,6 +1,8 @@
 Documentation       SAP GUI Tests - this resource provides some tests, this is a POC project.
 ...                 This resource provides actions:
-...                  - Check and validate the game information on Xbox.com
+...                  - Check and validate the game information on Xbox.com;
+...                  - Transform this game data information to .json;
+...                  - Load the game data to SAP GUI NetWeaver
 ...                  - run this resource to test the automation. Obs: check the reame.md # Running a Test Suite session, step 3.
 
 *** Settings ***
@@ -10,13 +12,11 @@ Resource            ../../../../resources/common/selenium-resources/firefoxbrows
 Resource            ../../../../resources/load-data/game-table-load-data.resource
 Resource            ../../../../resources/bdd-resources/gamectg-BDD.resource
 Resource            ../../../../resources/extract-data/web-gamectg-extract.resource
-Resource            ../../../../resources/extract-data/img-data-gamectg-extract.resource
 Resource            ../../../../resources/transform-data/web-gamectg-transform.resource
 Resource            ../../../../resources/transform-data/xml-json-data-gamectg-transform.resource
 Variables           ../../../../resources/input-data/input-data-transactions.yaml
 Variables           ../../../../resources/input-data/input-data-variables.py
 Variables           ../../../../resources/input-data/input-data-xboxctg.yaml
-
 Test Teardown       Run Keyword If Test Failed    SapGuiLibraryExtended.Take Screenshot
 
 *** Test Cases ***
@@ -35,3 +35,4 @@ SAP GUI NetWeaver Automation - Transform data information details
     When load the game data information
     Then access the ZXGCTG01 transaction to take a screenshot
     And close the SAP NetWeaver application
+    

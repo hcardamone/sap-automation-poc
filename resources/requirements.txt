@@ -1,12 +1,13 @@
 lxml
 decorator
 wheel
-robotframework==5.0
+robotframework
 robotframework-faker
 robotframework-crypto
 robotframework-sapguilibrary
 robotframework-autoitlibrary
 robotframework-screencaplibrary
+robotframework-jsonlibrary
 pyautogui
 pyyaml
 ###pip freeze > requirements.txt

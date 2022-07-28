@@ -2,7 +2,6 @@
 [Documentation]     Here are the img transform data Keywords implementation resources
 
 
-
 *** Settings ***
 Library         OperatingSystem
 Library         Collections
@@ -54,3 +53,4 @@ Get the game data information to create the xml/json file
     JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
     ...                                                   ${eval_expected_json}
     Set Global Variable     ${eval_response_json}
+    
