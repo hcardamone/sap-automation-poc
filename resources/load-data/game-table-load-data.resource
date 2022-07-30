@@ -11,11 +11,11 @@ Access the ZTXGCTG01 table
     SapGuiLibraryExtended.Click Element    ${sapedittableview.nwentrie}
 
 Get the game data extraction
-    ${is_loaddatagamefromjson}    Load JSON From File    ${EXPECTED_RESPONSE}
-    ${is_jsonffldgenre}    Get Value From Json    ${is_loaddatagamefromjson}    $..xboxctnt.ggender
-    ${is_jsonfldgamer}    Get Value From Json    ${is_loaddatagamefromjson}    $..xboxctnt.gamname
-    ${is_regexfldvalue}    Update Value To Json    ${is_loaddatagamefromjson}    $..xboxctnt.gvalue    14,99
-    ${is_newjsonfldgamer}    Get Value From Json    ${is_loaddatagamefromjson}    $..xboxctnt.gvalue
+    ${lod_gme_ext}    Load JSON From File    ${EXPECTED_RESPONSE}
+    ${get_cnt_gdr}    Get Value From Json    ${lod_gme_ext}    $..xboxctnt.ggender
+    ${get_cnt_gnm}    Get Value From Json    ${lod_gme_ext}    $..xboxctnt.gamname
+    ${get_cnt_gvl}    Update Value To Json    ${lod_gme_ext}    $..xboxctnt.gvalue    14,99
+    ${upd_val_gme}    Get Value From Json    ${lod_gme_ext}    $..xboxctnt.gvalue
 
 Load the game data extraction to ZTXGCTG01 table
     Send Key Property    ${sapzxbxcgttb.fldplayn}    ${xboxgamectg.playOn}
@@ -26,8 +26,8 @@ Load the game data extraction to ZTXGCTG01 table
     SapGuiLibraryExtended.Input Text    ${sapzxbxcgttb.fldwaers}    ${xboxgamectg.gamecurcy}
     SapGuiLibraryExtended.Select Checkbox    ${sapzxbxcgttb.fldavble}
     SapGuiLibraryExtended.Click Element    ${sapmain.confirmBtn}
-    ${is_datavaluetbar}    SapGuiLibraryExtended.Get Value    ${sapzxbxcgttb.zxbxsbar}
-    Log To Console    ${is_datavaluetbar}
+    ${get_val_bar}    SapGuiLibraryExtended.Get Value    ${sapzxbxcgttb.zxbxsbar}
+    Log To Console    ${get_val_bar}
 
 Acess the ZXGCTG01 transaction
     Run Transaction    ${zsaptransactions.zxboxalvctlg}
