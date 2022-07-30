@@ -1,8 +1,2 @@
-
-
-
 *** Settings ***
-Library	MockServerLibrary
-
-
-*** Keywords ***
+Library     MockServerLibrary

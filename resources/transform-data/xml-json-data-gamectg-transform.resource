@@ -1,6 +1,6 @@
+*** Comments ***
 # Behavior Driven Development (BDD) and Functional Testing
-[Documentation]     Here are the img transform data Keywords implementation resources
-
+[Documentation]    Here are the img transform data Keywords implementation resources
 
 
 *** Settings ***
@@ -14,45 +14,44 @@ Library         ../customlib/JSONLibraryExtended/JSONLibraryExtended.py
 Variables       ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 
-***Keywords***
-
+*** Keywords ***
 Get the game data information to create the xml/json file
     [Arguments]    @{args}
-    ${is_getbinaryfile}         Get Binary File     ${ECTDIR}data-gamectg-extract.xml
-    ${is_savebinaryfile}        Save Xml            ${is_getbinaryfile}     ${MOCKDIR}data-gamectg-mock.xml
-    Elements Should Match       ${ECTDIR}data-gamectg-extract.xml           ${MOCKDIR}data-gamectg-mock.xml
-    ${is_gameparsecontent}      Parse XML          ${ECTDIR}data-gamectg-extract.xml
-    Save Xml                    ${is_gameparsecontent}        ${MOCKDIR}data-gamectg-atual.xml  
-    Elements Should Match      ${ECTDIR}data-gamectg-extract.xml            ${MOCKDIR}data-gamectg-mock.xml
-    ${is_gamenamecontent}       Get Substring               ${xboxpage.gelemnt}     -77  -42
-    ${is_gamevaluecntnt}        Get Substring               ${xboxpage.gelemnt}      92   -3
-    ${is_gamegendercntnt}       Get Substring               ${xboxpage.acadelm}      16   -3
-    ${is_gamejsonobj}           Get Binary File              ${ECTDIR}data-gamectg-extract.json
-    ${is_gamecreatecontent}     Create Binary File           ${TRFDIR}data-gamectg-new.json     ${is_gamejsonobj}
-    ${is_tonewcontent}          Get Binary File              ${TRFDIR}data-gamectg-new.json
-    &{evaljson}=                Load JSON From File        ${TRFDIR}data-gamectg-new.json
-    &{json}                     Create Dictionary         &{evaljson}
-    ${is_gamejsonobjupd}        Update Value To Json       ${json}    $..xboxctnt.gamname     ${is_gamenamecontent} 
-    ${is_gamejsonobjupd}        Update Value To Json       ${json}    $..xboxctnt.gvalue      ${is_gamevaluecntnt} 
-    ${is_gamejsonobjupd}        Update Value To Json       ${json}    $..xboxctnt.ggender     ${is_gamegendercntnt} 
-    ${new_json}                 Create Dictionary         &{is_gamejsonobjupd}
-    ${req_json}                 Evaluate        json.dumps(&{new_json})                 json
-    ${pair}                     Get Length   ${req_json}
-    Log To Console        ${req_json}
-    FOR     ${pair}    IN     ${req_json}
-    ...     ${is_gamejsonobjupd}     Split String    ${pair}    =
-    ...     Set To Dictionary    ${new_json}    ${is_gamejsonobjupd}
-    ${req_json}    Json.Dumps    ${new_json}
+    ${get_binfile}    Get Binary File    ${ECTDIR}data-gamectg-extract.xml
+    Save Xml    ${get_binfile}    ${MOCKDIR}data-gamectg-mock.xml
+    Elements Should Match    ${ECTDIR}data-gamectg-extract.xml    ${MOCKDIR}data-gamectg-mock.xml
+    ${parse_gmcnt}    Parse XML    ${ECTDIR}data-gamectg-extract.xml
+    Save Xml    ${parse_gmcnt}    ${MOCKDIR}data-gamectg-atual.xml
+    Elements Should Match    ${ECTDIR}data-gamectg-extract.xml    ${MOCKDIR}data-gamectg-mock.xml
+    ${gname_gmcnt}    Get Substring    ${xboxpage.gelemnt}    -77    -42
+    ${value_gmcnt}    Get Substring    ${xboxpage.gelemnt}    92    -3
+    ${ggndr_gmcnt}    Get Substring    ${xboxpage.acadelm}    16    -3
+    ${json_obj_gm}    Get Binary File    ${ECTDIR}data-gamectg-extract.json
+    ${crt_jsn_obj}    Create Binary File    ${TRFDIR}data-gamectg-new.json    ${json_obj_gm}
+    ${get_new_jsn}    Get Binary File    ${TRFDIR}data-gamectg-new.json
+    &{load_jsn_ob}    Load JSON From File    ${TRFDIR}data-gamectg-new.json
+    &{dct_jsn_obj}    Create Dictionary    &{load_jsn_ob}
+    ${jsn_obj_upd}    Update Value To Json    ${dct_jsn_obj}    $..xboxctnt.gamname    ${gname_gmcnt}
+    ${jsn_obj_upd}    Update Value To Json    ${dct_jsn_obj}    $..xboxctnt.gvalue    ${value_gmcnt}
+    ${jsn_obj_upd}    Update Value To Json    ${dct_jsn_obj}    $..xboxctnt.ggender    ${ggndr_gmcnt}
+    ${dct_nw_json}    Create Dictionary    &{jsn_obj_upd}
+    ${eval_jsn_ob}    Evaluate    json.dumps(&{dct_nw_json})    json
+    ${lnth_jsn_ob}    Get Length    ${eval_jsn_ob}
+    Log To Console    ${eval_jsn_ob}
+    FOR    ${lnth_jsn_ob}    IN    ${eval_jsn_ob}
+    ...    ${jsn_obj_upd}    Split String    ${lnth_jsn_ob}    =
+    ...    Set To Dictionary    ${dct_nw_json}    ${jsn_obj_upd}
+        ${eval_jsn_ob}    Json.Dumps    ${dct_nw_json}
     END
-    [Return]    ${req_json}
-    Create File         ${TRFDIR}data-gamectg-new.json    ${req_json}
-    Move File           ${TRFDIR}data-gamectg-new.json    ${MOCKDIR}
-    ${response_json}            Get Binary File        ${MOCKDIR}data-gamectg-new.json
-    ${EXPECTED_RESPONSE}            Get Binary File        ${MOCKDIR}data-gamectg-mock.json
-    &{eval_response_json}    Evaluate    json.loads('''${response_json}''')   json    
-    &{eval_expected_json}    Evaluate    json.loads('''${EXPECTED_RESPONSE}''')   json    
-    JSONLibraryExtended.Dictionaries Should Be Equal      ${eval_response_json}
-    ...                                                   ${eval_expected_json}
-    Log Dictionary    ${eval_response_json}
-    Log Dictionary    ${eval_expected_json}
-    Set Global Variable     ${eval_response_json}
+    Create File    ${TRFDIR}data-gamectg-new.json    ${eval_jsn_ob}
+    Move File    ${TRFDIR}data-gamectg-new.json    ${MOCKDIR}
+    ${rspns_nw_js}    Get Binary File    ${MOCKDIR}data-gamectg-new.json
+    ${EXPECTED_RESPONSE}    Get Binary File    ${MOCKDIR}data-gamectg-mock.json
+    &{evl_rpns_js}    Evaluate    json.loads('''${rspns_nw_js}''')    json
+    &{evl_expc_js}    Evaluate    json.loads('''${EXPECTED_RESPONSE}''')    json
+    JSONLibraryExtended.Dictionaries Should Be Equal    ${evl_rpns_js}
+    ...    ${evl_expc_js}
+    Log Dictionary    ${evl_rpns_js}
+    Log Dictionary    ${evl_expc_js}
+    Set Global Variable    ${evl_rpns_js}
+    RETURN    ${eval_jsn_ob}

@@ -1,30 +1,32 @@
+*** Comments ***
 # Behavior Driven Development (BDD) and Functional Testing
-[Documentation]     Here are the web transform data Keywords implementation resources
+[Documentation]    Here are the web transform data Keywords implementation resources
+
 
 *** Settings ***
-Library                 OCRLibrary
-Library                 String
-Library                 ../../resources/customlib/StringExtended/StringExtended.py
-Variables               ../common/selenium-resources/web-elements/extract-web-elements.yaml
+Library         OCRLibrary
+Library         String
+Library         ../../resources/customlib/StringExtended/StringExtended.py
+Variables       ../common/selenium-resources/web-elements/extract-web-elements.yaml
+
 
 *** Keywords ***
-Transform the game data extraction to save      
-    ${is_XBOX_GAME_MATCH}   Get Regexp Matches      ${IMG_CONTENT}  ${xboxctnt.gamname}
-    ${xboxctnt.gamname}     Catenate    SEPARATOR=${EMPTY}    ${is_XBOX_GAME_MATCH}
-    @{is_STRING_SPLIT}      Split List Custom     ${xboxctnt.gamname}  10
-    ${is_STRING_LIST}       Get Line Count Custom   ${is_STRING_SPLIT}
-    ${is_convert_list}      Convert To List     ${is_STRING_SPLIT}
-    
-    FOR         ${index}    IN    ${is_convert_list}
-        ${is_LIST_INICIO}              Get Slice From List     ${is_convert_list}  2  7
-        ${is_LIST_MEIO}                Get Slice From List     ${is_convert_list}  7  11
-        ${is_LIST_FINAL}               Get Slice From List     ${is_convert_list}  -6  -2
-        ${is_JOINWORDS_INC}            Evaluate         "".join(${is_LIST_INICIO})
-        ${is_JOINWORDS_MEO}            Evaluate         "".join(${is_LIST_MEIO}) 
-        ${is_JOINWORDS_FIN}            Evaluate         "".join(${is_LIST_FINAL})
-        ${is_SPACE_BTW_JOINWRDS}       Catenate Custom    SEPARATOR=${EMPTY}   
-        ...                            ${is_JOINWORDS_INC}   ${is_JOINWORDS_MEO}   
-        ...                            ${is_JOINWORDS_FIN}
-        Set Global Variable     ${is_SPACE_BTW_JOINWRDS}
-        
+Transform the game data extraction to save
+    ${get_game_rgx}    Get Regexp Matches    ${game_img_cnt}    ${xboxctnt.gamname}
+    ${xboxctnt.gamname}    Catenate    SEPARATOR=${EMPTY}    ${get_game_rgx}
+    @{spt_game_ctt}    Split List Custom    ${xboxctnt.gamname}    10
+    ${lst_game_cnt}    Get Line Count Custom    ${spt_game_ctt}
+    ${is_convert_list}    Convert To List    ${spt_game_ctt}
+
+    FOR    ${index}    IN    ${is_convert_list}
+        ${get_lst_bgn}    Get Slice From List    ${is_convert_list}    2    7
+        ${get_lst_mdw}    Get Slice From List    ${is_convert_list}    7    11
+        ${get_lst_fnl}    Get Slice From List    ${is_convert_list}    -6    -2
+        ${join_wd_bgn}    Evaluate    "".join(${get_lst_bgn})
+        ${join_wd_mdw}    Evaluate    "".join(${get_lst_mdw})
+        ${join_wd_fnl}    Evaluate    "".join(${get_lst_fnl})
+        ${ctn_wd_spce}    Catenate Custom    SEPARATOR=${EMPTY}
+        ...    ${join_wd_mdw}    ${join_wd_bgn}
+        ...    ${join_wd_fnl}
+        Set Global Variable    ${ctn_wd_spce}
     END
