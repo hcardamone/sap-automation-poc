@@ -1,4 +1,4 @@
-name: robot_framework-checker
+name: Robot Framework Checker
     
 on:
   push:
