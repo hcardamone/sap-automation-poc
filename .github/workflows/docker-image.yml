@@ -6,11 +6,6 @@ on:
   pull_request:
     branches: [ "develop" ]
 
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
@@ -48,6 +43,12 @@ jobs:
     
     container:
       image: hcardamone/hcardamonerobotframework:latest
+    # env:
+    #   # Use docker.io for Docker Hub if empty
+    #   REGISTRY: ghcr.io
+    #   # github.repository as <account>/<repo>
+    #   IMAGE_NAME: ${{ github.repository }}
+
 
             # - docker run \
             # -v <local path to the reports' folder>:/opt/robotframework/reports:Z \
