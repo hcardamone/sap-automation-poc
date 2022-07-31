@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ubuntu-robot-framework:$(31/07/2022 +%s)
+      run: docker build . --file Dockerfile --tag ubuntu/robotframework:$(31/07/2022 +%s)
