@@ -44,7 +44,7 @@ jobs:
     -
       name: Build the Docker image
       uses: actions/checkout@v3
-      run: docker pull ppodgorsek/robot-framework \
+      run: docker pull robotframework/rfdocker \
            docker push hcardamone/hcardamonerobotframework:latest
     
     container:
