@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t whenry/fedora-jboss:latest -t whenry/fedora-jboss:v2.1
+      run: docker build -t robotframework/rfdocker:3.1.2-slimbuster
       #docker build . --file Dockerfile --tag ubuntu/robotframework:$(31/07/2022 +%s)
 
 
