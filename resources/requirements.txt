@@ -7,17 +7,17 @@ robotframework-crypto
 robotframework-sapguilibrary
 robotframework-autoitlibrary
 robotframework-screencaplibrary
-robotframework-zoomba
+# robotframework-zoomba
 pyautogui
 pyyaml
 shyaml
 keyboard
 pillow
 boltons
-robotframework-ocrlibrary
-pytesseract
-tesseract
-opencv-python
+# robotframework-ocrlibrary
+# pytesseract
+# tesseract
+# opencv-python
 ###pip freeze > requirements.txt
 ## Keep your librarie always updated - pypi.org
 # python -m pip install --upgrade pip/ python -m pip install -U pip
