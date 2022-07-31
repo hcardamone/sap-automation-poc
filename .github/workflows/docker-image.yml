@@ -15,14 +15,39 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: hcardamone/hcardamonerobotframework:latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
+
+    steps:  
+    -
+      name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.MY_GITHUB_TOKEN }}
+    - 
+      name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    #-
+        # name: Login to ACR
+        # uses: docker/login-action@v2
+        # with:
+        #   registry: <registry-name>.azurecr.io
+        #   username: ${{ secrets.AZURE_CLIENT_ID }}
+        #   password: ${{ secrets.AZURE_CLIENT_SECRET }}
+        #   # https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/Azure.Identity/Azure.Identity.EnvironmentCredential.html
+
+    -
+      name: Build the Docker image
+      uses: actions/checkout@v3
       run: docker pull ppodgorsek/robot-framework \
            docker push hcardamone/hcardamonerobotframework:latest
-
+    
+    container:
+      image: hcardamone/hcardamonerobotframework:latest
 
             # - docker run \
             # -v <local path to the reports' folder>:/opt/robotframework/reports:Z \
