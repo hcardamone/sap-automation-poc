@@ -15,3 +15,4 @@ __pycache__
 htmlcov
 output.xml
 robot_variables.py
+*.private
