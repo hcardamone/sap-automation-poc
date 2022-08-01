@@ -29,6 +29,10 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+        uses: actions/checkout@v3
+        name: Build the Docker image
+        run: docker pull robotframework/rfdocker \
+            docker push hcardamone/hcardamonerobotframework:latest
     
     #-
         # name: Login to ACR
@@ -38,11 +42,6 @@ jobs:
         #   username: ${{ secrets.AZURE_CLIENT_ID }}
         #   password: ${{ secrets.AZURE_CLIENT_SECRET }}
         #   # https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/Azure.Identity/Azure.Identity.EnvironmentCredential.html
-
-    - uses: actions/checkout@v3
-      name: Build the Docker image
-      run: docker pull robotframework/rfdocker \
-           docker push hcardamone/hcardamonerobotframework:latest
 
     container:
       image: hcardamone/hcardamonerobotframework:latest
