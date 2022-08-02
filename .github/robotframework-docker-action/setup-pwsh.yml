@@ -1,0 +1,22 @@
+name: Setup PowerShell module cache
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+steps:
+  - uses: actions/checkout@v3
+  - name: Setup PowerShell module cache
+    id: cacher
+    uses: actions/cache@v3
+    with:
+      path: "~/.local/share/powershell/Modules"
+      key: ${{ runner.os }}-SqlServer-PSScriptAnalyzer
+  - name: Install required PowerShell modules
+    if: steps.cacher.outputs.cache-hit != 'true'
+    shell: pwsh
+    run: |
+      Set-PSRepository PSGallery -InstallationPolicy Trusted
+      Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
