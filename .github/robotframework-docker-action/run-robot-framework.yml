@@ -1,4 +1,4 @@
-name: Run Robot Framework Tests
+name: Docker Image CI
 
 on:
   push:
@@ -8,14 +8,14 @@ on:
 
 jobs:
     build:
-      if: github.repository ==  ${{ secrets.SAP_AUTOMATION_POC_PATH }}
+      # if: github.repository ==  ${{ secrets.SAP_AUTOMATION_POC_PATH }}
       runs-on: ubuntu-latest
-      name: Run SAP GUI NetWeaver Automation
+      name: Run Robot Framework Tests
       steps:
-        - name: Checkout
-          uses: actions/checkout@v2
+        - name: Run SAP GUI NetWeaver Automation
+          uses: actions/checkout@v3
         - name: Robot Framework
-          uses: joonvena/robotframework-docker-action@v1.0
+          uses: hcardamone/sap-automation-poc/.github/robotframework-docker-action@v1.0
           with:
             browser: 'firefox'
             robot_threads: 2
