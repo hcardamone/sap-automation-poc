@@ -17,6 +17,8 @@ jobs:
         - name: Robot Framework
           uses: hcardamone/sap-automation-poc/.github/robotframework-docker-action@v1.0
           with:
+            script:
+                chmod u+x .github/robotframework-docker-action/scipt-action.sh
             browser: 'firefox'
             robot_threads: 2
             robot_options:  --variablefile    ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info --exclude add_val_sapguitests .\demo.robot

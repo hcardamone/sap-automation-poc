@@ -13,5 +13,5 @@ docker run --shm-size=$ALLOWED_SHARED_MEMORY \
   --user $(id -u):$(id -g) \
   ppodgorsek/robot-framework:latest
 
-  # to update the script-action.sh 
+  # To update the script-action.sh 
   # git update-index --chmod=+x \scipt-action.sh
