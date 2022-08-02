@@ -46,7 +46,7 @@ runs:
   using: 'composite'
   steps:
     - shell: bash
-      run: chmod +x ${{ github.action_path }}/scipt-action.sh
+      run: sh "chmod 775 ${{ github.action_path }}/scipt-action.sh"
       env:
         ALLOWED_SHARED_MEMORY: ${{ inputs.allowed_shared_memory }}
         BROWSER: ${{ inputs.browser }}
