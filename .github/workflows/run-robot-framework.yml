@@ -8,7 +8,7 @@ on:
 
 jobs:
     build:
-      if: github.repository ==  /resources/tests/generaltabledisplay/standard/
+      # if: github.repository ==  /resources/tests/generaltabledisplay/standard/
       # if: github.repository ==  ${{ secrets.SAP_AUTOMATION_POC_PATH }}
       runs-on: ubuntu-latest
       name: Run SAP GUI NetWeaver Automation
