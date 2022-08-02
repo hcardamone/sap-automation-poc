@@ -90,7 +90,7 @@
 #ARG FROM_IMAGE=robotframework/rfdocker
 #FROM $FROM_IMAGE
 FROM robotframework/rfdocker
-#FROM ppodgorsek/robot-framework:latest
+
 
 ### Uncomment following two lines if having external test libraries:
 COPY --chown=robot:robot requirements.txt .
