@@ -36,7 +36,7 @@ jobs:
         image: kietara/robot-framework
         image_version: 1.0
         tests_dir: '${{ github.workspace }}/sap-automation-poc/resources/tests/generaltabledisplay/standard/demo.robot'
-        reports_dir: '${{ github.workspace }}/sap-automation-poc/resources/'
+        reports_dir: '${{ github.workspace }}/resources/'
 
 #         uses: docker/login-action@v2
 #         name: Login to Docker Hub
