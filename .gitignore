@@ -10,7 +10,7 @@ results*/
 *.pyc
 doc
 __pycache__
-#*.sh
+*.sh
 .coverage
 htmlcov
 output.xml
