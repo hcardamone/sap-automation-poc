@@ -8,7 +8,8 @@ on:
 
 jobs:
     build:
-      if: github.repository ==  ${{ secrets.SAP_AUTOMATION_POC_PATH }}
+      if: github.repository ==  /resources/tests/generaltabledisplay/standard/
+      # if: github.repository ==  ${{ secrets.SAP_AUTOMATION_POC_PATH }}
       runs-on: ubuntu-latest
       name: Run SAP GUI NetWeaver Automation
       steps:
@@ -16,9 +17,9 @@ jobs:
           uses: actions/checkout@v2
         - name: Robot Framework
           uses: joonvena/robotframework-docker-action@v1.0
-          env:
-            ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
-            ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
+          # env:
+          #   ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
+          #   ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
           with:
             browser: 'firefox'
             robot_threads: 2
