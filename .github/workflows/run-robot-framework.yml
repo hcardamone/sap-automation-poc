@@ -15,7 +15,7 @@ jobs:
         - name: Run SAP GUI NetWeaver Automation
           uses: actions/checkout@v2
         - name: Robot Framework
-          uses: hcardamone/sap-automation-poc@v1.0
+          uses: hcardamone/sap-automation-poc/.github/robotframework-docker-action@v1.0
           with:
             browser: 'firefox'
             robot_threads: 2
