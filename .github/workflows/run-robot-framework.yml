@@ -13,7 +13,7 @@ jobs:
       name: Run Robot Framework Tests
       steps:
         - name: Run SAP GUI NetWeaver Automation
-          # uses: actions/checkout@v2
+          uses: actions/checkout@v2
         - name: Robot Framework
           uses: hcardamone/sap-automation-poc/robotframework-docker-action@v1.0
           with:
