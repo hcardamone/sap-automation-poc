@@ -64,3 +64,4 @@ runs:
   # git update-index --skip-worktree --chmod=+x \scipt-action.sh
   # sudo chmod u+x .github/robotframework-docker-action/scipt-action.sh
   # chmod +rx \scipt-action.sh
+  # chmod +x
