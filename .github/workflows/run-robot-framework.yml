@@ -15,9 +15,10 @@ jobs:
         - name: Run SAP GUI NetWeaver Automation
           uses: actions/checkout@v2
         - name: Robot Framework
-          uses: joonvena/robotframework-docker-action@v1.0
+          uses: hcardamone/robotframework-docker-action@v1.0
           with:
             browser: 'firefox'
             robot_threads: 2
+            robot_options:  --variablefile    ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info --exclude add_val_sapguitests .\demo.robot
             robot_tests_dir:    ${{ secrets.SAP_AUTOMATION_POC_PATH }}
             robot_reports_dir:  /resources/results
