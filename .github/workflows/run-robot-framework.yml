@@ -25,4 +25,5 @@ jobs:
             robot_threads: 2
             robot_tests_dir:    /resources/tests/generaltabledisplay/standard/
             robot_reports_dir:  /resources/results/
-            robot_options:  --variablefile ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info --exclude add_val_sapguitests .\demo.robot
+            robot_options:  --variablefile ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results
+            # robot_options:  --variablefile ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info --exclude add_val_sapguitests .\demo.robot
