@@ -8,7 +8,7 @@ on:
 
 jobs:
     build:
-      if: github.repository ==  ${{ secrets.SAP_AUTOMATION_POC_PATH }}
+      # if: github.repository ==  ${{ secrets.SAP_AUTOMATION_POC_PATH }}
       runs-on: ubuntu-latest
       name: Run Robot Framework Tests
       steps:
