@@ -47,12 +47,14 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
+          cd .\sap-automation-poc\
+          mkdir test-env && cd test-env
           python -m venv venv
           source venv/bin/activate
 
       - name: Install dependencies
         run: pip install --upgrade pip
-        #pip install -r requirements.txt
+             pip freeze -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
