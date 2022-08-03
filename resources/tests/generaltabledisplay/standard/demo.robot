@@ -43,14 +43,6 @@ SAP GUI NetWeaver Automation - Transform data information details
     Then access the ZXGCTG01 transaction to take a screenshot
     And close the SAP NetWeaver application
 
-SAP GUI NetWeaver Automation - Create Category Material and Register Material Z Programs
-    [Documentation]    Test case - Create
-    [Tags]    add_val_sapguitests
-    Open "Categoria Material" Program
-    Fill fields and adding category
-    Open "Cadastro de Material" Program
-    Fill fields and save
-
 #robot --variablefile    ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info --exclude add_val_sapguitests .\demo.robot
 
 # robot --variablefile    ..\..\..\robot-variables\robot_variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --exclude add_val_sapguitests --exclude transform_game_info    .\demo.robot
