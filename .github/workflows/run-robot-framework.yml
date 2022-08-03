@@ -22,7 +22,7 @@ jobs:
           #   ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
         with:
           browser: 'firefox'
-          robot_threads: 2
+          robot_threads: 1
           robot_tests_dir:    /resources/tests/generaltabledisplay/standard/
           robot_reports_dir:  /resources/results/
           robot_options:  --variablefile .\resources\robot-variables\robot_variables.py --variablefile .\resources\input-data\input-data-variables.py --loglevel TRACE

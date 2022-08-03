@@ -63,22 +63,6 @@ jobs:
           path: |
             . 
             !venv/
-
-      - name: Run SAP GUI NetWeaver Automation
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Robot Framework
-        uses: joonvena/robotframework-docker-action@v1.0
-          # env:
-          #   ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
-          #   ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
-        with:
-          browser: 'firefox'
-          robot_threads: 2
-          robot_tests_dir:    /resources/tests/generaltabledisplay/standard/
-          robot_reports_dir:  /resources/results/
-          robot_options:  --variablefile .\resources\robot-variables\robot_variables.py --variablefile .\resources\input-data\input-data-variables.py --loglevel TRACE
-  
   deploy:
     permissions:
       contents: none
