@@ -21,7 +21,9 @@ name: Build and deploy Python app to Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: robot-framework-webapp-poc  # set this to the name of your Azure Web App
-  PYTHON_VERSION: '3.10'              # set this to the Python version to use
+  PYTHON_VERSION: '3.10'
+  # ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
+  # ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}              # set this to the Python version to use
 
 on:
   push:
@@ -31,14 +33,11 @@ on:
 
 permissions:
   contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
       - name: Set up Python version
         uses: actions/setup-python@v3.0.0
         with:
@@ -48,16 +47,15 @@ jobs:
       - name: Create and start virtual environment
         run: |
           cd .\sap-automation-poc\
-          mkdir test-env && cd test-env
+          mkdir venv && cd env
           python -m venv venv
           source venv/bin/activate
 
       - name: Install dependencies
         run: pip install --upgrade pip
-             pip install -r requirements.txt
+            #  pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
@@ -66,6 +64,21 @@ jobs:
             . 
             !venv/
 
+      - name: Run SAP GUI NetWeaver Automation
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
+          # env:
+          #   ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
+          #   ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
+        with:
+            browser: 'firefox'
+            robot_threads: 2
+            robot_tests_dir:    /resources/tests/generaltabledisplay/standard/
+            robot_reports_dir:  /resources/results/
+            robot_options:  --variablefile ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results
+  
   deploy:
     permissions:
       contents: none
@@ -74,7 +87,6 @@ jobs:
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
