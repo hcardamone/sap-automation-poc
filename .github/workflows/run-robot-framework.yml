@@ -13,17 +13,32 @@ jobs:
       runs-on: ubuntu-latest
       name: Run SAP GUI NetWeaver Automation
       steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Robot Framework
-          uses: joonvena/robotframework-docker-action@v1.0
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
           # env:
           #   ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
           #   ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
-          with:
-            browser: 'firefox'
-            robot_threads: 2
-            robot_tests_dir:    /resources/tests/generaltabledisplay/standard/
-            robot_reports_dir:  /resources/results/
-            robot_options:  --variablefile ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results
+        with:
+          browser: 'firefox'
+          robot_threads: 2
+          robot_tests_dir:    /resources/tests/generaltabledisplay/standard/
+          robot_reports_dir:  /resources/results/
+          robot_options:  --variablefile .\resources\robot-variables\robot_variables.py --variablefile .\resources\input-data\input-data-variables.py --loglevel TRACE
+      # name: Run SAP GUI NetWeaver Automation
+      # steps:
+      #   - name: Checkout
+      #     uses: actions/checkout@v2
+      #   - name: Robot Framework
+      #     uses: joonvena/robotframework-docker-action@v1.0
+      #     # env:
+      #     #   ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
+      #     #   ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
+      #     with:
+      #       browser: 'firefox'
+      #       robot_threads: 2
+      #       robot_tests_dir:    /resources/tests/generaltabledisplay/standard/
+      #       robot_reports_dir:  /resources/results/
+      #       robot_options:  --variablefile ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results
             # robot_options:  --variablefile ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info --exclude add_val_sapguitests .\demo.robot
