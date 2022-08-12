@@ -6,7 +6,6 @@
 *** Settings ***
 Library         SeleniumLibrary
 Library         Screenshot    screenshot_directory${var_ext_dir}
-Library         ScreenCapLibrary
 Variables       ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 
@@ -21,20 +20,10 @@ Get the game data detail information on xbox game catalog
     Set Focus To Element    ${xboxpage.ftgenre}
     SeleniumLibrary.Click Element    ${xboxpage.ftgenre}
     SeleniumLibrary.Click Element    ${xboxpage.acadvid}
-    Page Should Contain    ${xboxpage.acaddsp}    20
+    Page Should Contain    ${xboxpage.acaddsp}    30
     Execute Javascript    window.scrollTo(0,559)
     Set Selenium Implicit Wait    ${EXPLICIT_WAIT}
     Set Focus To Element    ${xboxpage.gmimgid}
-    #SeleniumLibrary.Click Element    ${xboxpage.gmimgid}
     Element Should Be Visible    ${xboxpage.gelemnt}
-    #ScreenCapLibrary.Set Screenshot Directory    ${var_ext_dir}
     ${cpt_pg_scre}    SeleniumLibrary.Capture Page screenshot    ${sc_sht_name}
     Move File    ${cpt_pg_scre}    ${var_ext_dir}
-    #Wait Until Element Is Visible    ${XBOX_GAME_ELEMENT}    20
-    #${handles}    Get Window Handles    browser=ALL
-    #Switch Window    ${handles}[1]
-    #Set Selenium Implicit Wait    ${EXPLICIT_WAIT}
-    #Wait Until Element Is Visible    ${IS_XBOX_GAME_DISPLAYED}    20
-    #Repeat Keyword    4    Execute Javascript    window.scrollTo(0,208)
-    #Set Selenium Implicit Wait    ${EXPLICIT_WAIT}
-    #Capture Page Screenshot

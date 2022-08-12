@@ -35,8 +35,6 @@ Acess the ZXGCTG01 transaction
     Send Vkey    F8
     Set Column Width    ${sapzxbxcgtpg.srow}    GAMER    29
     ${get_cnt_row}    SapGuiLibraryExtended.Get Row Count    ${sapzxbxcgtpg.srow}
-    # ${is_currentcolmselected}    SapGuiLibraryExtended.Select Current Column    ${sapzxbxcgtpg.srow}    GAMER
-    # ${is_currentcellselected}    SapGuiLibraryExtended.Set Current Cell    ${sapzxbxcgtpg.srow}    4    GAMER
     ${get_val_cel}    SapGuiLibraryExtended.Get Cell Value    ${sapzxbxcgtpg.srow}    4    GAMER
     IF    ${get_cnt_row} == 0    Fail    There are no one data register
     FOR    ${get_cnt_row}    IN    ${sapzxbxcgtpg.srow}    Run Keywords

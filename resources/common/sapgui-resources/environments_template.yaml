@@ -1,4 +1,4 @@
-KFQ:
+ENVNAME:
   ApplicationServer:  "IP-SAP-SERVER"
   InstanceNumber:     "XX"
   SystemID:           "SIS-ID"

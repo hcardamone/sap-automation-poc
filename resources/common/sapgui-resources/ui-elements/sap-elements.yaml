@@ -35,7 +35,7 @@ saplogon:
   usr:                        wnd[0]/usr/txtRSYST-BNAME
   pwd:                        wnd[0]/usr/pwdRSYST-BCODE
   lng:                        wnd[0]/usr/txtRSYST-LANGU
-  windowtitle:                "SAP Logon 750"
+  windowtitle:                "SAP Logon"
   multipleLogonWarning_dlg:   wnd[1]
   multipleLogonTitle_dlg:     License Information for Multiple Logons
   endOthersOption_rdi:        wnd[1]/usr/radMULTI_LOGON_OPT1

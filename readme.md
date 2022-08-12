@@ -1,6 +1,6 @@
-# Welcome to SAP Test Automation Framework
+# Welcome to SAP Process Automation Robot Framework Lab
 
-SAP Test Automation is an automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
+SAP Process Automation Robot Framework Lab is an study about automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
 
 ## Writen in BDD Automation
 
@@ -32,7 +32,7 @@ This is a starting guide meant to set the environment ready to run tests and to 
   - Expand over the object tree and right click in one element to highlight it in the SAP GUI window.
   - You can also click on Identify arrow button to track the UI element as you move the mouse over it in SAP GUI Window.
 
-- ## API SAP GUI Scripiting (Optional)
+- ## API SAP GUI Scripiting
 
   - Enabling `SAP GUI Scripting` on the server side,
     Launch the `saplogon.exe`, login to the SAP server using your credentials. The SAP Easy Access window appears.
@@ -42,6 +42,11 @@ This is a starting guide meant to set the environment ready to run tests and to 
   - `Sign out` of the session and `sign in again` to see the change as it is not applied to running sessions.
   <!-- fonte: https://docs.uipath.com/studio/lang-pt_BR/v2018.4/docs/enabling-sap-gui-scripting -->
 
+- ## AutoIT Library
+
+  - Download the latest release [here](https://github.com/nokia/robotframework-autoitlibrary/releases/latest).
+  - Althought the full AutoIT is not required, can be needed for debugging purposes if you get into issues with the above RF library. Download and install [here](https://www.autoitscript.com/site/autoit/downloads/).
+
 - ## abapGit Git client for ABAP (Optional)
 
   - To this project I'm using the abapGit (). abapGit is a git client for ABAP developed in ABAP.
@@ -49,10 +54,13 @@ This is a starting guide meant to set the environment ready to run tests and to 
   - abapGit is a tool to import and export code between ABAP systems. If a developer has a developer key to the system, the developer can perform these actions already. abapGit enables the developer to do mass export/changes/imports but not more than already possible to do manually. To more details go to [docs.abapgit.org](https://docs.abapgit.org/)
   > **Hint** abapGit requires SAP BASIS version 702 or higher.
 
-- ## AutoIT Library
+- ## Robotidy (Optional)
 
-  - Download the latest release [here](https://github.com/nokia/robotframework-autoitlibrary/releases/latest).
-  - Althought the full AutoIT is not required, can be needed for debugging purposes if you get into issues with the above RF library. Download and install [here](https://www.autoitscript.com/site/autoit/downloads/).
+  - Dowload the latest release [here](https://github.com/MarketSquare/robotframework-tidy) - library  optional, Robotidy is a tool for autoformatting Robot Framework code.
+
+- ## True Path (Optional)
+
+  - This extension was installed on Chrome to get the xpath element. TruePath generates the relative XPath, script and analyzes code on click.
 
 ## Setup Guide
 
@@ -76,6 +84,15 @@ This is a starting guide meant to set the environment ready to run tests and to 
 1. Activate the Virtual Environment, then you should see the **(env)** prefix in your bash prompt.
    `$ source ./env/Scripts/activate (env) user@host:sap-automation-poc $`
    > **Hint**: To exit `virtualenv` just type `deactivate`. To close Git Bash window type `exit`.
+
+## AutoIT Library installation
+
+1. [Unzip](https://github.com/nokia/robotframework-autoitlibrary.git) the AutoTI library file you got from [Requirements and tools](#requirements-and-tools) section.
+2. Open the Windows Command Prompt as administrator, navigate to that folder and run:
+
+   ```python
+   python setup.py install
+   ```
 
 ## abapGit Git client for ABAP
 
@@ -105,14 +122,17 @@ In source code change mode, upload the code from the file using Utilities -> Mor
 
 > **Hint** Note about GitHub# On 2018-02-22, GitHub deprectated weak TLS connections. See SAP note 510007, section 7, for information on how to configure SSL.
 
-## AutoIT Library installation
+## Robotidy library (Optional)
 
-1. [Unzip](https://github.com/nokia/robotframework-autoitlibrary.git) the AutoTI library file you got from [Requirements and tools](#requirements-and-tools) section.
-2. Open the Windows Command Prompt as administrator, navigate to that folder and run:
+1. Open the Windows Command Prompt as administrator, navigate to that folder and run:
 
    ```python
-   python setup.py install
+   pip install -U robotframework-tidy
    ```
+
+- ## True Path Extension (Optional)
+
+1. Search this extension on your store brownser, in this case was used on Google `Chrome`. Check on the [link](#useful-links)
 
 ## SAP Test Automation dependencies
 
@@ -203,6 +223,8 @@ To add profile parameters use transaction `RZ10` or update contents of file DEFA
 - [Git Tutorial](https://testautomationu.applitools.com/git-tutorial/)
 - [SAP GUI Scripting Documentation](https://help.sap.com/viewer/b47d018c3b9b45e897faf66a6c0885a8/LATEST/en-US/babdf65f4d0a4bd8b40f5ff132cb12fa.html)
 - [abapGit Git client for ABAP](https://docs.abapgit.org/)
+- [Robotidy](https://github.com/MarketSquare/robotframework-tidy#installation)
+- [True Path Extension](https://chrome.google.com/webstore/detail/truepath/mgjhkhhbkkldiihlajcnlfchfcmhipmn)
 
 <!-- **Hint**: Markdown preview
 `Ctrl+Shift+V` >

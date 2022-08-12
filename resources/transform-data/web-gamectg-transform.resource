@@ -4,7 +4,6 @@
 
 
 *** Settings ***
-Library         OCRLibrary
 Library         String
 Library         ../../resources/customlib/StringExtended/StringExtended.py
 Variables       ../common/selenium-resources/web-elements/extract-web-elements.yaml
