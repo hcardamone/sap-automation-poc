@@ -1,5 +1,4 @@
 from ast import keyword
-from pickle import TRUE
 from SapGuiLibrary import *
 import pythoncom
 from pythoncom import com_error
@@ -298,7 +297,6 @@ class SapGuiLibraryExtended (SapGuiLibrary):
             self.take_screenshot()
             message = "You cannot use set current on element type '%s', maybe check other Keywords on SAPGUI Library documentation instead?" % element_id
             raise ValueError(message)
-
-
+            
     def generate_number_incremental(var_num):
         return int(var_num) + 1
