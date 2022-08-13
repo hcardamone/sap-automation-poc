@@ -6,11 +6,11 @@
 
 *** Settings ***
 Library         ../../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py
-Library         AutoItLibrary
+Library         AutoItLibrary   TimeOut=30
 Library         String
 Library         Process
 Library         Collections
-Variables       ./environments.yaml
+Variables       environments.yaml
 Variables       ./ui-elements/sap-elements.yaml
 Variables       ../../input-data/input-data-transactions.yaml
 
@@ -29,7 +29,7 @@ Open SAP NetWeaver application
     Set Global Variable    ${SAPGUIPROCESSID}
     Sleep    3s    Waiting the splash screen to disappear
     Dismiss Multiple Logon warning dialog if needed
-    Wait For Active Window    ${saplogon.windowtitle} ${SAPGUI_VERSION}    TimeOut=30
+    Wait For Active Window    ${saplogon.windowtitle} ${SAPGUI_VERSION}    TimeOut=15
 
 # KW to close SAP Gui application
 Close SAP NetWeaver

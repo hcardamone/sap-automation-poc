@@ -23,8 +23,8 @@ Get the game data information to create the xml/json file
     ${parse_gmcnt}    Parse XML    ${ECTDIR}data-gamectg-extract.xml
     Save Xml    ${parse_gmcnt}    ${MOCKDIR}data-gamectg-atual.xml
     Elements Should Match    ${ECTDIR}data-gamectg-extract.xml    ${MOCKDIR}data-gamectg-mock.xml
-    ${gname_gmcnt}    Get Substring    ${xboxpage.gelemnt}    -77    -42
-    ${value_gmcnt}    Get Substring    ${xboxpage.gelemnt}    92    -3
+    ${gname_gmcnt}    Get Substring    ${xboxpage.gelmock}    -77    -42
+    ${value_gmcnt}    Get Substring    ${xboxpage.gelmock}    92    -3
     ${ggndr_gmcnt}    Get Substring    ${xboxpage.acadelm}    16    -3
     ${json_obj_gm}    Get Binary File    ${ECTDIR}data-gamectg-extract.json
     ${crt_jsn_obj}    Create Binary File    ${TRFDIR}data-gamectg-new.json    ${json_obj_gm}
