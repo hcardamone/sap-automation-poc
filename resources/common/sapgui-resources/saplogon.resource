@@ -11,7 +11,7 @@ Resource    sapgui.resource
 *** Keywords ***
 Login in SAP NetWeaver
     Open SAP NetWeaver application
-    Wait Until Keyword Succeeds    10s    2s    Connect To Session
+    Wait Until Keyword Succeeds    10s    2s    SAPGuilibrary.Connect To Session
     Open Connection    ${SAP_ENV}
     SapGuiLibraryExtended.Input Text    ${saplogon.usr}    ${USER_NAME}
     SapGuiLibraryExtended.Input Password    ${saplogon.pwd}    ${PWD}

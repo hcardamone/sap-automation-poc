@@ -11,6 +11,7 @@ Library         JSONLibrary
 Library         XML
 Library         String
 Library         ../customlib/JSONLibraryExtended/JSONLibraryExtended.py
+Variables       ../robot-variables/robot_variables.py
 Variables       ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 
@@ -49,7 +50,7 @@ Get the game data information to create the xml/json file
     ${EXPECTED_RESPONSE}    Get Binary File    ${MOCKDIR}data-gamectg-mock.json
     &{evl_rpns_js}    Evaluate    json.loads('''${rspns_nw_js}''')    json
     &{evl_expc_js}    Evaluate    json.loads('''${EXPECTED_RESPONSE}''')    json
-    JSONLibraryExtended.Dictionaries Should Be Equal    ${evl_rpns_js}
+    JSONLibraryExtended.  ${evl_rpns_js}
     ...    ${evl_expc_js}
     Log Dictionary    ${evl_rpns_js}
     Log Dictionary    ${evl_expc_js}

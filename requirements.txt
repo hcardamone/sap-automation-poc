@@ -9,7 +9,8 @@ robotframework-autoitlibrary
 robotframework-screencaplibrary
 robotframework-seleniumlibrary
 robotframework-jsonlibrary
-jsonlib
+jsondiff
+deepdiff
 pyautogui
 pywin32
 pyyaml

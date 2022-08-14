@@ -5,7 +5,7 @@
 
 
 *** Settings ***
-Library         ../../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py  screenshot_directory=${OUTPUTDIR}
+Library         ../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py  screenshot_directory=${OUTPUTDIR}
 Library         AutoItLibrary   TimeOut=30  CaptureScreenOnError=true
 Library         String
 Library         Process
@@ -33,7 +33,7 @@ Open SAP NetWeaver application
 
 # KW to close SAP Gui application
 Close SAP NetWeaver
-    Run Exit Transaction    ${standard.exittrans}
+    SapGuiLibraryExtended.Run Exit Transaction    ${standard.exittrans}
 
 # KW to actions about multiple logon warning
 Dismiss Multiple Logon warning dialog if needed

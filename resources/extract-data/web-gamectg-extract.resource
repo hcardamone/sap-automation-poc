@@ -5,7 +5,9 @@
 
 *** Settings ***
 Library         SeleniumLibrary
+Library         OperatingSystem
 Library         Screenshot    screenshot_directory${var_ext_dir}
+Variables       ../../resources/robot-variables/robot_variables.py
 Variables       ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 
@@ -26,4 +28,4 @@ Get the game data detail information on xbox game catalog
     Set Focus To Element    ${xboxpage.gmimgid}
     Element Should Be Visible    ${xboxpage.gelemnt}
     ${cpt_pg_scre}    SeleniumLibrary.Capture Page screenshot    ${sc_sht_name}
-    Move File    ${cpt_pg_scre}    ${var_ext_dir}
+    OperatingSystem.Move File    ${cpt_pg_scre}    ${var_ext_dir}

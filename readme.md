@@ -181,7 +181,8 @@ These are suggested VS Code plugins that best fit this automation project:
    - Include params options:
 
    ```python
-   (env) .\sap-automation-poc\resources\tests\generaltabledisplay\standard> robot --variablefile  ..\..\..\robot-variables\robot_variables.py --variablefile ..\..\..\..\resources\input-data\input-data-variables.py --loglevel TRACE --outputdir ..\..\..\results --include extract_transform_game_info --include load_game_info .\demo.robot
+   (env) 
+   $ robot --variablefile ./resources/robot-variables/robot_variables.py --variable ./resources/input-data/input-data-variables.py --loglevel TRACE --outputdir results ./resources/tests/generaltabledisplay/standard/demo.robot
    ```
 
    - Option `--variablefile` simply points to your local copy of `robot_variables.py`.

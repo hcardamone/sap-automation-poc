@@ -6,6 +6,7 @@
 
 
 *** Settings ***
+Library             ../../../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py
 Resource            ../../../../resources/common/sapgui-resources/sapgui.resource
 Resource            ../../../../resources/common/sapgui-resources/saplogon.resource
 Resource            ../../../../resources/common/selenium-resources/firefoxbrowser.resource
@@ -14,8 +15,6 @@ Resource            ../../../../resources/bdd-resources/gamectg-BDD.resource
 Resource            ../../../../resources/extract-data/web-gamectg-extract.resource
 Resource            ../../../../resources/transform-data/web-gamectg-transform.resource
 Resource            ../../../../resources/transform-data/xml-json-data-gamectg-transform.resource
-Variables           ../../../../resources/input-data/input-data-transactions.yaml
-Variables           ../../../../resources/input-data/input-data-variables.py
 Variables           ../../../../resources/input-data/input-data-xboxctg.yaml
 
 Test Teardown       Run Keyword If Test Failed    SapGuiLibraryExtended.Take Screenshot

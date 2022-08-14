@@ -2,7 +2,7 @@ from unittest import result
 from robot.libraries.String import *
 from robot.libraries.BuiltIn import *
 
-def split_list_custom(string_input, flag=0):
+def split_list_custom(self, string_input, flag=0):
     chunks, chunk_size = len(string_input), len(string_input)//flag
     # noinspection PyUnusedLocal
     splitcustom = []
@@ -23,7 +23,7 @@ def catenate_custom(self, *items):
             sep = ' '
         return sep.join(items)
 
-def get_line_count_custom(string):
+def get_line_count_custom(self, string):
     list = string
     result = [c for c in list[0]]
     return list
@@ -35,4 +35,3 @@ def remove_list_using_regexp(self, string_input, *patterns):
     for pattern in patterns:
         string_input = self.remove_list_using_regexp(list, pattern, '')
     return result, string_input
-
