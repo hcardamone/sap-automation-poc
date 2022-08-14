@@ -50,7 +50,7 @@ Get the game data information to create the xml/json file
     ${EXPECTED_RESPONSE}    Get Binary File    ${MOCKDIR}data-gamectg-mock.json
     &{evl_rpns_js}    Evaluate    json.loads('''${rspns_nw_js}''')    json
     &{evl_expc_js}    Evaluate    json.loads('''${EXPECTED_RESPONSE}''')    json
-    JSONLibraryExtended.  ${evl_rpns_js}
+    Collections.Dictionaries Should Be Equal  ${evl_rpns_js}
     ...    ${evl_expc_js}
     Log Dictionary    ${evl_rpns_js}
     Log Dictionary    ${evl_expc_js}

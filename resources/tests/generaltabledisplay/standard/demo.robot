@@ -13,7 +13,6 @@ Resource            ../../../../resources/common/selenium-resources/firefoxbrows
 Resource            ../../../../resources/load-data/game-table-load-data.resource
 Resource            ../../../../resources/bdd-resources/gamectg-BDD.resource
 Resource            ../../../../resources/extract-data/web-gamectg-extract.resource
-Resource            ../../../../resources/transform-data/web-gamectg-transform.resource
 Resource            ../../../../resources/transform-data/xml-json-data-gamectg-transform.resource
 Variables           ../../../../resources/input-data/input-data-xboxctg.yaml
 

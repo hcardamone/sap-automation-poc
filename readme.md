@@ -75,6 +75,8 @@ This is a starting guide meant to set the environment ready to run tests and to 
    python -m venv env
    ```
 
+> **Hint**: `py -m pip install --user virtualenv` To install the python virtual environment
+
 1. Add path setting to activate script
 
    ```python
@@ -177,8 +179,6 @@ These are suggested VS Code plugins that best fit this automation project:
 
 3. File `input-data.yaml` should be edited if you need to use different input data than the default values. Each Dataset is binded to one test case using the Test Setup.
 4. To run the `demo` test tag from demo.robot suite on another Git Bash / terminal window, activate the Python Virtual Environment as stated before and use this command:
-
-   - Include params options:
 
    ```python
    (env) 

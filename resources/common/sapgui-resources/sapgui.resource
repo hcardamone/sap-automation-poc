@@ -5,11 +5,12 @@
 
 
 *** Settings ***
-Library         ../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py  screenshot_directory=${OUTPUTDIR}
+Library         ../../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py
 Library         AutoItLibrary   TimeOut=30  CaptureScreenOnError=true
 Library         String
 Library         Process
 Library         Collections
+Variables        ../../robot-variables/robot_variables.py
 Variables       ./environments.yaml
 Variables       ./ui-elements/sap-elements.yaml
 Variables       ../../input-data/input-data-transactions.yaml
@@ -25,7 +26,7 @@ ${SAPGUIPROCESSID}
 ####                                                      ####
 # KW to Open SAP NetWeaver application
 Open SAP NetWeaver application
-    ${SAPGUIPROCESSID}    AutoItLibrary.Run    ${PATH_TO_SAPLOGON}
+    ${SAPGUIPROCESSID}    Run    ${PATH_TO_SAPLOGON}
     Set Global Variable    ${SAPGUIPROCESSID}
     Sleep    3s    reason=Waiting the splash screen to disappear
     Dismiss Multiple Logon warning dialog if needed
@@ -38,10 +39,10 @@ Close SAP NetWeaver
 # KW to actions about multiple logon warning
 Dismiss Multiple Logon warning dialog if needed
     ${is_popupdisplayed}    Run Keyword And Return Status
-    ...    Element Should Be Present
+    ...    SapGuiLibraryExtended.Element Should Be Present
     ...    ${saplogon.multipleLogonWarning_dlg}
     IF    '${is_popupdisplayed}' == '${TRUE}'
-        ${dialogTitle}    Run Keyword    Get Window Title    ${saplogon.multipleLogonWarning_dlg}
+        ${dialogTitle}    Run Keyword    SapGuiLibraryExtended.Get Window Title    ${saplogon.multipleLogonWarning_dlg}
     ELSE
         ${dialogTitle}    Set Variable    ${None}
     END
