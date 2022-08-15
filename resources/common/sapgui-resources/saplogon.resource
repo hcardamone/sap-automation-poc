@@ -5,7 +5,7 @@
 
 
 *** Settings ***
-Library         ../../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py
+Library     ../../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py
 Resource    sapgui.resource
 
 
@@ -13,10 +13,10 @@ Resource    sapgui.resource
 Login in SAP NetWeaver
     Open SAP NetWeaver application
     Wait Until Keyword Succeeds    10s    2s    SapGuiLibraryExtended.Connect To Session
-    Open Connection    ${SAP_ENV}
+    SapGuiLibraryExtended.Open Connection    ${SAP_ENV}
     SapGuiLibraryExtended.Input Text    ${saplogon.usr}    ${USER_NAME}
     SapGuiLibraryExtended.Input Password    ${saplogon.pwd}    ${PWD}
     SapGuiLibraryExtended.Input Text    ${saplogon.lng}    ${LANGUAGE}
-    Send Vkey    Enter
+    SapGuiLibraryExtended.Send Vkey    Enter
     Dismiss Multiple Logon warning dialog if needed
-    Set Explicit Wait    ${EXPLICIT_WAIT}
+    SapGuiLibraryExtended.Set Explicit Wait    ${EXPLICIT_WAIT}

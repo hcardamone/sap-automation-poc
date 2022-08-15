@@ -14,10 +14,10 @@ ${firefox_headless}     headlessfirefox
 ####    ####
 # KW to open local FireFox Brownser
 That local firefox brownser was open
-    Open browser    ${xboxpage.allgmes}    ${firefox_headless}
-    Maximize Browser Window
-    Wait Until Element Is Visible    ${xboxpage.ctpmenu}
-    Title Should Be    ${xboxpage.cttitle}
+    SeleniumLibrary.Open browser    ${xboxpage.allgmes}    ${firefox_headless}
+    SeleniumLibrary.Maximize Browser Window
+    SeleniumLibrary.Wait Until Element Is Visible    ${xboxpage.ctpmenu}
+    SeleniumLibrary.Title Should Be    ${xboxpage.cttitle}
 
 Close my current browser
-    Close All Browsers
+    SeleniumLibrary.Close All Browsers

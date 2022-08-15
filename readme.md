@@ -2,9 +2,9 @@
 
 SAP Process Automation Robot Framework Lab is an study about automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
 
-## Writen in BDD Automation
+## Writer in BDD Automation
 
-To this project was used the Behaviour-Driven Development (BDD) method to improve my skilss also
+To this project was used the Behavior-Driven Development (BDD) method to improve my skills also
 my studies.
 
 ## About
@@ -32,7 +32,7 @@ This is a starting guide meant to set the environment ready to run tests and to 
   - Expand over the object tree and right click in one element to highlight it in the SAP GUI window.
   - You can also click on Identify arrow button to track the UI element as you move the mouse over it in SAP GUI Window.
 
-- ## API SAP GUI Scripiting
+- ## API SAP GUI Scripting
 
   - Enabling `SAP GUI Scripting` on the server side,
     Launch the `saplogon.exe`, login to the SAP server using your credentials. The SAP Easy Access window appears.
@@ -40,12 +40,12 @@ This is a starting guide meant to set the environment ready to run tests and to 
   - Execute the `RZ11` transaction. Specify `sapgui/user_scripting` parameter name and press Enter on keyboard or Display in SAP interface.
   - In the View Profile Parameter Attributes window, click the `Change Value` button on the toolbar and set the New value of sapgui/user_scripting to `TRUE`. `Save Changes`.
   - `Sign out` of the session and `sign in again` to see the change as it is not applied to running sessions.
-  <!-- fonte: https://docs.uipath.com/studio/lang-pt_BR/v2018.4/docs/enabling-sap-gui-scripting -->
+  <!-- search: https://docs.uipath.com/studio/lang-pt_BR/v2018.4/docs/enabling-sap-gui-scripting -->
 
 - ## AutoIT Library
 
   - Download the latest release [here](https://github.com/nokia/robotframework-autoitlibrary/releases/latest).
-  - Althought the full AutoIT is not required, can be needed for debugging purposes if you get into issues with the above RF library. Download and install [here](https://www.autoitscript.com/site/autoit/downloads/).
+  - Although the full AutoIT is not required, can be needed for debugging purposes if you get into issues with the above RF library. Download and install [here](https://www.autoitscript.com/site/autoit/downloads/).
 
 - ## abapGit Git client for ABAP (Optional)
 
@@ -56,7 +56,7 @@ This is a starting guide meant to set the environment ready to run tests and to 
 
 - ## Robotidy (Optional)
 
-  - Dowload the latest release [here](https://github.com/MarketSquare/robotframework-tidy) - library  optional, Robotidy is a tool for autoformatting Robot Framework code.
+  - Download the latest release [here](https://github.com/MarketSquare/robotframework-tidy) - library  optional, Robotidy is a tool for autoformatting Robot Framework code.
 
 - ## True Path (Optional)
 
@@ -72,7 +72,7 @@ This is a starting guide meant to set the environment ready to run tests and to 
 
    ```python
    cd sap-automation-poc
-   python -m venv env
+   $ python -m venv env
    ```
 
 > **Hint**: `py -m pip install --user virtualenv` To install the python virtual environment
@@ -84,8 +84,13 @@ This is a starting guide meant to set the environment ready to run tests and to 
    ```
 
 1. Activate the Virtual Environment, then you should see the **(env)** prefix in your bash prompt.
-   `$ source ./env/Scripts/activate (env) user@host:sap-automation-poc $`
-   > **Hint**: To exit `virtualenv` just type `deactivate`. To close Git Bash window type `exit`.
+
+   ```python
+   user@host: ~/sap-automation-poc (branch)
+   $ source ./env/Scripts/activate 
+   (env)
+
+> **Hint**: To exit `virtualenv` just type `deactivate`. To close Git Bash window type `exit`.
 
 ## AutoIT Library installation
 
@@ -122,7 +127,7 @@ In source code change mode, upload the code from the file using Utilities -> Mor
 
 3. Now you can use abapGit by executing the report in transaction `SE38`.
 
-> **Hint** Note about GitHub# On 2018-02-22, GitHub deprectated weak TLS connections. See SAP note 510007, section 7, for information on how to configure SSL.
+> **Hint** Note about GitHub# On 2018-02-22, GitHub deprecated weak TLS connections. See SAP note 510007, section 7, for information on how to configure SSL.
 
 ## Robotidy library (Optional)
 
@@ -132,9 +137,17 @@ In source code change mode, upload the code from the file using Utilities -> Mor
    pip install -U robotframework-tidy
    ```
 
-- ## True Path Extension (Optional)
+2. To call robotidy with path(s) to file/directory with robot files run:
 
-1. Search this extension on your store brownser, in this case was used on Google `Chrome`. Check on the [link](#useful-links)
+   ```python
+   robotidy tests
+   robotidy test.robot
+   robotidy tests/resources test.robot
+   ```
+
+## True Path Extension (Optional)
+
+1. Search this extension on your store browser, in this case was used on Google `Chrome`. Check on the [link](#useful-links)
 
 ## SAP Test Automation dependencies
 
@@ -144,6 +157,8 @@ In source code change mode, upload the code from the file using Utilities -> Mor
   (env) $ pip install -r requirements.txt
   ```
 
+> **Hint** You can run this command on the Python virtual Environment.
+
 ## Visual Studio Code Plugins
 
 VS Code is the recommended IDE, although barely anyone can be used.
@@ -151,38 +166,40 @@ These are suggested VS Code plugins that best fit this automation project:
 
 - [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - great plugin to know instant Git blame info.
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - a must have for all Python developers.
-- [Robot Framework Intellisense](https://marketplace.visualstudio.com/items?itemName=TomiTurtiainen.rf-intellisense) - one of the best RF plugins out there.
+- [Robot Code](https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode) - this is a very stronger robot framework extension. PS: The [Robot Framework Intellisense](https://marketplace.visualstudio.com/items?itemName=TomiTurtiainen.rf-intellisense) extension has been deprecated.
 - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML plugin supported by Red Hat, so no further comments.
 - [XML Tools](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml) - Plugin with many useful commands to work with XML files.
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Optional but great extension to give a nice touch on file icons.
-- [JSON Pretty Printer](https://marketplace.visualstudio.com/items?itemName=euskadi31.json-pretty-printer) - Optional but great extension to give a nice .json identention.
+- [JSON Pretty Printer](https://marketplace.visualstudio.com/items?itemName=euskadi31.json-pretty-printer) - Optional but great extension to give a nice .json indentation.
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) - Optional but great extension to give autocomplete filenames.
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker#:~:text=Open%20up%20VS%20Code%20and,and%20reload%20window%20to%20enable.) - Optional but a great extension to check that works well with code and documentation.
 
 ## Running a Test Suite
 
 1. First make a copy of file `robot_variables_template.py`to your home user folder and remove the `-template` suffix.
-2. File `robot_variables` has all initial variables to run RF and you have to change to fit your machine settings as needed, since it won't be commited anyway as each automation developer can have different settings:
+2. File `robot_variables` has all initial variables to run RF and you have to change to fit your machine settings as needed, since it won't be committed anyway as each automation developer can have different settings:
 
-   - `SAP_ENV = "NAME"`  
-      SAP test environment to be used. Refer to sovos-environments.yaml file for available environments details.
+   - `SAP_ENV = "ENVNAME"`  
+      SAP test environment to be used. Refer to environments.yaml file for available environments details.
    - `USER_NAME = "USER"`  
       User name to login in SAP GUI.
-   - `USER_PASSWORD = "PASS"`  
+   - `PWD = "********"`  
       Password to login in SAP GUI. **_IMPORTANT_**: It's a security best practice to NEVER commit user password in code repositories.
    - `LANGUAGE = "EN"`  
       SAP GUI language to login. Defaults to English.
    - `PATH_TO_SAPLOGON`  
       Absolute path to `saplogon.exe` executable.
    - `EXPLICIT_WAIT = "n s"`  
-      Time in pattern m, s or ms for minutes, milisseconds or seconds, respectively to wait between execution of SAP GUI library keywords.
+      Time in pattern m, s or ms for minutes, milliseconds or seconds, respectively to wait between execution of SAP GUI library keywords.
    - `MULTIPLE_LOGON_ACTION ="option"`  
       To set the behavior when there is another logged session with the same user. Options: `endOthersOption_rdi`: Continue with this logon and end any other logons in system. When ending any existing logons to system, unsaved data is lost. `continueOption_rdi`: Continue with this logon, without ending any other logons in system `terminateOption_rdi`: Terminate this logon. This will cause the test run to fail.
 
-3. File `input-data.yaml` should be edited if you need to use different input data than the default values. Each Dataset is binded to one test case using the Test Setup.
+3. File `input-data.yaml` should be edited if you need to use different input data than the default values. Each Dataset is binder to one test case using the Test Setup.
 4. To run the `demo` test tag from demo.robot suite on another Git Bash / terminal window, activate the Python Virtual Environment as stated before and use this command:
 
    ```python
    (env) 
-   $ robot --variablefile ./resources/robot-variables/robot_variables.py --variable ./resources/input-data/input-data-variables.py --loglevel TRACE --outputdir results ./resources/tests/generaltabledisplay/standard/demo.robot
+   $ robot --variablefile ./resources/robot-variables/robot_variables.py --loglevel TRACE --outputdir results ./resources/tests/generaltabledisplay/standard/demo.robot
    ```
 
    - Option `--variablefile` simply points to your local copy of `robot_variables.py`.
@@ -194,7 +211,7 @@ These are suggested VS Code plugins that best fit this automation project:
 
 If you get errors related to AutoIT library like `class not registered` follow these steps to fix it:
 
-1. Unnistall robotframework-autoitlibrary by running this in Git bash:
+1. Uninstall robotframework-autoitlibrary by running this in Git bash:
 
    ```python
    (env) $ pip uninstall robotframework-autoitlibrary

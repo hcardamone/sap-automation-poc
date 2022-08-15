@@ -9,6 +9,7 @@ robotframework-autoitlibrary
 robotframework-screencaplibrary
 robotframework-seleniumlibrary
 robotframework-jsonlibrary
+robotframework-tidy
 jsondiff
 deepdiff
 pyautogui
