@@ -9,21 +9,23 @@ Variables       ../input-data/input-data-xboxctg.yaml
 Variables       ../robot-variables/robot_variables.py
 Variables       ../common/sapgui-resources/ui-elements/sap-elements.yaml
 
+*** Variables ***
+${get_jsn_fle}    ../sap-automation-poc/resources/mock/
 
 *** Keywords ***
 Access the SM30 transaction
     SapGuiLibraryExtended.Run Transaction    ${standard.maintaintable}
-    SapGuiLibrary.Send Vkey    Enter
+    SapGuiLibraryExtended.Send Vkey    Enter
 
 Access the ZTXGCTG01 table
     SapGuiLibraryExtended.Input Text    ${sapedittableview.tbsch}    ${zsaptransactions.zxboxctgtble}
-    SapGuiLibrary.Send Vkey    Enter
+    SapGuiLibraryExtended.Send Vkey    Enter
     SapGuiLibraryExtended.Click Element    ${sapedittableview.shbtn}
     SapGuiLibraryExtended.Click Element    ${sapedittableview.edtBtn}
     SapGuiLibraryExtended.Click Element    ${sapedittableview.nwentrie}
 
 Get the game data extraction
-    ${lod_gme_ext}    JSONLibrary.Load JSON From File    ${EXPECTED_RESPONSE}
+    ${lod_gme_ext}    JSONLibrary.Load JSON From File    ${get_jsn_fle}data-gamectg-mock.json
     ${get_cnt_gdr}    JSONLibrary.Get Value From Json    ${lod_gme_ext}    $..xboxctnt.ggender
     ${get_cnt_gnm}    JSONLibrary.Get Value From Json    ${lod_gme_ext}    $..xboxctnt.gamname
     ${get_cnt_gvl}    JSONLibrary.Update Value To Json    ${lod_gme_ext}    $..xboxctnt.gvalue    14,99
@@ -43,15 +45,15 @@ Load the game data extraction to ZTXGCTG01 table
 
 Acess the ZXGCTG01 transaction
     SapGuiLibraryExtended.Run Transaction    ${zsaptransactions.zxboxalvctlg}
-    SapGuiLibrary.Send Vkey    Enter
-    SapGuiLibrary.Send Vkey    F8
+    SapGuiLibraryExtended.Send Vkey    Enter
+    SapGuiLibraryExtended.Send Vkey    F8
     SapGuiLibraryExtended.Set Column Width    ${sapzxbxcgtpg.srow}    GAMER    29
     ${get_cnt_row}    SapGuiLibraryExtended.Get Row Count    ${sapzxbxcgtpg.srow}
-    ${get_val_cel}    SapGuiLibraryExtended.Get Cell Value    ${sapzxbxcgtpg.srow}    4    GAMER
+    ${get_val_cel}    SapGuiLibraryExtended.Get Cell Value    ${sapzxbxcgtpg.srow}    3    GAMER
     IF    ${get_cnt_row} == 0    Fail    There are no one data register
     FOR    ${get_cnt_row}    IN    ${sapzxbxcgtpg.srow}    Run Keywords
         IF    '${get_val_cel}' == '${xboxgamectg.gamename}'
-            SapGuiLibraryExtended.Select Row    ${sapzxbxcgtpg.srow}    4
+            SapGuiLibraryExtended.Select Row    ${sapzxbxcgtpg.srow}    3
         END
     END
     BuiltIn.Log To Console    Data was loaded

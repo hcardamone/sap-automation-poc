@@ -7,7 +7,6 @@
 Library         SeleniumLibrary
 Library         OperatingSystem
 Library         Screenshot    screenshot_directory${var_ext_dir}
-Variables       ../../resources/robot-variables/robot_variables.py
 Variables       ../common/selenium-resources/web-elements/extract-web-elements.yaml
 
 

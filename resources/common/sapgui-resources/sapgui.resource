@@ -28,7 +28,7 @@ ${SAPGUIPROCESSID}
 # KW to Open SAP NetWeaver application
 Open SAP NetWeaver application
     ${SAPGUIPROCESSID}    AutoItLibrary.Run    ${PATH_TO_SAPLOGON}
-    Set Global Variable    ${SAPGUIPROCESSID}
+    BuiltIn.Set Global Variable    ${SAPGUIPROCESSID}
     Sleep    3s    reason=Waiting the splash screen to disappear
     Dismiss Multiple Logon warning dialog if needed
     # Wait For Active Window    ${saplogon.windowtitle}${SAPGUI_VERSION}    TimeOut=15
@@ -41,13 +41,15 @@ Close SAP NetWeaver
 # KW to actions about multiple logon warning
 
 Dismiss Multiple Logon warning dialog if needed
-    ${is_popupdisplayed}    Run Keyword And Return Status
+    ${is_popupdisplayed}    BuiltIn.Run Keyword And Return Status
     ...    SapGuiLibraryExtended.Element Should Be Present
     ...    ${saplogon.multipleLogonWarning_dlg}
     IF    '${is_popupdisplayed}' == '${TRUE}'
-        ${dialogTitle}    Run Keyword    SapGuiLibraryExtended.Get Window Title    ${saplogon.multipleLogonWarning_dlg}
+        ${dialogTitle}    BuiltIn.Run Keyword
+        ...    SapGuiLibraryExtended.Get Window Title
+        ...    ${saplogon.multipleLogonWarning_dlg}
     ELSE
-        ${dialogTitle}    Set Variable    ${None}
+        ${dialogTitle}    BuiltIn.Set Variable    ${None}
     END
     IF    '${dialogTitle}' == '${saplogon.multipleLogonTitle_dlg}'
         SapGuiLibraryExtended.Select Radio Button    ${saplogon.${MULTIPLE_LOGON_ACTION}}

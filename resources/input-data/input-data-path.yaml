@@ -1,0 +1,5 @@
+inputdatapath:
+  MOCKDIR: ../sap-automation-poc/resources/mock/
+  ECTDIR: ../sap-automation-poc/resources/extract-data/
+  TRFDIR: ../sap-automation-poc/resources/transform-data/
+  EXPECTED_RESPONSE: "../sap-automation-poc/resources/mock/data-gamectg-mock.json"

@@ -17,3 +17,4 @@ output.xml
 robot_variables.py
 *.private
 .github
+package-lock.json
