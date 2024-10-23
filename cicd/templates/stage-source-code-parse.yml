@@ -1,0 +1,11 @@
+steps:
+  - task: PowerShell@2
+    displayName: 'Source Code Parse'
+    continueOnError: true
+    inputs:
+      targetType: 'inline'
+      script: | 
+        Set-Location "D:\AzurePOCRepos\POC_REPO\pwsenv\autopwsenv\Scripts"
+        .\Activate.ps1
+        Set-Location "D:\AzurePOCRepos\POC_REPO"
+        robocop --exclude '0201','0202','0203','0204','0302','0305','0503','0505','0501','0605','0920','0924' --report rules_by_error_type resources/

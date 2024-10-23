@@ -1,0 +1,11 @@
+steps:
+  - task: PowerShell@2
+    displayName: 'Auto-Formatting'
+    continueOnError: true
+    inputs:
+      targetType: 'inline'
+      script: | 
+        Set-Location "D:\AzurePOCRepos\POC_REPO\pwsenv\autopwsenv\Scripts"
+        .\Activate.ps1
+        Set-Location "D:\AzurePOCRepos\POC_REPO"
+        robotidy resources/

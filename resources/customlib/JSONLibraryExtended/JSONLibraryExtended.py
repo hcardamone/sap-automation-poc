@@ -1,6 +1,6 @@
 import json
 import jsondiff
-from deepdiff import DeepDiff
+# from deepdiff import DeepDiff
 # from deepdiff import DeepSearch, grep
 from pprint import pprint
 from robot.api import logger

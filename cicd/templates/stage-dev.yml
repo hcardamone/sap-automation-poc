@@ -1,0 +1,15 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# This pipeline follow the steps:
+# stage: x
+
+parameters:
+- name: repoName
+  type: string
+
+
+steps:
+- task: ManualValidation@0
+  inputs:
+    notifyUsers: 'henrique@gmail.com'
+    instructions: 'After the manual unit test and code review, this step will be approved for the next step which is the QA deploy.'

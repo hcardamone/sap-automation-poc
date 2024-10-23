@@ -1,0 +1,15 @@
+steps:
+  - task: PowerShell@2
+    displayName: 'Check Job Status'
+    inputs:
+      targetType: 'inline'
+      script: | 
+          $jobStatus = "$(Agent.JobStatus)"
+          Write-Host "Agent.JobStatus: $jobStatus"
+
+          $failureMessage = "##vso[task.complete result=Failed;]At least one task failed."
+
+          if ($jobStatus -ne "Succeeded") {
+              Write-Host $failureMessage
+          }
+          

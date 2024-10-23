@@ -1,0 +1,52 @@
+steps:
+  - powershell: |
+      try
+
+      {
+
+      $SETDEST = '$(System.JobDisplayName)'
+
+      $SPLITDEST = $SETDEST.Split(" ")
+
+      $DESTINATION = $SPLITDEST[2]
+
+      $PRDDEST = 'PRD'
+
+
+      $SETPRODNAME = '$(Build.SourceVersionMessage)'
+
+      $SPLITPRODNAME = $SETPRODNAME.Split(" ")
+
+      $PRODUCTNAME = $SPLITPRODNAME[0]
+
+
+      } catch
+
+      {
+          $PRODUCTNAME
+          $DESTINATION
+      }
+
+      try {
+        Set-Location "D:\PSSCRIPTS\POCDotNetDeploy\"
+
+        $output = .\POCDotNetDeploy.exe $DESTINATION $PRODUCTNAME $(AZ_USR) $(AZ_PWD) $(AZ_SOAP_URL) | Out-String
+
+        Write-Output $output
+
+
+        if ($output -match "ERROR") {
+
+        Write-Output "ERROR was found check the output error."
+
+        exit 1
+
+        } else {
+
+        Write-Output "Deploy state done"
+
+        }
+        } catch {
+          $errorMessage = $_.Exception.Message
+          Write-Error $errorMessage
+        }

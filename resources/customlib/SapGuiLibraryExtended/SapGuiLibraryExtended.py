@@ -245,13 +245,13 @@ class SapGuiLibraryExtended (SapGuiLibrary):
         time.sleep(self.explicit_wait)
 
     def run_exit_transaction(self, transaction):
-        """Runs a Sap transaction. An error is given when an unknown transaction is specified.
+        """Runs a transaction. An error is given when an unknown transaction is specified.
         """
         self.session.findById("wnd[0]/tbar[0]/okcd").text = transaction
         time.sleep(self.explicit_wait)
         self.send_vkey(0)
         if transaction == '/nEX':
-            exit_message = "/nEX transaction force SAP Gui to exit"
+            exit_message = "/nEX transaction force Gui to exit"
             return  exit_message
         else:
             self.take_screenshot()

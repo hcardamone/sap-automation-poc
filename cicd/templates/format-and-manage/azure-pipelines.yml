@@ -1,0 +1,24 @@
+
+variables:
+  - group: PIPELINE-General
+
+name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger: 
+  branches:
+    include:
+      - temp # triggers.      
+  
+stages:
+  - stage: cdPipeline
+    displayName: 'QA'
+    jobs:
+    - job: codeManagementPipeline
+      displayName: 'Source Code Manipulation and Organization'
+      pool:
+        name: 'POC_POOL_SVC'
+      steps:
+      - template: /cicd/templates/stage-auto-formatting.yml
+      - template: /cicd/templates/stage-source-code-parse.yml
+      - template: /cicd/templates/stage-check-job-status.yml
+      

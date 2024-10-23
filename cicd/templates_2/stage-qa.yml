@@ -1,0 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# This pipeline follow the steps:
+# stage: x
+
+parameters:
+- name: repoName
+  type: string
+
+
+steps:
+- task: PowerShell@2
+  displayName: 'Automatic Tests Script'
+  inputs:
+    targetType: 'inline'
+    script: | 
+      Set-Location "D:\AzurePOCRepos\POC_REPO_RF\pwsenv\autopwsenv\Scripts"
+      .\Activate.ps1
+      Set-Location "D:\AzurePOCRepos\POC_REPO_RF"
+      robot --variablefile ./resources/ext_variables/robot_variables_client.py --loglevel TRACE --outputdir "D:\agent_POC_POOL\_work\1\s\REGRESSION_CICD\results\POC_REPO_RF" -x outputxunit.xml --include cicd ./resources/tests/sd-inv/scenarios.robot
+
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: outputxunit.xml
+    searchFolder: 'D:\agent_POC_POOL\_work\1\s\REGRESSION_CICD\results\POC_REPO_RF'
+    testRunTitle: robotframeworkunittest
+    publishRunAttachments: true
+  condition: succeededOrFailed()
+  displayName: 'Publish Test Results outputxunit.xml'
+  

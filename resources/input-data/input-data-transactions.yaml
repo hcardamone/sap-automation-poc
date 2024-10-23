@@ -1,12 +1,12 @@
 
-# Standard SAP Transactions
+# Standard Transactions
 standard:
   maintaintable:             /nSM30
   abapeditor:                /nSE38
   standard.generaltable:     /nSE16N
   exittrans:                 /nEX
 
-# Z SAP Transactions
+# Z Transactions
 zsaptransactions:
   zedicatgtmat:              /nZXCAD03
   zcadastromat:              /nZXCAD04

@@ -1,0 +1,72 @@
+# Azure Pipeline - Deploy to PRD
+# geting az-pipelines ref@POC_REPO # >
+
+resources:
+  repositories:
+  - repository: POC_REPO
+    type: git
+    name: POC_REPO
+    ref: 'temp'
+
+name: $(Build.BuildId)_$(Build.DefinitionName)_$(SourceBranchName)_$(Build.RequestedFor)_$(Date:yyyyMMdd)$(Rev:.r)
+
+variables:
+  - group: PIPELINE-General
+
+trigger: none # Disable CI triggers.    
+
+stages:
+  - stage: fullAutoTests
+    condition: eq(variables['System.StageAttempt'], '1') 
+    displayName: 'Full Automatic Tests'
+    jobs:
+    - job: BasicIntegrationTest
+      displayName: 'Full Automatic Tests'
+      condition: eq(variables['System.JobAttempt'], '1')
+      pool:
+        name: 'POC_REPO'
+      steps:
+      - template: /cicd/templates/stage-prd.yml@POC_REPO  # Template reference
+        parameters: 
+          repoName: $(Build.Repository.Name)
+
+      - powershell: |
+          $jobStatus = "$(Agent.JobStatus)"
+          Write-Host "Agent.JobStatus: $jobStatus"
+
+          $failureMessage = "##vso[task.complete result=Failed;]At least one task failed."
+
+          if ($jobStatus -ne "Succeeded") {
+              Write-Host $failureMessage
+          }
+        displayName: 'Check Job Status'
+
+  - stage: deployPRD
+    dependsOn: fullAutoTests
+    condition: succeeded('fullAutoTests')
+    displayName: 'Deploy to PRD'
+    jobs:
+    - job: deployPRD
+      displayName: 'Deploy to PRD'
+      pool:
+        name: 'POC_POOL_SVC'
+      steps:
+      - template: /cicd/templates/stage-deploy.yml@POC_REPO  # Template reference
+        parameters: 
+          repoName: $(Build.Repository.Name) 
+
+  - stage: autoMerge
+    dependsOn: deployPRD
+    condition: succeeded('deployPRD')
+    displayName: 'Update Repo main'
+    jobs:
+      - job: autoMerge
+        displayName: 'Update Repo main'
+        pool:
+          name: POC_POOL_SVC
+        steps:
+        - task: PowerShell@2
+          displayName: 'Auto Mege branch temp into branch main'
+          inputs:
+            targetType: filePath
+            filePath: './az-pipelines/cicd/psscripts/auto-merge.ps1'

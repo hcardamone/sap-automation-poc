@@ -17,6 +17,7 @@ ${sc_sht_name}      selenium-screenshot-1.png
 
 *** Keywords ***
 Get the game data detail information on xbox game catalog
+    [Arguments]    ${EXPLICIT_WAIT}=
     SeleniumLibrary.Page Should Contain    ${xboxpage.cttitle}
     SeleniumLibrary.Set Focus To Element    ${xboxpage.ftgenre}
     SeleniumLibrary.Click Element    ${xboxpage.ftgenre}

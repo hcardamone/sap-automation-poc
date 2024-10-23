@@ -1,0 +1,69 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# This pipeline follow the steps:
+# stage: x
+
+parameters:
+- name: repoName
+  type: string
+
+steps:
+- task: PowerShell@2
+  displayName: 'Automatic Tests Script SD_INV_FULL'
+  continueOnError: true
+  inputs:
+    targetType: 'inline'
+    script: | 
+      Set-Location "D:\AzurePOCRepos\POC_REPO\pwsenv\autopwsenv\Scripts"
+      .\Activate.ps1
+      Set-Location "D:\AzurePOCRepos\POC_REPO"
+      robot -v ./resources/ext_variables/robot_variables.py --loglevel TRACE --outputdir "D:\\agent_POC_REPO\\_work\\1\\s\\results\\POC_REPO\\SD_INV_FULL" -x outputxunit.xml -e error -e all ./resources/tests/sd-inv/scenarios.robot
+
+- task: PowerShell@2
+  displayName: 'Automatic Tests Script SD_DEL_FULL'
+  continueOnError: true
+  inputs:
+    targetType: 'inline'
+    script: | 
+      Set-Location "D:\AzurePOCRepos\POC_REPO\pwsenv\autopwsenv\Scripts"
+      .\Activate.ps1
+      Set-Location "D:\AzurePOCRepos\POC_REPO"
+      robot -v ./resources/ext_variables/robot_variables.py --loglevel TRACE --outputdir "D:\\agent_POC_REPO\\_work\\1\\s\\results\\POC_REPO\\SD_DEL_FULL" -x outputxunit.xml -e error -e all ./resources/tests/sd-del/scenarios.robot
+
+- task: PowerShell@2
+  displayName: 'Automatic Tests Script FI_INV_FULL'
+  continueOnError: true
+  inputs:
+    targetType: 'inline'
+    script: | 
+      Set-Location "D:\AzurePOCRepos\POC_REPO\pwsenv\autopwsenv\Scripts"
+      .\Activate.ps1
+      Set-Location "D:\AzurePOCRepos\POC_REPO"
+      robot -v ./resources/ext_variables/robot_variables.py --loglevel TRACE --outputdir "D:\\agent_POC_REPO\\_work\\1\\s\\results\\POC_REPO\\FI_INV_FULL" -x outputxunit.xml -e error -e all ./resources/tests/fi-inv/scenarios.robot
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: outputxunit.xml
+    searchFolder: 'D:\agent_POC_REPO\_work\1\s\results\POC_REPO\SD_INV_FULL'
+    testRunTitle: sd_del_full
+    publishRunAttachments: true
+  condition: succeededOrFailed()
+  displayName: 'Publish SD Delivery Monitor Full Test Results outputxunit.xml'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: outputxunit.xml
+    searchFolder: 'D:\agent_POC_REPO\_work\1\s\results\POC_REPO\SD_INV_FULL'
+    testRunTitle: sd_inv_full
+    publishRunAttachments: true
+  condition: succeededOrFailed()
+  displayName: 'Publish SD Monitor Full Test Results outputxunit.xml'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: outputxunit.xml
+    searchFolder: 'D:\agent_POC_REPO\_work\1\s\results\POC_REPO\FI_INV_FULL'
+    testRunTitle: fi_inv_full
+    publishRunAttachments: true
+  condition: succeededOrFailed()
+  displayName: 'Publish FI Monitor Full Test Results outputxunit.xml'

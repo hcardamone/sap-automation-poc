@@ -1,0 +1,57 @@
+# Azure Pipeline - Deploy to QA
+# geting az-pipelines ref@POC_REPO # >
+
+resources:
+  repositories:
+  - repository: POC_REPO
+    type: git
+    name: POC_POOL
+    ref: 'temp'
+
+name: $(Build.BuildId)_$(Build.DefinitionName)_$(SourceBranchName)_$(Build.RequestedFor)_$(Date:yyyyMMdd)$(Rev:.r)
+
+variables:
+  - group: PIPELINE-General
+
+trigger: none # Disable CI triggers.    
+
+stages:
+  - stage: deployQA
+    displayName: 'Deploy to QA'
+    condition: eq(variables['System.StageAttempt'], '1') 
+    jobs:
+    - job: deployQA
+      displayName: 'Deploy to QA'
+      condition: eq(variables['System.JobAttempt'], '1')
+      pool:
+        name: 'POC_POOL_SVC'
+      steps:
+      - template: /cicd/templates/stage-deploy.yml@POC_REPO  # Template reference
+        parameters: 
+          repoName: $(Build.Repository.Name) 
+              
+  - stage: BasicAutoTests
+    dependsOn: deployQA
+    condition: and(succeeded('deployQA'), eq(variables['System.StageAttempt'], '1'))
+    displayName: 'Basic Automatic Tests'
+    jobs:
+    - job: BasicIntegrationTest
+      displayName: 'Basic Automatic Tests'
+      condition: eq(variables['System.JobAttempt'], '1')
+      pool:
+        name: 'POC_POOL'
+      steps:
+      - template: /cicd/templates/stage-qa.yml@POC_REPO  # Template reference
+        parameters: 
+          repoName: $(Build.Repository.Name)
+      
+      - powershell: |
+          $jobStatus = "$(Agent.JobStatus)"
+          Write-Host "Agent.JobStatus: $jobStatus"
+
+          $failureMessage = "##vso[task.complete result=Failed;]At least one task failed."
+
+          if ($jobStatus -ne "Succeeded") {
+              Write-Host $failureMessage
+          }
+        displayName: 'Check Job Status'

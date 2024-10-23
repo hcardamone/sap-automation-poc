@@ -6,7 +6,7 @@ Library         ../customlib/SapGuiLibraryExtended/SapGuiLibraryExtended.py
 Library         ../customlib/JSONLibraryExtended/JSONLibraryExtended.py
 Variables       ../input-data/input-data-transactions.yaml
 Variables       ../input-data/input-data-xboxctg.yaml
-Variables       ../robot-variables/robot_variables.py
+Variables       ../robot-variables/robot_variables_template.py
 Variables       ../common/sapgui-resources/ui-elements/sap-elements.yaml
 
 *** Variables ***

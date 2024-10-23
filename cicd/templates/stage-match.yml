@@ -1,0 +1,25 @@
+
+parameters:
+- name: repoName
+  type: string
+
+steps:
+- task: PowerShell@2
+  displayName: 'Match SCI Data with Get Generic Extractor Config Data'
+  continueOnError: true
+  inputs:
+    targetType: 'inline'
+    script: | 
+      Set-Location "D:\AzurePOCRepos\POC_REPO\pwsenv\autopwsenv\Scripts"
+      .\Activate.ps1
+      Set-Location "D:\AzurePOCRepos\POC_REPO"
+      robot -v ./resources/ext_variables/robot_variables.py --loglevel TRACE --outputdir "D:\\agent_POC_REPO\\_work\\1\\s\\results\\POC_REPO\\SUIT_GENERIC_MAPPING_MATCH" -x outputxunit.xml ./resources/tests/match_mapping_cnf_sci/match_mapping_cnf_sci.robot
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: outputxunit.xml
+    searchFolder: 'D:\agent_POC_REPO\_work\1\s\results\POC_REPO\SUIT_GENERIC_MAPPING_MATCH'
+    testRunTitle: suit_generic_mapping_match
+    publishRunAttachments: true
+  condition: succeededOrFailed()
+  displayName: 'Publish Match SCI Data with Get Generic Extractor Config Data Results outputxunit.xml'

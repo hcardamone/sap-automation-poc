@@ -1,6 +1,6 @@
-# Welcome to SAP Process Automation Robot Framework Lab
+# Welcome to Process Automation Robot Framework Lab
 
-SAP Process Automation Robot Framework Lab is an study about automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process SAP application.
+Process Automation Robot Framework Lab is an study about automated testing framework developed using [Robot Framework](https://robotframework.org/) for QA purposes for process application.
 
 ## Writer in BDD Automation
 
@@ -9,10 +9,10 @@ my studies.
 
 ## About
 
-The purpose of this POC is applying some studies to Automation, even using Robot Framework libraries, SAP ECC or web elements.
-This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in SAP process.
+The purpose of this POC is applying some studies to Automation, even using Robot Framework libraries, ECC or web elements.
+This is a starting guide meant to set the environment ready to run tests and to validate that **all automation developers have the same environment**, making easier to create scenarios, select/process and extract status code in process.
 
-> This POC was running on the Minisap LICENSE NPL SAP NetWeaver 7.52 (Sybase ASE) to VM Ubuntu.
+> This POC was running on the MiniLICENSE NPL NetWeaver 7.52 (Sybase ASE) to VM Ubuntu.
 > For further information, there are some helpful links at the end of this readme.
 
 ## Requirements and tools
@@ -25,19 +25,19 @@ This is a starting guide meant to set the environment ready to run tests and to 
 
   - Windows: get last Python installer [here](https://www.python.org/downloads/)
 
-- ## SAP GUI Scripting Tracker
+- ## GUI Scripting Tracker
 
-  - This tool allows to get the UI elements IDs from SAP GUI application. Download [here](https://tracker.stschnell.de/).
-  - After login in SAP GUI, open the Scripting Tracker and click on Scan, then the tree panel will be filled with all objects found.
-  - Expand over the object tree and right click in one element to highlight it in the SAP GUI window.
-  - You can also click on Identify arrow button to track the UI element as you move the mouse over it in SAP GUI Window.
+  - This tool allows to get the UI elements IDs from GUI application. Download [here](https://tracker.stschnell.de/).
+  - After login in GUI, open the Scripting Tracker and click on Scan, then the tree panel will be filled with all objects found.
+  - Expand over the object tree and right click in one element to highlight it in the GUI window.
+  - You can also click on Identify arrow button to track the UI element as you move the mouse over it in GUI Window.
 
-- ## API SAP GUI Scripting
+- ## API GUI Scripting
 
-  - Enabling `SAP GUI Scripting` on the server side,
-    Launch the `saplogon.exe`, login to the SAP server using your credentials. The SAP Easy Access window appears.
-    > **Hint**: To enable this, selecting this option when starting setup install to SAP products to this module working as well
-  - Execute the `RZ11` transaction. Specify `sapgui/user_scripting` parameter name and press Enter on keyboard or Display in SAP interface.
+  - Enabling `GUI Scripting` on the server side,
+    Launch the `saplogon.exe`, login to the server using your credentials. The Easy Access window appears.
+    > **Hint**: To enable this, selecting this option when starting setup install to products to this module working as well
+  - Execute the `RZ11` transaction. Specify `sapgui/user_scripting` parameter name and press Enter on keyboard or Display in interface.
   - In the View Profile Parameter Attributes window, click the `Change Value` button on the toolbar and set the New value of sapgui/user_scripting to `TRUE`. `Save Changes`.
   - `Sign out` of the session and `sign in again` to see the change as it is not applied to running sessions.
   <!-- search: https://docs.uipath.com/studio/lang-pt_BR/v2018.4/docs/enabling-sap-gui-scripting -->
@@ -52,7 +52,7 @@ This is a starting guide meant to set the environment ready to run tests and to 
   - To this project I'm using the abapGit (). abapGit is a git client for ABAP developed in ABAP.
   - Download the latest build [zabapgit.abap](https://raw.githubusercontent.com/abapGit/build/main/zabapgit.abap).
   - abapGit is a tool to import and export code between ABAP systems. If a developer has a developer key to the system, the developer can perform these actions already. abapGit enables the developer to do mass export/changes/imports but not more than already possible to do manually. To more details go to [docs.abapgit.org](https://docs.abapgit.org/)
-  > **Hint** abapGit requires SAP BASIS version 702 or higher.
+  > **Hint** abapGit requires BASIS version 702 or higher.
 
 - ## Robotidy (Optional)
 
@@ -127,7 +127,7 @@ In source code change mode, upload the code from the file using Utilities -> Mor
 
 3. Now you can use abapGit by executing the report in transaction `SE38`.
 
-> **Hint** Note about GitHub# On 2018-02-22, GitHub deprecated weak TLS connections. See SAP note 510007, section 7, for information on how to configure SSL.
+> **Hint** Note about GitHub# On 2018-02-22, GitHub deprecated weak TLS connections. See note 510007, section 7, for information on how to configure SSL.
 
 ## Robotidy library (Optional)
 
@@ -149,7 +149,7 @@ In source code change mode, upload the code from the file using Utilities -> Mor
 
 1. Search this extension on your store browser, in this case was used on Google `Chrome`. Check on the [link](#useful-links)
 
-## SAP Test Automation dependencies
+## Test Automation dependencies
 
 - ### Install Python packages: run this command after cloning the repo
 
@@ -180,17 +180,17 @@ These are suggested VS Code plugins that best fit this automation project:
 2. File `robot_variables` has all initial variables to run RF and you have to change to fit your machine settings as needed, since it won't be committed anyway as each automation developer can have different settings:
 
    - `SAP_ENV = "ENVNAME"`  
-      SAP test environment to be used. Refer to environments.yaml file for available environments details.
+      test environment to be used. Refer to environments.yaml file for available environments details.
    - `USER_NAME = "USER"`  
-      User name to login in SAP GUI.
+      User name to login in GUI.
    - `PWD = "********"`  
-      Password to login in SAP GUI. **_IMPORTANT_**: It's a security best practice to NEVER commit user password in code repositories.
+      Password to login in GUI. **_IMPORTANT_**: It's a security best practice to NEVER commit user password in code repositories.
    - `LANGUAGE = "EN"`  
-      SAP GUI language to login. Defaults to English.
+      GUI language to login. Defaults to English.
    - `PATH_TO_SAPLOGON`  
       Absolute path to `saplogon.exe` executable.
    - `EXPLICIT_WAIT = "n s"`  
-      Time in pattern m, s or ms for minutes, milliseconds or seconds, respectively to wait between execution of SAP GUI library keywords.
+      Time in pattern m, s or ms for minutes, milliseconds or seconds, respectively to wait between execution of GUI library keywords.
    - `MULTIPLE_LOGON_ACTION ="option"`  
       To set the behavior when there is another logged session with the same user. Options: `endOthersOption_rdi`: Continue with this logon and end any other logons in system. When ending any existing logons to system, unsaved data is lost. `continueOption_rdi`: Continue with this logon, without ending any other logons in system `terminateOption_rdi`: Terminate this logon. This will cause the test run to fail.
 
@@ -227,19 +227,19 @@ If you get errors related to AutoIT library like `class not registered` follow t
 - ssl/ciphersuites = 135:PFS:HIGH::EC_P256:EC_HIGH
 - icm/HTTPS/client_sni_enabled = TRUE
 
-To add profile parameters use transaction `RZ10` or update contents of file DEFAULT.PFL directly. For preview, evaluation and developer versions of SAP NetWeaver refer to following locations, depending on your system name:
+To add profile parameters use transaction `RZ10` or update contents of file DEFAULT.PFL directly. For preview, evaluation and developer versions of NetWeaver refer to following locations, depending on your system name:
 
-- “A4H - SAP NetWeaver AS ABAP 7.4 and above (Linux / SAP HANA)” - /usr/sap/A4H/sys/profile/DEFAULT.PFL
-- “NPL - SAP NetWeaver 7.x” - /sapmnt/NPL/profile/DEFAULT.PFL
+- “A4H - NetWeaver AS ABAP 7.4 and above (Linux / HANA)” - /usr/sap/A4H/sys/profile/DEFAULT.PFL
+- “NPL - NetWeaver 7.x” - /sapmnt/NPL/profile/DEFAULT.PFL
 
 ## Useful Links
 
 - [Robot Framework User Guide](http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html)
 - [Built In Keywords](http://robotframework.org/robotframework/latest/libraries/BuiltIn.html)
-- [SAP GUI Library](https://github.com/frankvanderkuur/robotframework-sapguilibrary/)
+- [GUI Library](https://github.com/frankvanderkuur/robotframework-sapguilibrary/)
 - [AutoIT library](https://github.com/nokia/robotframework-autoitlibrary)
 - [Git Tutorial](https://testautomationu.applitools.com/git-tutorial/)
-- [SAP GUI Scripting Documentation](https://help.sap.com/viewer/b47d018c3b9b45e897faf66a6c0885a8/LATEST/en-US/babdf65f4d0a4bd8b40f5ff132cb12fa.html)
+- [GUI Scripting Documentation](https://help.sap.com/viewer/b47d018c3b9b45e897faf66a6c0885a8/LATEST/en-US/babdf65f4d0a4bd8b40f5ff132cb12fa.html)
 - [abapGit Git client for ABAP](https://docs.abapgit.org/)
 - [Robotidy](https://github.com/MarketSquare/robotframework-tidy#installation)
 - [True Path Extension](https://chrome.google.com/webstore/detail/truepath/mgjhkhhbkkldiihlajcnlfchfcmhipmn)

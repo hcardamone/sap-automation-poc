@@ -1,7 +1,7 @@
 *** Comments ***
-### SAP Gui Resource resource ###
+### Gui Resource resource ###
 ## This resource provide actions:
-#    * Open/Close SAP Gui application.
+#    * Open/Close Gui application.
 
 
 *** Settings ***
@@ -11,7 +11,7 @@ Library         AutoItLibrary    TimeOut=30    CaptureScreenOnError=true
 Library         String
 Library         Process
 Library         Collections
-Variables       ../../robot-variables/robot_variables.py
+Variables       ../../robot-variables/robot_variables_template.py
 Variables       ./environments.yaml
 Variables       ./ui-elements/sap-elements.yaml
 Variables       ../../input-data/input-data-transactions.yaml
@@ -23,19 +23,19 @@ ${SAPGUIPROCESSID}
 
 *** Keywords ***
 ####    ####
-####    Open SAP NetWeaver AS ABAP 7.52 SP04 Resources    ####
+####    Open NetWeaver AS ABAP 7.52 SP04 Resources    ####
 ####    ####
-# KW to Open SAP NetWeaver application
-Open SAP NetWeaver application
+# KW to Open NetWeaver application
+Open NetWeaver application
     ${SAPGUIPROCESSID}    AutoItLibrary.Run    ${PATH_TO_SAPLOGON}
     BuiltIn.Set Global Variable    ${SAPGUIPROCESSID}
     Sleep    3s    reason=Waiting the splash screen to disappear
     Dismiss Multiple Logon warning dialog if needed
     # Wait For Active Window    ${saplogon.windowtitle}${SAPGUI_VERSION}    TimeOut=15
 
-# KW to close SAP Gui application
+# KW to close Gui application
 
-Close SAP NetWeaver
+Close NetWeaver
     SapGuiLibraryExtended.Run Exit Transaction    ${standard.exittrans}
 
 # KW to actions about multiple logon warning

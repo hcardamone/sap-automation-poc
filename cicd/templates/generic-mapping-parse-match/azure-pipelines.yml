@@ -1,0 +1,33 @@
+
+variables:
+  - group: PIPELINE-General
+
+name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger: none # Disable CI triggers.      
+  
+stages:
+  - stage: ConfigMappingParse
+    displayName: 'Get Data Mapping'
+    jobs:
+    - job: SuitGenericMappingParse
+      displayName: 'Get Generic Extractor Config Data and Get SCI output mapping'
+      pool:
+        name: 'POC_REPO'
+      steps:
+      - template: /cicd/templates/stage-parse.yml
+        parameters: 
+          repoName: $(Build.Repository.Name)
+
+  - stage: MatchMappingCnfgSci
+    displayName: 'Match Data Files'
+    dependsOn: ConfigMappingParse
+    jobs:
+    - job: MatchMappingCnfgSci
+      displayName: 'Match SCI Data with Get Generic Extractor Config Data'
+      pool:
+        name: 'POC_REPO'
+      steps:
+      - template: /cicd/templates/stage-match.yml
+        parameters: 
+          repoName: $(Build.Repository.Name)

@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# This pipeline follow the steps:
+# stage: x
+
+parameters:
+- name: repoName
+  type: string
+
+steps:
+- task: PowerShell@2
+  displayName: 'Get Generic Extractor Config Data and Get SCI output mapping'
+  continueOnError: true
+  inputs:
+    targetType: 'inline'
+    script: | 
+      Set-Location "D:\AzurePOCRepos\POC_REPO\pwsenv\autopwsenv\Scripts"
+      .\Activate.ps1
+      Set-Location "D:\AzurePOCRepos\POC_REPO"
+      robot -v ./resources/ext_variables/robot_variables.py --loglevel TRACE --outputdir "D:\\agent_POC_REPO\\_work\\1\\s\\results\\POC_REPO\\SUIT_GENERIC_MAPPING_PARSE" -x outputxunit.xml ./resources/tests/generic_mapping_parse/suit_generic_mapping_parse.robot
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: outputxunit.xml
+    searchFolder: 'D:\agent_POC_REPO\_work\1\s\results\POC_REPO\SUIT_GENERIC_MAPPING_PARSE'
+    testRunTitle: suit_generic_mapping_parse
+    publishRunAttachments: true
+  condition: succeededOrFailed()
+  displayName: 'Publish Get Generic Extractor Config Data and Get SCI output mapping Results outputxunit.xml'

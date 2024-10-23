@@ -1,0 +1,31 @@
+
+variables:
+  - group: PIPELINE-General
+
+name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger: none # Disable CI triggers.      
+  
+stages:
+  - stage: qaTest
+    displayName: 'QA'
+    jobs:
+    - job: BasicIntegrationTest
+      displayName: 'Basic Automatic Tests'
+      pool:
+        name: 'POC_REPO'
+      steps:
+      - template: /cicd/templates/stage-qa.yml
+        parameters: 
+          repoName: $(Build.Repository.Name)
+      
+      - powershell: |
+          $jobStatus = "$(Agent.JobStatus)"
+          Write-Host "Agent.JobStatus: $jobStatus"
+
+          $failureMessage = "##vso[task.complete result=Failed;]At least one task failed."
+
+          if ($jobStatus -ne "Succeeded") {
+              Write-Host $failureMessage
+          }
+        displayName: 'Check Job Status'

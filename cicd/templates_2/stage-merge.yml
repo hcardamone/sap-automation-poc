@@ -1,0 +1,141 @@
+steps:
+- task: PowerShell@2
+  displayName: 'Auto Merge'
+  inputs:
+    targetType: 'inline'
+    script: |
+      #Set TLS 1.2 Protocol
+      $TLS12Protocol = [System.Net.SecurityProtocolType] 'Ssl3 , Tls12'
+      [System.Net.ServicePointManager]::SecurityProtocol = $TLS12Protocol
+
+      # Get Secret Variables
+      ##vso[task.setvariable variable=AZ_USR_PR;issecret=true]$(AZ_USR_PR)
+      ##vso[task.setvariable variable=AZ_PWD_PAT;issecret=true]$(AZ_PWD_PAT)
+      ##vso[task.setvariable variable=HTTP_PROXY;issecret=true]$(HTTP_PROXY)
+
+      try
+      {
+          $AZ_USR_PR = '$(AZ_USR_PR)'
+          $AZ_PWD_PAT = '$(AZ_PWD_PAT)'
+          $HTTP_PROXY = '$(HTTP_PROXY)'
+      } catch
+      {
+          $AZ_USR_PR
+          $AZ_PWD_PAT
+          $HTTP_PROXY
+      }
+
+      # construct base URLs
+      $TEAMFOUNDATIONCOLLECTIONURI = '$(System.TeamFoundationCollectionUri)'
+      $TEAMPROJECT = '$(System.TeamProject)'
+      $SYSTEM_TEAMPROJECT = $TEAMPROJECT.Replace(" ","%20")
+      $apisUrl = "$($TEAMFOUNDATIONCOLLECTIONURI)/$($SYSTEM_TEAMPROJECT)/_apis"
+      $projectUrl = "$apisUrl/git/repositories/$(Build.Repository.Name)"
+
+
+      # create common headers
+      $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $AZ_USR_PR,$AZ_PWD_PR)))
+      $headers = @{}     
+      $headers.Add("Authorization", "Basic {0}" -f $base64AuthInfo)
+      $headers.Add("Content-Type", "application/json")
+
+
+      # Create a Pull Request
+      $pullRequestUrl = "$projectUrl/pullrequests?api-version=5.1"
+      try{
+          $pullRequest = @{
+              "sourceRefName" = "refs/heads/temp"
+              "targetRefName" = "refs/heads/main"
+              "title" = "Create Automatic Merge Request by Pipeline"
+              "description" = "CREATE AUTOMATIC MERGE REQUEST TEMP INTO MAIN"
+          }
+
+          $pullRequestJson = ($pullRequest | ConvertTo-Json -Depth 5)
+      } catch
+      {
+        $pullRequestJson
+      }
+          Write-Host "Sending a REST call to create a new pull request from temp to main"
+
+
+      # REST call to create a Pull Request
+      try{
+          $pullRequestResult = Invoke-RestMethod -Method POST -Headers $headers -Body $pullRequestJson -Uri $pullRequestUrl -Proxy $HTTP_PROXY
+      } catch
+      {   
+          $pullRequestResult
+          $pullRequestId = $pullRequestResult.pullRequestId
+          $StatusActive = $pullRequestResult.status  
+      }
+
+      try{
+      if ( $StatusActive -eq 'active' )
+      {
+          Write-Host "Pull request created. Pull Request Id: $pullRequestId"
+      }
+      else
+      {
+          $_.Exception.Message
+      }
+      } catch
+      {
+      }
+
+
+      # Set PR to auto-complete
+      $setAutoComplete = @{
+          "autoCompleteSetBy" = @{
+              "id" = $pullRequestResult.createdBy.id
+          }
+          "completionOptions" = @{       
+              "deleteSourceBranch" = $False
+              "bypassPolicy" = $False
+          }
+      }
+
+      $setAutoCompleteJson = ($setAutoComplete | ConvertTo-Json -Depth 5)
+
+          Write-Host "Sending a REST call to set auto-complete on the newly created pull request"
+
+      Write-Host '$base64AuthInfo' $base64AuthInfo
+      Write-Host '$pullRequestJson' $pullRequestJson
+      Write-Host '$pullRequestUrl' $pullRequestUrl
+      Write-Host '$headers' $headers
+      Write-Host '$pullRequest' $pullRequest
+
+      Write-Host '$pullRequestResult' $pullRequestResult
+      Write-Host '$pullRequestId' $pullRequestId
+      Write-Host '$StatusActive' $StatusActive
+      Write-Host '$setAutoCompleteJson' $setAutoCompleteJson
+
+      # # REST call to set auto-complete on Pull Request
+      # try
+      # {
+
+      #   $setAutoCompleteResult = Invoke-RestMethod -Method PATCH -Headers $headers -Body $setAutoCompleteJson -Uri $pullRequestUpdateUrl -Proxy $HTTP_PROXY
+      #   $mergeStatus = $setAutoCompleteResult.mergeStatus
+
+      # if ( $mergeStatus -eq 'succeeded' )
+      # {
+      #   Write-Host "Pull request set to auto-complete"
+      # }
+      # else
+      # {
+      #   $_.Exception.Message
+      # }
+
+      # } catch
+      # {
+      #   $pullRequestUpdateUrl
+      #   $setAutoCompleteResult
+      #   $mergeStatus
+      #   $pullRequestResult
+      #   $pullRequestId
+      #   $StatusActive
+      # }
+      #    Write-Host  $pullRequestUpdateUrl
+      #    Write-Host  $setAutoCompleteResult
+      #    Write-Host  $mergeStatus
+      #    Write-Host  $pullRequestResult
+      #    Write-Host  $pullRequestId
+      #    Write-Host  $StatusActive

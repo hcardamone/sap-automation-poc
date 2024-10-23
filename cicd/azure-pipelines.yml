@@ -1,0 +1,20 @@
+variables:
+  - group: PIPELINE-General
+
+name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  - regression/cicd
+  
+stages:
+  - stage: qaTest
+    displayName: 'QA'
+    jobs:
+    - job: QA
+      pool:
+        name: 'POC_POOL'
+      steps:
+      - template: /cicd/templates/stage-qa.yml  # Template reference
+        parameters: 
+          repoName: $(Build.Repository.Name)
+
